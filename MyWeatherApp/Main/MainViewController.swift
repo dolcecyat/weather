@@ -10,18 +10,20 @@ import UIKit
 private enum Constants {
     static let imageNameForLeftBarButtonItem = "gearshape.fill"
     static let backgroundViewColor = CGColor(red: 0.21, green: 0.37, blue: 0.48, alpha: 1)
-    static let backgroundSearchBarColor = CGColor(red: 0.30, green: 0.54, blue: 0.69, alpha: 1)
+    static let backgroundSearchBarColor = CGColor(red: 0.41, green: 0.61, blue: 0.74, alpha: 1)
 }
 
 protocol MainViewProtocol: AnyObject {
     var presenter: MainPresenterProtocol? { get set }
 }
 
-class MainViewController: UIViewController, MainViewProtocol {
+class MainViewController: UIViewController {
     var presenter: MainPresenterProtocol?
 
     //MARK: - UI properties
     
+    var scrollView = UIScrollView()
+    var contentView = UIView()
     var searchBar = UISearchBar()
     
     // MARK: - Init
@@ -47,24 +49,47 @@ class MainViewController: UIViewController, MainViewProtocol {
         setupNavBar()
         setDelegates()
         setUpUI()
-
+        addingViews()
+        makeConstaraints()
     }
     
-    private func setUpUI() {
-        self.view.backgroundColor = UIColor(cgColor: Constants.backgroundViewColor)
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        searchBar.resignFirstResponder()
     }
+    
+    private func setDelegates() {
+        searchBar.delegate = self
+    }
+    // MARK: - SetUp UI
     
     private func setupNavBar() {
-        
-        navigationController?.navigationBar.barTintColor = .clear
+        navigationController?.navigationBar.barTintColor =  UIColor(cgColor: Constants.backgroundViewColor)
         navigationController?.navigationBar.barStyle = .black
-        navigationController?.navigationBar.tintColor = .white
+        navigationController?.navigationBar.tintColor = UIColor(cgColor: Constants.backgroundSearchBarColor)
+        navigationController?.hidesBarsOnSwipe = true
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: Constants.imageNameForLeftBarButtonItem), style: .plain, target: self, action: #selector(openSettings))
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "location.fill"), style: .plain, target: self, action: #selector(getLocation))
         navigationItem.titleView = searchBar
         searchBar.searchTextField.backgroundColor = UIColor(cgColor: Constants.backgroundSearchBarColor)
         searchBar.sizeToFit()
     }
+
+    func addingViews() {
+        self.view.addSubview(scrollView)
+    }
+    
+    func makeConstaraints() {
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        
+        scrollView.frame = view.bounds
+        scrollView.contentSize = CGSize(width: self.view.frame.width, height: self.view.frame.height+1000)
+    }
+    
+    private func setUpUI() {
+        self.view.backgroundColor = UIColor(cgColor: Constants.backgroundViewColor)
+    }
+    
+    // MARK: - NfvigationBarButton actions
     
     @objc private func openSettings() {
         
@@ -73,18 +98,19 @@ class MainViewController: UIViewController, MainViewProtocol {
     @objc private func getLocation() {
         presenter?.locationButtonPressed()
     }
+
+}
+// MARK: - CollectionView Layout
+extension MainViewController {
     
-    private func setDelegates() {
-        searchBar.delegate = self
-    }
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        searchBar.resignFirstResponder()
-    }
 }
 
-private extension MainViewController {
+// MARK: -
+extension MainViewController: MainViewProtocol {
     
 }
+
+// MARK: - SearchBar Delegate
 extension MainViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
