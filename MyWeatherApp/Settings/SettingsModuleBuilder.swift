@@ -11,7 +11,7 @@ class SettingsModuleBuilder {
     static func build(_ viewController: SettingsViewProtocol)  {
         let interactor = SettingsInteractor()
         let router = SettingsRouter()
-        let presenter = SettingsPresenter(router: router, interactior: interactor)
+        let presenter = SettingsPresenter(router: router, interactor: interactor)
         viewController.presenter = presenter
         presenter.view = viewController
         interactor.presenter = presenter

@@ -10,17 +10,26 @@ import Foundation
 protocol MainPresenterProtocol: AnyObject {
     var view: MainViewProtocol? { get set }
     var router: MainRouterProtocol? { get set}
-    var interactior: MainInteractorProtocol? { get set }
+    var interactor: MainInteractorProtocol? { get set }
+    func locationButtonPressed()
+    func sendWeatherData()
 }
 
 class MainPresenter: MainPresenterProtocol{
     weak var view: MainViewProtocol?
     var router: MainRouterProtocol?
-    var interactior: MainInteractorProtocol?
+    var interactor: MainInteractorProtocol?
     
-    init(router: MainRouterProtocol, interactior: MainInteractorProtocol) {
+    init(router: MainRouterProtocol, interactor: MainInteractorProtocol) {
         self.router = router
-        self.interactior = interactior
+        self.interactor = interactor
+    }
+    func sendWeatherData() {
+        
+    }
+    
+    func locationButtonPressed() {
+        interactor?.getLocationWeatherData()
     }
 }
 

@@ -12,7 +12,7 @@ class MainModuleBuilder {
     static func build(_ viewController: MainViewProtocol)  {
         let interactor = MainInteractor()
         let router = MainRouter()
-        let presenter = MainPresenter(router: router, interactior: interactor)
+        let presenter = MainPresenter(router: router, interactor: interactor)
         viewController.presenter = presenter
         presenter.view = viewController
         interactor.presenter = presenter

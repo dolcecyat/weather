@@ -10,17 +10,17 @@ import Foundation
 protocol SettingsPresenterProtocol: AnyObject {
     var view: SettingsViewProtocol? { get set }
     var router: SettingsRouterProtocol? { get set}
-    var interactior: SettingsInteractorProtocol? { get set }
+    var interactor: SettingsInteractorProtocol? { get set }
 }
 
 class SettingsPresenter: SettingsPresenterProtocol{
     weak var view: SettingsViewProtocol?
     var router: SettingsRouterProtocol?
-    var interactior: SettingsInteractorProtocol?
+    var interactor: SettingsInteractorProtocol?
     
-    init(router: SettingsRouterProtocol, interactior: SettingsInteractorProtocol) {
+    init(router: SettingsRouterProtocol, interactor: SettingsInteractorProtocol) {
         self.router = router
-        self.interactior = interactior
+        self.interactor = interactor
     }
 }
 
