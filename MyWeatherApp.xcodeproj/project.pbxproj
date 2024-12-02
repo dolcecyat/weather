@@ -28,6 +28,8 @@
 		ED86FDE12CFA007300FB9882 /* TodaysHourTempInfoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED86FDE02CFA007300FB9882 /* TodaysHourTempInfoCollectionViewCell.swift */; };
 		ED86FDE32CFA008300FB9882 /* ActivityCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED86FDE22CFA008300FB9882 /* ActivityCollectionViewCell.swift */; };
 		ED86FDE52CFA00A900FB9882 /* WeatherInfoForXDaysCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED86FDE42CFA00A900FB9882 /* WeatherInfoForXDaysCollectionViewCell.swift */; };
+		ED86FDE72CFDE4B400FB9882 /* SectionsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED86FDE62CFDE4B400FB9882 /* SectionsData.swift */; };
+		ED86FDEC2CFDE9BA00FB9882 /* MainCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED86FDEB2CFDE9BA00FB9882 /* MainCellModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +56,8 @@
 		ED86FDE02CFA007300FB9882 /* TodaysHourTempInfoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodaysHourTempInfoCollectionViewCell.swift; sourceTree = "<group>"; };
 		ED86FDE22CFA008300FB9882 /* ActivityCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCollectionViewCell.swift; sourceTree = "<group>"; };
 		ED86FDE42CFA00A900FB9882 /* WeatherInfoForXDaysCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherInfoForXDaysCollectionViewCell.swift; sourceTree = "<group>"; };
+		ED86FDE62CFDE4B400FB9882 /* SectionsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionsData.swift; sourceTree = "<group>"; };
+		ED86FDEB2CFDE9BA00FB9882 /* MainCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCellModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +152,8 @@
 				ED86FDE02CFA007300FB9882 /* TodaysHourTempInfoCollectionViewCell.swift */,
 				ED86FDE22CFA008300FB9882 /* ActivityCollectionViewCell.swift */,
 				ED86FDE42CFA00A900FB9882 /* WeatherInfoForXDaysCollectionViewCell.swift */,
+				ED86FDE62CFDE4B400FB9882 /* SectionsData.swift */,
+				ED86FDEB2CFDE9BA00FB9882 /* MainCellModel.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -225,6 +231,7 @@
 				ED86FDBF2CF88A7400FB9882 /* MainRouter.swift in Sources */,
 				ED86FDD82CF9C7E800FB9882 /* WeatherData.swift in Sources */,
 				ED86FDA82CF8857F00FB9882 /* AppDelegate.swift in Sources */,
+				ED86FDE72CFDE4B400FB9882 /* SectionsData.swift in Sources */,
 				ED86FDC32CF88B0800FB9882 /* MainModuleBuilder.swift in Sources */,
 				ED86FDD32CF9C71F00FB9882 /* WeatherManager.swift in Sources */,
 				ED86FDDF2CFA003400FB9882 /* TodaysWeatherInfoCollectionViewCell.swift in Sources */,
@@ -238,6 +245,7 @@
 				ED86FDE52CFA00A900FB9882 /* WeatherInfoForXDaysCollectionViewCell.swift in Sources */,
 				ED86FDD52CF9C79500FB9882 /* WeatherModel.swift in Sources */,
 				ED86FDC12CF88AB900FB9882 /* MainInteractor.swift in Sources */,
+				ED86FDEC2CFDE9BA00FB9882 /* MainCellModel.swift in Sources */,
 				ED86FDC62CF8984500FB9882 /* SettingsViewController.swift in Sources */,
 				ED86FDE12CFA007300FB9882 /* TodaysHourTempInfoCollectionViewCell.swift in Sources */,
 				ED86FDCA2CF8986B00FB9882 /* SettingsRouter.swift in Sources */,

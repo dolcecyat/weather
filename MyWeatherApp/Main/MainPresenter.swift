@@ -13,6 +13,9 @@ protocol MainPresenterProtocol: AnyObject {
     var interactor: MainInteractorProtocol? { get set }
     func locationButtonPressed()
     func sendWeatherData()
+    func getNumberOfSection() -> Int
+    func getNumberOfItemsInSection()-> Int
+    func getTodaysHourTempInfoCollectionViewCellInfo(indexPath: IndexPath) -> MainCellModel
 }
 
 class MainPresenter: MainPresenterProtocol{
@@ -24,12 +27,27 @@ class MainPresenter: MainPresenterProtocol{
         self.router = router
         self.interactor = interactor
     }
+    
+    // MARK: - WeatherData
     func sendWeatherData() {
         
     }
     
     func locationButtonPressed() {
         interactor?.getLocationWeatherData()
+    }
+    // MARK: - UICollectionVieDataSource
+    func getNumberOfSection() -> Int {
+        interactor?.getNumberOfSection()
+    }
+    
+    func getNumberOfItemsInSection() -> Int {
+        interactor?.getNumberOfItemsInSection() ?? 2
+       
+    }
+    
+    func getTodaysHourTempInfoCollectionViewCellInfo(indexPath: IndexPath) -> MainCellModel {
+        return interactor?.getTodaysHourTempInfoCollectionViewCellInfo(indexPath: indexPath) ?? MainCellModel()
     }
 }
 

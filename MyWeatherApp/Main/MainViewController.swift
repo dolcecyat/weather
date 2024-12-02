@@ -22,6 +22,7 @@ class MainViewController: UIViewController {
 
     //MARK: - UI properties
     
+    private var collectionView = UICollectionView()
     var scrollView = UIScrollView()
     var contentView = UIView()
     var searchBar = UISearchBar()
@@ -51,6 +52,7 @@ class MainViewController: UIViewController {
         setUpUI()
         addingViews()
         makeConstaraints()
+        setCollectionView()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -59,6 +61,8 @@ class MainViewController: UIViewController {
     
     private func setDelegates() {
         searchBar.delegate = self
+        collectionView.delegate = self
+        collectionView.dataSource = self
     }
     // MARK: - SetUp UI
     
@@ -76,17 +80,29 @@ class MainViewController: UIViewController {
 
     func addingViews() {
         self.view.addSubview(scrollView)
+        scrollView.addSubview(collectionView)
     }
     
     func makeConstaraints() {
         scrollView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
         
         scrollView.frame = view.bounds
         scrollView.contentSize = CGSize(width: self.view.frame.width, height: self.view.frame.height+1000)
+        
+        NSLayoutConstraint.activate([
+            collectionView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 100),
+            collectionView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor)
+            ])
     }
     
     private func setUpUI() {
         self.view.backgroundColor = UIColor(cgColor: Constants.backgroundViewColor)
+        collectionView.backgroundColor = .clear
+        collectionView.bounces = false
+    }
+    func setCollectionView(){
+        collectionView.register(TodaysHourTempInfoCollectionViewCell.self, forCellWithReuseIdentifier: TodaysHourTempInfoCollectionViewCell.identifier)
     }
     
     // MARK: - NfvigationBarButton actions
@@ -100,6 +116,7 @@ class MainViewController: UIViewController {
     }
 
 }
+
 // MARK: - CollectionView Layout
 extension MainViewController {
     
@@ -108,6 +125,28 @@ extension MainViewController {
 // MARK: -
 extension MainViewController: MainViewProtocol {
     
+}
+
+extension MainViewController : UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        presenter?.getNumberOfSection() ?? .zero
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        presenter?.getNumberOfItemsInSection() ?? 2
+    }
+    
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+//        switch indexPath.section {
+       
+        
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TodaysHourTempInfoCollectionViewCell.identifier, for: indexPath) as? TodaysHourTempInfoCollectionViewCell,let modelForCell =   presenter?.getTodaysHourTempInfoCollectionViewCellInfo(indexPath: indexPath)  else { return UICollectionViewCell() }
+        cell.configure(model: modelForCell)
+        return cell
+    }
 }
 
 // MARK: - SearchBar Delegate
