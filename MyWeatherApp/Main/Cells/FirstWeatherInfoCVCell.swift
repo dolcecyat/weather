@@ -15,7 +15,7 @@ private enum Constants {
     static let temperatureTextColor = CGColor(red: 0.89, green: 0.93, blue: 0.95, alpha: 1)
 }
 
-class TodaysWeatherInfoCVCell: UICollectionViewCell {
+class FirstWeatherInfoCVCell: UICollectionViewCell {
     
     static var identifier: String {
         return String(describing: self)
@@ -60,10 +60,8 @@ class TodaysWeatherInfoCVCell: UICollectionViewCell {
         NSLayoutConstraint.activate([
             cellFrame.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 10),
             cellFrame.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
-            cellFrame.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: -10),
-            cellFrame.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
-            cellFrame.widthAnchor.constraint(equalToConstant: 250),
-            cellFrame.heightAnchor.constraint(equalToConstant: 300),
+            cellFrame.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
+            cellFrame.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 10),
             
             feelLabel.topAnchor.constraint(equalTo: cellFrame.topAnchor, constant: 10),
             feelLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: -10),

@@ -15,7 +15,7 @@ private enum Constants {
     static let temperatureTextColor = CGColor(red: 0.89, green: 0.93, blue: 0.95, alpha: 1)
 }
 
-class FirstWeatherInfoCVCell: UICollectionViewCell {
+class TodaysWeatherInfoCVCell: UICollectionViewCell {
     
     static var identifier: String {
         return String(describing: self)
@@ -55,23 +55,25 @@ class FirstWeatherInfoCVCell: UICollectionViewCell {
         
         
         NSLayoutConstraint.activate([
-            cellFrame.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 10),
-            cellFrame.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
-            cellFrame.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: -10),
-            cellFrame.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
-            cellFrame.widthAnchor.constraint(equalToConstant: 250),
-            cellFrame.heightAnchor.constraint(equalToConstant: 150),
+            cellFrame.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
+            cellFrame.topAnchor.constraint(equalTo: contentView.topAnchor,constant: 10),
+            cellFrame.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
+            cellFrame.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
+//            cellFrame.widthAnchor.constraint(equalToConstant: 250),
+//            cellFrame.heightAnchor.constraint(equalToConstant: 150),
             
-            mainInfoLabel.topAnchor.constraint(equalTo: cellFrame.topAnchor, constant: 10),
-            mainInfoLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: -10),
+            mainInfoLabel.topAnchor.constraint(equalTo: cellFrame.topAnchor, constant: 20),
+            mainInfoLabel.leadingAnchor.constraint(equalTo: cellFrame.leadingAnchor, constant: 10),
+            mainInfoLabel.widthAnchor.constraint(equalToConstant: 200),
+            
             
             weatherImage.topAnchor.constraint(equalTo: cellFrame.topAnchor,constant: 10),
             weatherImage.trailingAnchor.constraint(equalTo: cellFrame.trailingAnchor,constant: -10),
-            weatherImage.heightAnchor.constraint(equalToConstant: 30),
-            weatherImage.widthAnchor.constraint(equalToConstant: 30),
+            weatherImage.heightAnchor.constraint(equalToConstant: 50),
+            weatherImage.widthAnchor.constraint(equalToConstant: 60),
             
-            detailInfoLabel.bottomAnchor.constraint(equalTo: cellFrame.bottomAnchor, constant: 10),
-            detailInfoLabel.leadingAnchor.constraint(equalTo: cellFrame.leadingAnchor,constant: -10),
+            detailInfoLabel.bottomAnchor.constraint(equalTo: cellFrame.bottomAnchor, constant: -20),
+            detailInfoLabel.leadingAnchor.constraint(equalTo: cellFrame.leadingAnchor,constant: 10),
         ])
     }
     
@@ -82,11 +84,12 @@ class FirstWeatherInfoCVCell: UICollectionViewCell {
         cellFrame.backgroundColor = UIColor(cgColor: Constants.lighterBackgroundColor)
         cellFrame.layer.cornerRadius = 20
         
-        mainInfoLabel.font = .systemFont(ofSize: 15)
+        mainInfoLabel.font = .systemFont(ofSize: 18)
+        mainInfoLabel.numberOfLines = 4
         mainInfoLabel.textColor = UIColor(cgColor: Constants.temperatureTextColor)
         
-        detailInfoLabel.font = .systemFont(ofSize: 10)
-        mainInfoLabel.textColor = UIColor(cgColor: Constants.timeTextColor)
+        detailInfoLabel.font = .systemFont(ofSize: 14)
+        detailInfoLabel.textColor = UIColor(cgColor: Constants.timeTextColor)
     }
     
     func configure(model: MainCellModel) {

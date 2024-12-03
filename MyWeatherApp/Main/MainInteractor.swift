@@ -52,23 +52,23 @@ class MainInteractor: NSObject, MainInteractorProtocol {
     // MARK: - CellsData
     
     func getFirstWeatherInfoCVCellInfo(indexPath: IndexPath) -> MainCellModel {
-        model.mainTemp = String(currentWeather.temperature)
+        model.mainTemp = "4"/*String(currentWeather.temperature)*/
         model.mainInfo = "Aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
         model.detailInfo = "Aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
         model.image = UIImage(systemName: "cloud")
         return model
     }
     func getTodaysWeatherInfoCVCellInfo(indexPath: IndexPath) -> MainCellModel {
-        model.image = UIImage(systemName: "cloud")
+        model.image = UIImage(systemName: "cloud.fill")
         model.mainInfo = "Aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
         model.detailInfo = "Aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
         return model
     }
     
     func getTodaysHourTempInfoCollectionViewCellInfo(indexPath: IndexPath) -> MainCellModel {
-        model.image = UIImage(systemName: "cloud")
+        model.image = UIImage(systemName: "cloud.fill")
         model.time = sectionsData.hours[indexPath.row]
-        model.mainTemp = "2"
+        model.mainTemp = "2°"
         return model
     }
     
@@ -82,7 +82,7 @@ class MainInteractor: NSObject, MainInteractorProtocol {
     func getXDaysCVCellInfo(indexPath: IndexPath) -> MainCellModel {
         model.dayTemp = currentWeather.tempString
         model.image = UIImage(systemName: "cloud")
-        model.nightTemp = "2"
+        model.nightTemp = "4"
         model.date = "2 декабря"
         return model
     }

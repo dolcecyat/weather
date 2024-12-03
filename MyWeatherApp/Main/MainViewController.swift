@@ -21,9 +21,9 @@ class MainViewController: UIViewController {
     var presenter: MainPresenterProtocol?
 
     //MARK: - UI properties
-    
-    private var TopCollectionView = UICollectionView()
-    private var BottomCollectionView = UICollectionView()
+
+    private var TopCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
+//    private var BottomCollectionView = UICollectionView()
     private var scrollView = UIScrollView()
     private var contentView = UIView()
     private var searchBar = UISearchBar()
@@ -49,11 +49,12 @@ class MainViewController: UIViewController {
     private func setup() {
         MainModuleBuilder.build(self)
         setupNavBar()
-        setDelegates()
-        setUpUI()
-        addingViews()
-        makeConstaraints()
         setCollectionViews()
+        setDelegates()
+        addingViews()
+        setUpUI()
+        makeConstaraints()
+        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -64,8 +65,8 @@ class MainViewController: UIViewController {
         searchBar.delegate = self
         TopCollectionView.delegate = self
         TopCollectionView.dataSource = self
-        BottomCollectionView.delegate = self
-        BottomCollectionView.dataSource = self
+//        BottomCollectionView.delegate = self
+//        BottomCollectionView.dataSource = self
     }
     // MARK: - SetUp UI
     
@@ -84,23 +85,32 @@ class MainViewController: UIViewController {
     func addingViews() {
         self.view.addSubview(scrollView)
         scrollView.addSubview(TopCollectionView)
-        scrollView.addSubview(BottomCollectionView)
+//        scrollView.addSubview(BottomCollectionView)
     }
     
     func makeConstaraints() {
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         TopCollectionView.translatesAutoresizingMaskIntoConstraints = false
-        BottomCollectionView.translatesAutoresizingMaskIntoConstraints = false
+//        BottomCollectionView.translatesAutoresizingMaskIntoConstraints = false
         
-        scrollView.frame = view.bounds
-        scrollView.contentSize = CGSize(width: self.view.frame.width, height: self.view.frame.height+1000)
-        
+        scrollView.frame = .init(x: 0, y: 0, width: 393, height: 1800)
+//        scrollView.contentSize = CGSize(width: 393, height: self.view.frame.height+1000)
+//        
         NSLayoutConstraint.activate([
+            scrollView.topAnchor.constraint(equalTo: view.topAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            
             TopCollectionView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 100),
             TopCollectionView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            TopCollectionView.heightAnchor.constraint(equalToConstant: 400),
+            TopCollectionView.widthAnchor.constraint(equalToConstant: 393)
+        
+
             
-            BottomCollectionView.topAnchor.constraint(equalTo: TopCollectionView.bottomAnchor, constant: 100),
-            TopCollectionView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor)
+//            BottomCollectionView.topAnchor.constraint(equalTo: TopCollectionView.bottomAnchor, constant: 100),
+//            BottomCollectionView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor)
             ])
     }
     
@@ -110,15 +120,17 @@ class MainViewController: UIViewController {
         TopCollectionView.bounces = false
     }
     func setCollectionViews() {
-        let cVLayout = UICollectionViewLayout()
-        TopCollectionView.collectionViewLayout = cVLayout
-        TopCollectionView.register(FirstWeatherInfoCVCell.self, forCellWithReuseIdentifier: FirstWeatherInfoCVCell.identifier)
+        let config = UICollectionViewCompositionalLayoutConfiguration()
+        let firstLO = createLayout()
+        firstLO.configuration = config
+        TopCollectionView = UICollectionView(frame: .zero, collectionViewLayout: firstLO)
+//        TopCollectionView.register(FirstWeatherInfoCVCell.self, forCellWithReuseIdentifier: FirstWeatherInfoCVCell.identifier)
         TopCollectionView.register(TodaysWeatherInfoCVCell.self, forCellWithReuseIdentifier: TodaysWeatherInfoCVCell.identifier)
         TopCollectionView.register(TodaysHourTempInfoCVCell.self, forCellWithReuseIdentifier: TodaysHourTempInfoCVCell.identifier)
         
-        BottomCollectionView.collectionViewLayout = cVLayout
-        BottomCollectionView.register(ActivityCVCell.self, forCellWithReuseIdentifier: ActivityCVCell.identifier)
-        BottomCollectionView.register(XDaysCVCell.self, forCellWithReuseIdentifier: XDaysCVCell.identifier)
+//        BottomCollectionView.collectionViewLayout = cVLayout
+//        BottomCollectionView.register(ActivityCVCell.self, forCellWithReuseIdentifier: ActivityCVCell.identifier)
+//        BottomCollectionView.register(XDaysCVCell.self, forCellWithReuseIdentifier: XDaysCVCell.identifier)
     }
     
     // MARK: - NfvigationBarButton actions
@@ -146,11 +158,15 @@ extension MainViewController: MainViewProtocol {
 extension MainViewController : UICollectionViewDelegate, UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        presenter?.getNumberOfSection() ?? .zero
+      /*  presenter?.getNumberOfSection() ??*/ 2
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        presenter?.getNumberOfItemsInSection() ?? 2
+        if section == 0 {
+            return 6
+        }else {return 24}
+        
+    /*    presenter?.getNumberOfItemsInSection() ??*//* 2*/
     }
     
     
@@ -160,14 +176,14 @@ extension MainViewController : UICollectionViewDelegate, UICollectionViewDataSou
             let sec = SectionsData.MainFirstCollectionView.allCases.first (where: { $0.sectionNumber == indexPath.section })
             switch sec {
             case .TodaysDetailInfo:
-                if indexPath.row == 1 {
-                    guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FirstWeatherInfoCVCell.identifier, for: indexPath) as? FirstWeatherInfoCVCell,let modelForCell =   presenter?.getTodaysHourTempInfoCollectionViewCellInfo(indexPath: indexPath)  else { return UICollectionViewCell() }
+//                if indexPath.row == 0 {
+//                    guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FirstWeatherInfoCVCell.identifier, for: indexPath) as? FirstWeatherInfoCVCell,let modelForCell =   presenter?.getFirstWeatherInfoCVCellInfo(indexPath: indexPath)  else { return UICollectionViewCell() }
+//                    cell.configure(model: modelForCell)
+//                    cellFor = cell
+//                } else {
+                    guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TodaysWeatherInfoCVCell.identifier, for: indexPath) as? TodaysWeatherInfoCVCell,let modelForCell =   presenter?.getTodaysWeatherInfoCVCellInfo(indexPath: indexPath)  else { return UICollectionViewCell() }
                     cell.configure(model: modelForCell)
-                    cellFor = cell
-                } else {
-                    guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TodaysWeatherInfoCVCell.identifier, for: indexPath) as? TodaysWeatherInfoCVCell,let modelForCell =   presenter?.getTodaysHourTempInfoCollectionViewCellInfo(indexPath: indexPath)  else { return UICollectionViewCell() }
-                    cell.configure(model: modelForCell)
-                    cellFor = cell }
+                    cellFor = cell 
             case .HourInfo:
                 guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TodaysHourTempInfoCVCell.identifier, for: indexPath) as? TodaysHourTempInfoCVCell,let modelForCell =   presenter?.getTodaysHourTempInfoCollectionViewCellInfo(indexPath: indexPath)  else { return UICollectionViewCell() }
                 cell.configure(model: modelForCell)
@@ -176,20 +192,20 @@ extension MainViewController : UICollectionViewDelegate, UICollectionViewDataSou
                 print("1")
             }
             
-        } else if collectionView == BottomCollectionView {
-            let sec = SectionsData.MainSecondCollectionView.allCases.first (where: { $0.sectionNumber == indexPath.section })
-            switch sec {
-            case .ActivityInfo:
-                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ActivityCVCell.identifier, for: indexPath) as? ActivityCVCell,let modelForCell =   presenter?.getTodaysHourTempInfoCollectionViewCellInfo(indexPath: indexPath)  else { return UICollectionViewCell() }
-                cell.configure(model: modelForCell)
-                cellFor = cell
-            case.XDayInfo:
-                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: XDaysCVCell.identifier, for: indexPath) as? XDaysCVCell,let modelForCell =   presenter?.getTodaysHourTempInfoCollectionViewCellInfo(indexPath: indexPath)  else { return UICollectionViewCell() }
-                cell.configure(model: modelForCell)
-                cellFor = cell
-            case .none:
-                (print("2"))
-            }
+        } else /*if collectionView == BottomCollectionView*/ {
+//            let sec = SectionsData.MainSecondCollectionView.allCases.first (where: { $0.sectionNumber == indexPath.section })
+//            switch sec {
+//            case .ActivityInfo:
+//                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ActivityCVCell.identifier, for: indexPath) as? ActivityCVCell,let modelForCell =   presenter?.getTodaysHourTempInfoCollectionViewCellInfo(indexPath: indexPath)  else { return UICollectionViewCell() }
+//                cell.configure(model: modelForCell)
+//                cellFor = cell
+//            case.XDayInfo:
+//                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: XDaysCVCell.identifier, for: indexPath) as? XDaysCVCell,let modelForCell =   presenter?.getTodaysHourTempInfoCollectionViewCellInfo(indexPath: indexPath)  else { return UICollectionViewCell() }
+//                cell.configure(model: modelForCell)
+//                cellFor = cell
+//            case .none:
+//                (print("2"))
+//            }
         }
         return cellFor
     }

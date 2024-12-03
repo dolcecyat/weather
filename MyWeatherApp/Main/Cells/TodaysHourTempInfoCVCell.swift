@@ -53,17 +53,17 @@ class TodaysHourTempInfoCVCell: UICollectionViewCell {
         temperatureLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            cellFrame.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 10),
-            cellFrame.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
-            cellFrame.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: -10),
-            cellFrame.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
-            cellFrame.widthAnchor.constraint(equalToConstant: 60),
-            cellFrame.heightAnchor.constraint(equalToConstant: 60),
+            cellFrame.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -50),
+            cellFrame.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
+            cellFrame.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 5),
+            cellFrame.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -5),
+//            cellFrame.widthAnchor.constraint(equalToConstant: 60),
+//            cellFrame.heightAnchor.constraint(equalToConstant: 60),
             
             weatherImage.topAnchor.constraint(equalTo: contentView.topAnchor),
             weatherImage.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            weatherImage.heightAnchor.constraint(equalToConstant: 20),
-            weatherImage.widthAnchor.constraint(equalToConstant: 20),
+            weatherImage.heightAnchor.constraint(equalToConstant: 40),
+            weatherImage.widthAnchor.constraint(equalToConstant: 40),
             
             timeLabel.topAnchor.constraint(equalTo: cellFrame.topAnchor, constant: 20),
             timeLabel.centerXAnchor.constraint(equalTo: cellFrame.centerXAnchor),
@@ -79,10 +79,10 @@ class TodaysHourTempInfoCVCell: UICollectionViewCell {
         cellFrame.backgroundColor = UIColor(cgColor: Constants.lighterBackgroundColor)
         cellFrame.layer.cornerRadius = 10
         
-        timeLabel.font = .systemFont(ofSize: 10)
+        timeLabel.font = .systemFont(ofSize: 13)
         timeLabel.textColor = UIColor(cgColor: Constants.timeTextColor)
         
-        temperatureLabel.font = .systemFont(ofSize: 12)
+        temperatureLabel.font = .systemFont(ofSize: 20)
         temperatureLabel.textColor = UIColor(cgColor: Constants.temperatureTextColor)
         temperatureLabel.text = "0"
     }
