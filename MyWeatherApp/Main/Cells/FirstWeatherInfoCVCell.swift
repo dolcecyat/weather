@@ -1,8 +1,8 @@
 //
-//  TodaysHourTempInfoCollectionViewCell.swift
+//  FirstWeatherInfoCVCell.swift
 //  MyWeatherApp
 //
-//  Created by Анатолий Коробских on 29.11.2024.
+//  Created by Анатолий Коробских on 03.12.2024.
 //
 
 import Foundation
@@ -14,15 +14,17 @@ private enum Constants {
     static let timeTextColor = CGColor(red: 0.67, green: 0.79, blue: 0.86, alpha: 1)
     static let temperatureTextColor = CGColor(red: 0.89, green: 0.93, blue: 0.95, alpha: 1)
 }
-class TodaysHourTempInfoCollectionViewCell: UICollectionViewCell {
+
+class TodaysWeatherInfoCVCell: UICollectionViewCell {
     
     static var identifier: String {
         return String(describing: self)
     }
     private var cellFrame = UIView()
     private var weatherImage = UIImageView()
-    private var timeLabel = UILabel()
+    private var feelLabel = UILabel()
     private var temperatureLabel = UILabel()
+    private var mainInfoLabel = UILabel()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -42,54 +44,68 @@ class TodaysHourTempInfoCollectionViewCell: UICollectionViewCell {
     private func addViews() {
         contentView.addSubview(cellFrame)
         contentView.addSubview(weatherImage)
-        cellFrame.addSubview(timeLabel)
+        cellFrame.addSubview(feelLabel)
         cellFrame.addSubview(temperatureLabel)
+        cellFrame.addSubview(mainInfoLabel)
     }
     
     private func setConstraints() {
         cellFrame.translatesAutoresizingMaskIntoConstraints = false
         weatherImage.translatesAutoresizingMaskIntoConstraints = false
-        timeLabel.translatesAutoresizingMaskIntoConstraints = false
+        feelLabel.translatesAutoresizingMaskIntoConstraints = false
         temperatureLabel.translatesAutoresizingMaskIntoConstraints = false
+        mainInfoLabel.translatesAutoresizingMaskIntoConstraints = false
+        
         
         NSLayoutConstraint.activate([
             cellFrame.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 10),
             cellFrame.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
             cellFrame.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: -10),
             cellFrame.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
-            cellFrame.widthAnchor.constraint(equalToConstant: 60),
-            cellFrame.heightAnchor.constraint(equalToConstant: 60),
+            cellFrame.widthAnchor.constraint(equalToConstant: 250),
+            cellFrame.heightAnchor.constraint(equalToConstant: 300),
             
-            weatherImage.topAnchor.constraint(equalTo: contentView.topAnchor),
-            weatherImage.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            weatherImage.heightAnchor.constraint(equalToConstant: 20),
-            weatherImage.widthAnchor.constraint(equalToConstant: 20),
+            feelLabel.topAnchor.constraint(equalTo: cellFrame.topAnchor, constant: 10),
+            feelLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: -10),
             
-            timeLabel.topAnchor.constraint(equalTo: cellFrame.topAnchor, constant: 20),
-            timeLabel.centerXAnchor.constraint(equalTo: cellFrame.centerXAnchor),
-        
-            temperatureLabel.topAnchor.constraint(equalTo: timeLabel.bottomAnchor, constant: 10),
-            temperatureLabel.centerXAnchor.constraint(equalTo: cellFrame.centerXAnchor),
+            temperatureLabel.topAnchor.constraint(equalTo: feelLabel.bottomAnchor, constant: 10),
+            temperatureLabel.leadingAnchor.constraint(equalTo: cellFrame.leadingAnchor,constant: -10),
+            
+            weatherImage.topAnchor.constraint(equalTo: feelLabel.bottomAnchor,constant: 10),
+            weatherImage.leadingAnchor.constraint(equalTo: temperatureLabel.trailingAnchor,constant: 10),
+            weatherImage.heightAnchor.constraint(equalToConstant: 40),
+            weatherImage.widthAnchor.constraint(equalToConstant: 40),
+            
+            mainInfoLabel.topAnchor.constraint(equalTo: temperatureLabel.bottomAnchor, constant: 10),
+            mainInfoLabel.leadingAnchor.constraint(equalTo: cellFrame.leadingAnchor,constant: -10),
         ])
     }
     
     private func setUI(){
-        contentView.backgroundColor = UIColor(cgColor:Constants.backgroundViewColor)
+        contentView.backgroundColor = .clear
+        cellFrame.backgroundColor = .clear
         
         cellFrame.backgroundColor = UIColor(cgColor: Constants.lighterBackgroundColor)
-        cellFrame.layer.cornerRadius = 10
+        cellFrame.layer.cornerRadius = 20
+        cellFrame.layer.borderColor = Constants.lighterBackgroundColor
+        cellFrame.layer.borderWidth = 2.0
         
-        timeLabel.font = .systemFont(ofSize: 10)
-        timeLabel.textColor = UIColor(cgColor: Constants.timeTextColor)
+        feelLabel.font = .systemFont(ofSize: 10)
+        feelLabel.textColor = UIColor(cgColor: Constants.timeTextColor)
         
-        temperatureLabel.font = .systemFont(ofSize: 12)
+        temperatureLabel.font = .systemFont(ofSize: 25)
         temperatureLabel.textColor = UIColor(cgColor: Constants.temperatureTextColor)
         temperatureLabel.text = "0"
+        
+        mainInfoLabel.font = .systemFont(ofSize: 15)
+        mainInfoLabel.textColor = UIColor(cgColor: Constants.temperatureTextColor)
     }
     
     func configure(model: MainCellModel) {
         weatherImage.image = model.image
-        timeLabel.text = model.time
+        feelLabel.text = model.detailInfo
         temperatureLabel.text = model.mainTemp
+        mainInfoLabel.text = model.mainInfo
     }
 }
+

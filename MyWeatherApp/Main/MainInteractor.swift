@@ -7,13 +7,18 @@
 
 import Foundation
 import CoreLocation
+import UIKit
 
 protocol MainInteractorProtocol: AnyObject {
     var presenter: MainPresenterProtocol? { get set }
     func getLocationWeatherData()
     func getNumberOfItemsInSection() -> Int
-    func getTodaysHourTempInfoCollectionViewCellInfo(indexPath: IndexPath) -> MainCellModel
     func getNumberOfSection() -> Int
+    func getTodaysHourTempInfoCollectionViewCellInfo(indexPath: IndexPath) -> MainCellModel
+    func getFirstWeatherInfoCVCellInfo(indexPath: IndexPath) -> MainCellModel
+    func getTodaysWeatherInfoCVCellInfo(indexPath: IndexPath) -> MainCellModel
+    func getActivityCVCellInfo(indexPath: IndexPath) -> MainCellModel
+    func getXDaysCVCellInfo(indexPath: IndexPath) -> MainCellModel
 }
 
 class MainInteractor: NSObject, MainInteractorProtocol {
@@ -22,6 +27,7 @@ class MainInteractor: NSObject, MainInteractorProtocol {
     var sectionsData = SectionsData()
     let locationManager = CLLocationManager()
     var weaterManager = WeatherManager()
+    var currentWeather = WeatherModel(conditionId: 200, cityName: "", temperature: 1)
     
     weak var presenter: MainPresenterProtocol?
     var delegate: WeatherManagerDelegate?
@@ -36,15 +42,48 @@ class MainInteractor: NSObject, MainInteractorProtocol {
     }
     
     func getNumberOfSection() -> Int {
-        SectionsData.MainSections.allCases.count
+        SectionsData.MainFirstCollectionView.allCases.count
     }
     
     func getNumberOfItemsInSection() -> Int {
         return sectionsData.hours.count
     }
+    
+    // MARK: - CellsData
+    
+    func getFirstWeatherInfoCVCellInfo(indexPath: IndexPath) -> MainCellModel {
+        model.mainTemp = String(currentWeather.temperature)
+        model.mainInfo = "Aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        model.detailInfo = "Aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        model.image = UIImage(systemName: "cloud")
+        return model
+    }
+    func getTodaysWeatherInfoCVCellInfo(indexPath: IndexPath) -> MainCellModel {
+        model.image = UIImage(systemName: "cloud")
+        model.mainInfo = "Aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        model.detailInfo = "Aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        return model
+    }
+    
     func getTodaysHourTempInfoCollectionViewCellInfo(indexPath: IndexPath) -> MainCellModel {
+        model.image = UIImage(systemName: "cloud")
         model.time = sectionsData.hours[indexPath.row]
         model.mainTemp = "2"
+        return model
+    }
+    
+    func getActivityCVCellInfo(indexPath: IndexPath) -> MainCellModel {
+        let actName = SectionsData.Activity.allCases.first(where: {$0.itemNumber == indexPath.row} )?.description
+        let actImage = SectionsData.Activity.allCases.first(where: {$0.itemNumber == indexPath.row} )?.image
+        model.activityImage = actImage
+        model.activityName = actName
+        return model
+    }
+    func getXDaysCVCellInfo(indexPath: IndexPath) -> MainCellModel {
+        model.dayTemp = currentWeather.tempString
+        model.image = UIImage(systemName: "cloud")
+        model.nightTemp = "2"
+        model.date = "2 декабря"
         return model
     }
 }
@@ -53,8 +92,7 @@ class MainInteractor: NSObject, MainInteractorProtocol {
 extension MainInteractor: WeatherManagerDelegate {
     
     func didUpdateWeather(_ weatherManager: WeatherManager, weather: WeatherModel) {
-        print(weather)
-        presenter?.sendWeatherData()
+        currentWeather = weather
     }
     
     func didFailWithError(error: any Error) {

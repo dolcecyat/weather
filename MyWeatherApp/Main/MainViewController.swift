@@ -22,10 +22,11 @@ class MainViewController: UIViewController {
 
     //MARK: - UI properties
     
-    private var collectionView = UICollectionView()
-    var scrollView = UIScrollView()
-    var contentView = UIView()
-    var searchBar = UISearchBar()
+    private var TopCollectionView = UICollectionView()
+    private var BottomCollectionView = UICollectionView()
+    private var scrollView = UIScrollView()
+    private var contentView = UIView()
+    private var searchBar = UISearchBar()
     
     // MARK: - Init
     
@@ -52,7 +53,7 @@ class MainViewController: UIViewController {
         setUpUI()
         addingViews()
         makeConstaraints()
-        setCollectionView()
+        setCollectionViews()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -61,8 +62,10 @@ class MainViewController: UIViewController {
     
     private func setDelegates() {
         searchBar.delegate = self
-        collectionView.delegate = self
-        collectionView.dataSource = self
+        TopCollectionView.delegate = self
+        TopCollectionView.dataSource = self
+        BottomCollectionView.delegate = self
+        BottomCollectionView.dataSource = self
     }
     // MARK: - SetUp UI
     
@@ -80,29 +83,42 @@ class MainViewController: UIViewController {
 
     func addingViews() {
         self.view.addSubview(scrollView)
-        scrollView.addSubview(collectionView)
+        scrollView.addSubview(TopCollectionView)
+        scrollView.addSubview(BottomCollectionView)
     }
     
     func makeConstaraints() {
         scrollView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        TopCollectionView.translatesAutoresizingMaskIntoConstraints = false
+        BottomCollectionView.translatesAutoresizingMaskIntoConstraints = false
         
         scrollView.frame = view.bounds
         scrollView.contentSize = CGSize(width: self.view.frame.width, height: self.view.frame.height+1000)
         
         NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 100),
-            collectionView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor)
+            TopCollectionView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 100),
+            TopCollectionView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            
+            BottomCollectionView.topAnchor.constraint(equalTo: TopCollectionView.bottomAnchor, constant: 100),
+            TopCollectionView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor)
             ])
     }
     
     private func setUpUI() {
         self.view.backgroundColor = UIColor(cgColor: Constants.backgroundViewColor)
-        collectionView.backgroundColor = .clear
-        collectionView.bounces = false
+        TopCollectionView.backgroundColor = .clear
+        TopCollectionView.bounces = false
     }
-    func setCollectionView(){
-        collectionView.register(TodaysHourTempInfoCollectionViewCell.self, forCellWithReuseIdentifier: TodaysHourTempInfoCollectionViewCell.identifier)
+    func setCollectionViews() {
+        let cVLayout = UICollectionViewLayout()
+        TopCollectionView.collectionViewLayout = cVLayout
+        TopCollectionView.register(FirstWeatherInfoCVCell.self, forCellWithReuseIdentifier: FirstWeatherInfoCVCell.identifier)
+        TopCollectionView.register(TodaysWeatherInfoCVCell.self, forCellWithReuseIdentifier: TodaysWeatherInfoCVCell.identifier)
+        TopCollectionView.register(TodaysHourTempInfoCVCell.self, forCellWithReuseIdentifier: TodaysHourTempInfoCVCell.identifier)
+        
+        BottomCollectionView.collectionViewLayout = cVLayout
+        BottomCollectionView.register(ActivityCVCell.self, forCellWithReuseIdentifier: ActivityCVCell.identifier)
+        BottomCollectionView.register(XDaysCVCell.self, forCellWithReuseIdentifier: XDaysCVCell.identifier)
     }
     
     // MARK: - NfvigationBarButton actions
@@ -137,18 +153,47 @@ extension MainViewController : UICollectionViewDelegate, UICollectionViewDataSou
         presenter?.getNumberOfItemsInSection() ?? 2
     }
     
-
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-//        switch indexPath.section {
-       
-        
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TodaysHourTempInfoCollectionViewCell.identifier, for: indexPath) as? TodaysHourTempInfoCollectionViewCell,let modelForCell =   presenter?.getTodaysHourTempInfoCollectionViewCellInfo(indexPath: indexPath)  else { return UICollectionViewCell() }
-        cell.configure(model: modelForCell)
-        return cell
+        var cellFor  = UICollectionViewCell()
+        if collectionView == TopCollectionView {
+            let sec = SectionsData.MainFirstCollectionView.allCases.first (where: { $0.sectionNumber == indexPath.section })
+            switch sec {
+            case .TodaysDetailInfo:
+                if indexPath.row == 1 {
+                    guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FirstWeatherInfoCVCell.identifier, for: indexPath) as? FirstWeatherInfoCVCell,let modelForCell =   presenter?.getTodaysHourTempInfoCollectionViewCellInfo(indexPath: indexPath)  else { return UICollectionViewCell() }
+                    cell.configure(model: modelForCell)
+                    cellFor = cell
+                } else {
+                    guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TodaysWeatherInfoCVCell.identifier, for: indexPath) as? TodaysWeatherInfoCVCell,let modelForCell =   presenter?.getTodaysHourTempInfoCollectionViewCellInfo(indexPath: indexPath)  else { return UICollectionViewCell() }
+                    cell.configure(model: modelForCell)
+                    cellFor = cell }
+            case .HourInfo:
+                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TodaysHourTempInfoCVCell.identifier, for: indexPath) as? TodaysHourTempInfoCVCell,let modelForCell =   presenter?.getTodaysHourTempInfoCollectionViewCellInfo(indexPath: indexPath)  else { return UICollectionViewCell() }
+                cell.configure(model: modelForCell)
+                cellFor = cell
+            case .none: 
+                print("1")
+            }
+            
+        } else if collectionView == BottomCollectionView {
+            let sec = SectionsData.MainSecondCollectionView.allCases.first (where: { $0.sectionNumber == indexPath.section })
+            switch sec {
+            case .ActivityInfo:
+                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ActivityCVCell.identifier, for: indexPath) as? ActivityCVCell,let modelForCell =   presenter?.getTodaysHourTempInfoCollectionViewCellInfo(indexPath: indexPath)  else { return UICollectionViewCell() }
+                cell.configure(model: modelForCell)
+                cellFor = cell
+            case.XDayInfo:
+                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: XDaysCVCell.identifier, for: indexPath) as? XDaysCVCell,let modelForCell =   presenter?.getTodaysHourTempInfoCollectionViewCellInfo(indexPath: indexPath)  else { return UICollectionViewCell() }
+                cell.configure(model: modelForCell)
+                cellFor = cell
+            case .none:
+                (print("2"))
+            }
+        }
+        return cellFor
     }
 }
-
 // MARK: - SearchBar Delegate
 extension MainViewController: UISearchBarDelegate {
     

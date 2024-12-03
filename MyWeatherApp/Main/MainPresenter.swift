@@ -16,6 +16,10 @@ protocol MainPresenterProtocol: AnyObject {
     func getNumberOfSection() -> Int
     func getNumberOfItemsInSection()-> Int
     func getTodaysHourTempInfoCollectionViewCellInfo(indexPath: IndexPath) -> MainCellModel
+    func getFirstWeatherInfoCVCellInfo(indexPath: IndexPath) -> MainCellModel
+    func getTodaysWeatherInfoCVCellInfo(indexPath: IndexPath) -> MainCellModel
+    func getActivityCVCellInfo(indexPath: IndexPath) -> MainCellModel
+    func getXDaysCVCellInfo(indexPath: IndexPath) -> MainCellModel
 }
 
 class MainPresenter: MainPresenterProtocol{
@@ -38,16 +42,30 @@ class MainPresenter: MainPresenterProtocol{
     }
     // MARK: - UICollectionVieDataSource
     func getNumberOfSection() -> Int {
-        interactor?.getNumberOfSection()
+        interactor?.getNumberOfSection() ?? .zero
     }
     
     func getNumberOfItemsInSection() -> Int {
         interactor?.getNumberOfItemsInSection() ?? 2
        
     }
+    // MARK: - Cells Info
     
+  
+    func getFirstWeatherInfoCVCellInfo(indexPath: IndexPath) -> MainCellModel {
+        return interactor?.getFirstWeatherInfoCVCellInfo(indexPath: indexPath) ?? MainCellModel()
+    }
+    func getTodaysWeatherInfoCVCellInfo(indexPath: IndexPath) -> MainCellModel {
+        return interactor?.getTodaysWeatherInfoCVCellInfo(indexPath: indexPath) ?? MainCellModel()
+    }
     func getTodaysHourTempInfoCollectionViewCellInfo(indexPath: IndexPath) -> MainCellModel {
         return interactor?.getTodaysHourTempInfoCollectionViewCellInfo(indexPath: indexPath) ?? MainCellModel()
+    }
+    func getActivityCVCellInfo(indexPath: IndexPath) -> MainCellModel {
+        return interactor?.getActivityCVCellInfo(indexPath: indexPath) ?? MainCellModel()
+    }
+    func getXDaysCVCellInfo(indexPath: IndexPath) -> MainCellModel {
+        return interactor?.getXDaysCVCellInfo(indexPath: indexPath) ?? MainCellModel()
     }
 }
 
