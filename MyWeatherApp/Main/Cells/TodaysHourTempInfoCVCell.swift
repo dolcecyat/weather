@@ -53,7 +53,7 @@ class TodaysHourTempInfoCVCell: UICollectionViewCell {
         temperatureLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            cellFrame.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -50),
+            cellFrame.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20),
             cellFrame.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
             cellFrame.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 5),
             cellFrame.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -5),
@@ -63,7 +63,7 @@ class TodaysHourTempInfoCVCell: UICollectionViewCell {
             weatherImage.topAnchor.constraint(equalTo: contentView.topAnchor),
             weatherImage.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             weatherImage.heightAnchor.constraint(equalToConstant: 40),
-            weatherImage.widthAnchor.constraint(equalToConstant: 40),
+            weatherImage.widthAnchor.constraint(equalToConstant: 50),
             
             timeLabel.topAnchor.constraint(equalTo: cellFrame.topAnchor, constant: 20),
             timeLabel.centerXAnchor.constraint(equalTo: cellFrame.centerXAnchor),
@@ -77,7 +77,7 @@ class TodaysHourTempInfoCVCell: UICollectionViewCell {
         contentView.backgroundColor = UIColor(cgColor:Constants.backgroundViewColor)
         
         cellFrame.backgroundColor = UIColor(cgColor: Constants.lighterBackgroundColor)
-        cellFrame.layer.cornerRadius = 10
+        cellFrame.layer.cornerRadius = 30
         
         timeLabel.font = .systemFont(ofSize: 13)
         timeLabel.textColor = UIColor(cgColor: Constants.timeTextColor)

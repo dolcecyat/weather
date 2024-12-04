@@ -8,12 +8,7 @@
 import Foundation
 import UIKit
 
-private enum Constants {
-    static let backgroundViewColor = CGColor(red: 0.21, green: 0.37, blue: 0.48, alpha: 1)
-    static let lighterBackgroundColor = CGColor(red: 0.41, green: 0.61, blue: 0.74, alpha: 1)
-    static let timeTextColor = CGColor(red: 0.67, green: 0.79, blue: 0.86, alpha: 1)
-    static let temperatureTextColor = CGColor(red: 0.89, green: 0.93, blue: 0.95, alpha: 1)
-}
+
 
 class FirstWeatherInfoCVCell: UICollectionViewCell {
     
@@ -58,24 +53,26 @@ class FirstWeatherInfoCVCell: UICollectionViewCell {
         
         
         NSLayoutConstraint.activate([
-            cellFrame.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 10),
+            cellFrame.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
             cellFrame.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
             cellFrame.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
-            cellFrame.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 10),
+            cellFrame.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
+//            cellFrame.heightAnchor.constraint(equalToConstant: 300),
             
-            feelLabel.topAnchor.constraint(equalTo: cellFrame.topAnchor, constant: 10),
-            feelLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: -10),
+            feelLabel.topAnchor.constraint(equalTo: cellFrame.topAnchor, constant: 20),
+            feelLabel.leadingAnchor.constraint(equalTo: cellFrame.leadingAnchor, constant: 20),
             
-            temperatureLabel.topAnchor.constraint(equalTo: feelLabel.bottomAnchor, constant: 10),
-            temperatureLabel.leadingAnchor.constraint(equalTo: cellFrame.leadingAnchor,constant: -10),
+            temperatureLabel.topAnchor.constraint(equalTo: feelLabel.bottomAnchor, constant: 15),
+            temperatureLabel.leadingAnchor.constraint(equalTo: cellFrame.leadingAnchor,constant: 30),
             
             weatherImage.topAnchor.constraint(equalTo: feelLabel.bottomAnchor,constant: 10),
             weatherImage.leadingAnchor.constraint(equalTo: temperatureLabel.trailingAnchor,constant: 10),
-            weatherImage.heightAnchor.constraint(equalToConstant: 40),
-            weatherImage.widthAnchor.constraint(equalToConstant: 40),
+            weatherImage.heightAnchor.constraint(equalToConstant: 50),
+            weatherImage.widthAnchor.constraint(equalToConstant: 65),
             
             mainInfoLabel.topAnchor.constraint(equalTo: temperatureLabel.bottomAnchor, constant: 10),
-            mainInfoLabel.leadingAnchor.constraint(equalTo: cellFrame.leadingAnchor,constant: -10),
+            mainInfoLabel.leadingAnchor.constraint(equalTo: cellFrame.leadingAnchor,constant: 20),
+            mainInfoLabel.widthAnchor.constraint(equalToConstant: 250)
         ])
     }
     
@@ -83,20 +80,20 @@ class FirstWeatherInfoCVCell: UICollectionViewCell {
         contentView.backgroundColor = .clear
         cellFrame.backgroundColor = .clear
         
-        cellFrame.backgroundColor = UIColor(cgColor: Constants.lighterBackgroundColor)
-        cellFrame.layer.cornerRadius = 20
-        cellFrame.layer.borderColor = Constants.lighterBackgroundColor
+        cellFrame.layer.cornerRadius = 32
+        cellFrame.layer.borderColor = Colors.lighterBackgroundColor
         cellFrame.layer.borderWidth = 2.0
         
-        feelLabel.font = .systemFont(ofSize: 10)
-        feelLabel.textColor = UIColor(cgColor: Constants.timeTextColor)
+        feelLabel.font = .systemFont(ofSize: 15)
+        feelLabel.textColor = UIColor(cgColor: Colors.textColor)
         
-        temperatureLabel.font = .systemFont(ofSize: 25)
-        temperatureLabel.textColor = UIColor(cgColor: Constants.temperatureTextColor)
+        temperatureLabel.font = .systemFont(ofSize: 40)
+        temperatureLabel.textColor = UIColor(cgColor: Colors.lighterTextColor)
         temperatureLabel.text = "0"
         
-        mainInfoLabel.font = .systemFont(ofSize: 15)
-        mainInfoLabel.textColor = UIColor(cgColor: Constants.temperatureTextColor)
+        mainInfoLabel.font = .systemFont(ofSize: 20)
+        mainInfoLabel.textColor = UIColor(cgColor: Colors.lighterBackgroundColor)
+        mainInfoLabel.numberOfLines = 4
     }
     
     func configure(model: MainCellModel) {

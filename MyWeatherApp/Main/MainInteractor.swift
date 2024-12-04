@@ -55,7 +55,7 @@ class MainInteractor: NSObject, MainInteractorProtocol {
         model.mainTemp = "4"/*String(currentWeather.temperature)*/
         model.mainInfo = "Aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
         model.detailInfo = "Aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-        model.image = UIImage(systemName: "cloud")
+        model.image = UIImage(systemName: "cloud.fill")
         return model
     }
     func getTodaysWeatherInfoCVCellInfo(indexPath: IndexPath) -> MainCellModel {
@@ -93,6 +93,7 @@ extension MainInteractor: WeatherManagerDelegate {
     
     func didUpdateWeather(_ weatherManager: WeatherManager, weather: WeatherModel) {
         currentWeather = weather
+        print(weather)
     }
     
     func didFailWithError(error: any Error) {

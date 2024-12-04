@@ -60,10 +60,10 @@ class TodaysWeatherInfoCVCell: UICollectionViewCell {
             cellFrame.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
             cellFrame.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
 //            cellFrame.widthAnchor.constraint(equalToConstant: 250),
-//            cellFrame.heightAnchor.constraint(equalToConstant: 150),
+//            cellFrame.heightAnchor.constraint(equalToConstant: 175.5),
             
-            mainInfoLabel.topAnchor.constraint(equalTo: cellFrame.topAnchor, constant: 20),
-            mainInfoLabel.leadingAnchor.constraint(equalTo: cellFrame.leadingAnchor, constant: 10),
+            mainInfoLabel.topAnchor.constraint(equalTo: cellFrame.topAnchor, constant: 15),
+            mainInfoLabel.leadingAnchor.constraint(equalTo: cellFrame.leadingAnchor, constant: 20),
             mainInfoLabel.widthAnchor.constraint(equalToConstant: 200),
             
             
@@ -73,7 +73,7 @@ class TodaysWeatherInfoCVCell: UICollectionViewCell {
             weatherImage.widthAnchor.constraint(equalToConstant: 60),
             
             detailInfoLabel.bottomAnchor.constraint(equalTo: cellFrame.bottomAnchor, constant: -20),
-            detailInfoLabel.leadingAnchor.constraint(equalTo: cellFrame.leadingAnchor,constant: 10),
+            detailInfoLabel.leadingAnchor.constraint(equalTo: cellFrame.leadingAnchor,constant: 20),
         ])
     }
     
@@ -82,7 +82,7 @@ class TodaysWeatherInfoCVCell: UICollectionViewCell {
         cellFrame.backgroundColor = UIColor(cgColor: Constants.lighterBackgroundColor)
         
         cellFrame.backgroundColor = UIColor(cgColor: Constants.lighterBackgroundColor)
-        cellFrame.layer.cornerRadius = 20
+        cellFrame.layer.cornerRadius = 30
         
         mainInfoLabel.font = .systemFont(ofSize: 18)
         mainInfoLabel.numberOfLines = 4

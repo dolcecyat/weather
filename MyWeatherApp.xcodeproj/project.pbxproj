@@ -31,7 +31,9 @@
 		ED86FDE72CFDE4B400FB9882 /* SectionsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED86FDE62CFDE4B400FB9882 /* SectionsData.swift */; };
 		ED86FDEC2CFDE9BA00FB9882 /* MainCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED86FDEB2CFDE9BA00FB9882 /* MainCellModel.swift */; };
 		ED86FDEE2CFF2A2600FB9882 /* FirstWeatherInfoCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED86FDED2CFF2A2600FB9882 /* FirstWeatherInfoCVCell.swift */; };
-		ED86FDF02CFF39EB00FB9882 /* MainLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED86FDEF2CFF39EB00FB9882 /* MainLayout.swift */; };
+		ED86FDF02CFF39EB00FB9882 /* MainFirstLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED86FDEF2CFF39EB00FB9882 /* MainFirstLayout.swift */; };
+		ED86FDF52D00CC7D00FB9882 /* SummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED86FDF42D00CC7D00FB9882 /* SummaryView.swift */; };
+		ED86FDF72D00CD9800FB9882 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED86FDF62D00CD9800FB9882 /* Colors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,7 +63,9 @@
 		ED86FDE62CFDE4B400FB9882 /* SectionsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionsData.swift; sourceTree = "<group>"; };
 		ED86FDEB2CFDE9BA00FB9882 /* MainCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCellModel.swift; sourceTree = "<group>"; };
 		ED86FDED2CFF2A2600FB9882 /* FirstWeatherInfoCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstWeatherInfoCVCell.swift; sourceTree = "<group>"; };
-		ED86FDEF2CFF39EB00FB9882 /* MainLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainLayout.swift; sourceTree = "<group>"; };
+		ED86FDEF2CFF39EB00FB9882 /* MainFirstLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFirstLayout.swift; sourceTree = "<group>"; };
+		ED86FDF42D00CC7D00FB9882 /* SummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryView.swift; sourceTree = "<group>"; };
+		ED86FDF62D00CD9800FB9882 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,7 +120,8 @@
 				ED86FDC02CF88AB900FB9882 /* MainInteractor.swift */,
 				ED86FDC22CF88B0800FB9882 /* MainModuleBuilder.swift */,
 				ED86FDD92CF9C88B00FB9882 /* MainViewController.swift */,
-				ED86FDEF2CFF39EB00FB9882 /* MainLayout.swift */,
+				ED86FDF12D0081E500FB9882 /* Layout */,
+				ED86FDF62D00CD9800FB9882 /* Colors.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -136,6 +141,7 @@
 		ED86FDD12CF9BF1400FB9882 /* SubViews */ = {
 			isa = PBXGroup;
 			children = (
+				ED86FDF42D00CC7D00FB9882 /* SummaryView.swift */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -162,6 +168,14 @@
 				ED86FDEB2CFDE9BA00FB9882 /* MainCellModel.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		ED86FDF12D0081E500FB9882 /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				ED86FDEF2CFF39EB00FB9882 /* MainFirstLayout.swift */,
+			);
+			path = Layout;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -236,9 +250,11 @@
 			files = (
 				ED86FDBF2CF88A7400FB9882 /* MainRouter.swift in Sources */,
 				ED86FDD82CF9C7E800FB9882 /* WeatherData.swift in Sources */,
-				ED86FDF02CFF39EB00FB9882 /* MainLayout.swift in Sources */,
+				ED86FDF02CFF39EB00FB9882 /* MainFirstLayout.swift in Sources */,
 				ED86FDA82CF8857F00FB9882 /* AppDelegate.swift in Sources */,
 				ED86FDE72CFDE4B400FB9882 /* SectionsData.swift in Sources */,
+				ED86FDF52D00CC7D00FB9882 /* SummaryView.swift in Sources */,
+				ED86FDF72D00CD9800FB9882 /* Colors.swift in Sources */,
 				ED86FDC32CF88B0800FB9882 /* MainModuleBuilder.swift in Sources */,
 				ED86FDD32CF9C71F00FB9882 /* WeatherManager.swift in Sources */,
 				ED86FDDF2CFA003400FB9882 /* TodaysWeatherInfoCVCell.swift in Sources */,
