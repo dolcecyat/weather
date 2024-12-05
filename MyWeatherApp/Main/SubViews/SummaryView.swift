@@ -50,16 +50,13 @@ class SummaryView: UIView {
             labelButton.topAnchor.constraint(equalTo: viewFrame.topAnchor, constant: 10),
             labelButton.trailingAnchor.constraint(equalTo: viewFrame.trailingAnchor, constant: -5),
             labelButton.heightAnchor.constraint(equalToConstant: 40),
-//            labelButton.widthAnchor.constraint(equalToConstant: 33),
             
             button.trailingAnchor.constraint(equalTo: viewFrame.trailingAnchor, constant: -15),
             button.leadingAnchor.constraint(equalTo: viewFrame.leadingAnchor, constant: 15),
             button.topAnchor.constraint(equalTo: labelButton.bottomAnchor, constant: 10),
             button.heightAnchor.constraint(equalToConstant: 30),
-//            button.widthAnchor.constraint(equalToConstant: 343),
     ])
     }
-    
     
     private func setUI() {
         viewFrame.backgroundColor = UIColor(cgColor: Colors.lighterBackgroundColor)
@@ -75,6 +72,7 @@ class SummaryView: UIView {
         button.backgroundColor = UIColor(cgColor: Colors.evenLighterBackgroundColor)
         button.layer.cornerRadius = 10
     }
+    
     private func setActions() {
         labelButton.addTarget(self, action: #selector(openSummary), for: .touchUpInside)
         button.addTarget(self, action: #selector(openSummary), for: .touchUpInside)

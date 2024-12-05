@@ -8,8 +8,6 @@
 import Foundation
 import UIKit
 
-
-
 class FirstWeatherInfoCVCell: UICollectionViewCell {
     
     static var identifier: String {
@@ -92,7 +90,7 @@ class FirstWeatherInfoCVCell: UICollectionViewCell {
         temperatureLabel.text = "0"
         
         mainInfoLabel.font = .systemFont(ofSize: 20)
-        mainInfoLabel.textColor = UIColor(cgColor: Colors.lighterBackgroundColor)
+        mainInfoLabel.textColor = UIColor(cgColor: Colors.lighterTextColor)
         mainInfoLabel.numberOfLines = 4
     }
     

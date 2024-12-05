@@ -9,10 +9,6 @@ import Foundation
 import UIKit
 
 private enum Constants {
-    static let backgroundViewColor = CGColor(red: 0.21, green: 0.37, blue: 0.48, alpha: 1)
-    static let lighterBackgroundColor = CGColor(red: 0.41, green: 0.61, blue: 0.74, alpha: 1)
-    static let timeTextColor = CGColor(red: 0.67, green: 0.79, blue: 0.86, alpha: 1)
-    static let temperatureTextColor = CGColor(red: 0.89, green: 0.93, blue: 0.95, alpha: 1)
 }
 
 class XDaysCVCell: UICollectionViewCell {
@@ -83,19 +79,19 @@ class XDaysCVCell: UICollectionViewCell {
     }
     
     private func setUI() {
-        contentView.backgroundColor = UIColor(cgColor:Constants.backgroundViewColor)
+        contentView.backgroundColor = UIColor(cgColor:Colors.backgroundViewColor)
         
-        cellFrame.backgroundColor = UIColor(cgColor: Constants.lighterBackgroundColor)
+        cellFrame.backgroundColor = UIColor(cgColor: Colors.lighterBackgroundColor)
         cellFrame.layer.cornerRadius = 10
         
-        dateLabel.textColor = UIColor(cgColor: Constants.temperatureTextColor)
+        dateLabel.textColor = UIColor(cgColor: Colors.lighterTextColor)
         dateLabel.font = .systemFont(ofSize: 14)
         
         dayTempLabel.font = .systemFont(ofSize: 14)
-        dayTempLabel.textColor = UIColor(cgColor: Constants.temperatureTextColor)
+        dayTempLabel.textColor = UIColor(cgColor: Colors.lighterTextColor)
         
         nightTempLabel.font = .systemFont(ofSize: 14)
-        dayTempLabel.textColor = UIColor(cgColor: Constants.timeTextColor)
+        dayTempLabel.textColor = UIColor(cgColor: Colors.textColor)
     }
     
     func configure(model: MainCellModel) {

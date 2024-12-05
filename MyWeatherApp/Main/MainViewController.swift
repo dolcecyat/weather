@@ -22,13 +22,11 @@ class MainViewController: UIViewController {
     var presenter: MainPresenterProtocol?
 
     //MARK: - UI properties
-
+    private var scrollView = UIScrollView()
     private var TopCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
 //    private var BottomCollectionView = UICollectionView()
-    private var scrollView = UIScrollView()
     private var mapButton = UIButton()
     private var summaryView = SummaryView()
-    private var contentView = UIView()
     private var searchBar = UISearchBar()
     
     // MARK: - Init
@@ -55,10 +53,9 @@ class MainViewController: UIViewController {
         setCollectionViews()
         setDelegates()
         addingViews()
-        setUpUI()
         makeConstaraints()
+        setUpUI()
         setUpActions()
-        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -69,8 +66,7 @@ class MainViewController: UIViewController {
         searchBar.delegate = self
         TopCollectionView.delegate = self
         TopCollectionView.dataSource = self
-//        BottomCollectionView.delegate = self
-//        BottomCollectionView.dataSource = self
+
     }
     // MARK: - SetUp UI
     
@@ -92,23 +88,21 @@ class MainViewController: UIViewController {
         scrollView.addSubview(TopCollectionView)
         scrollView.addSubview(mapButton)
         scrollView.addSubview(summaryView)
-//        scrollView.addSubview(BottomCollectionView)
     }
     
     func makeConstaraints() {
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         TopCollectionView.translatesAutoresizingMaskIntoConstraints = false
-//        BottomCollectionView.translatesAutoresizingMaskIntoConstraints = false
         mapButton.translatesAutoresizingMaskIntoConstraints = false
         summaryView.translatesAutoresizingMaskIntoConstraints = false
         
-        scrollView.frame = .init(x: 0, y: 100, width: view.frame.width, height: view.frame.height)
-        scrollView.contentSize = .init(width: view.frame.width, height: view.frame.height+2000)
+        scrollView.frame = view.bounds
+        scrollView.contentSize = CGSize(width:  view.frame.width, height: 2000)
         
         NSLayoutConstraint.activate([
-            scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            scrollView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            scrollView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            scrollView.topAnchor.constraint(equalTo: view.topAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             
             TopCollectionView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 100),
@@ -122,22 +116,17 @@ class MainViewController: UIViewController {
             mapButton.widthAnchor.constraint(equalToConstant: 80),
             mapButton.heightAnchor.constraint(equalToConstant: 80),
         
-            summaryView.topAnchor.constraint(equalTo: TopCollectionView.bottomAnchor, constant: 10),
+            summaryView.topAnchor.constraint(equalTo: TopCollectionView.bottomAnchor, constant: 30),
             summaryView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 20),
             summaryView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -20),
+//            summaryView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: 400),
             summaryView.heightAnchor.constraint(equalToConstant: 110),
             summaryView.widthAnchor.constraint(equalToConstant: 353)
-         
-
-            
-//            BottomCollectionView.topAnchor.constraint(equalTo: TopCollectionView.bottomAnchor, constant: 100),
-//            BottomCollectionView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor)
             ])
     }
     
     private func setUpUI() {
         self.view.backgroundColor = UIColor(cgColor: Constants.backgroundViewColor)
-        
         TopCollectionView.backgroundColor = .clear
         TopCollectionView.bounces = false
         
@@ -158,9 +147,7 @@ class MainViewController: UIViewController {
         TopCollectionView.register(TodaysWeatherInfoCVCell.self, forCellWithReuseIdentifier: TodaysWeatherInfoCVCell.identifier)
         TopCollectionView.register(TodaysHourTempInfoCVCell.self, forCellWithReuseIdentifier: TodaysHourTempInfoCVCell.identifier)
         
-//        BottomCollectionView.collectionViewLayout = cVLayout
-//        BottomCollectionView.register(ActivityCVCell.self, forCellWithReuseIdentifier: ActivityCVCell.identifier)
-//        BottomCollectionView.register(XDaysCVCell.self, forCellWithReuseIdentifier: XDaysCVCell.identifier)
+
     }
   
     
@@ -234,20 +221,8 @@ extension MainViewController : UICollectionViewDelegate, UICollectionViewDataSou
                 print("1")
             }
             
-        } else /*if collectionView == BottomCollectionView*/ {
-//            let sec = SectionsData.MainSecondCollectionView.allCases.first (where: { $0.sectionNumber == indexPath.section })
-//            switch sec {
-//            case .ActivityInfo:
-//                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ActivityCVCell.identifier, for: indexPath) as? ActivityCVCell,let modelForCell =   presenter?.getTodaysHourTempInfoCollectionViewCellInfo(indexPath: indexPath)  else { return UICollectionViewCell() }
-//                cell.configure(model: modelForCell)
-//                cellFor = cell
-//            case.XDayInfo:
-//                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: XDaysCVCell.identifier, for: indexPath) as? XDaysCVCell,let modelForCell =   presenter?.getTodaysHourTempInfoCollectionViewCellInfo(indexPath: indexPath)  else { return UICollectionViewCell() }
-//                cell.configure(model: modelForCell)
-//                cellFor = cell
-//            case .none:
-//                (print("2"))
-//            }
+        } else {
+            
         }
         return cellFor
     }

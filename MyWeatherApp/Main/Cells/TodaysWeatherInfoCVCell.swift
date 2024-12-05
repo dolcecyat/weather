@@ -9,10 +9,6 @@ import Foundation
 import UIKit
 
 private enum Constants {
-    static let backgroundViewColor = CGColor(red: 0.21, green: 0.37, blue: 0.48, alpha: 1)
-    static let lighterBackgroundColor = CGColor(red: 0.41, green: 0.61, blue: 0.74, alpha: 1)
-    static let timeTextColor = CGColor(red: 0.67, green: 0.79, blue: 0.86, alpha: 1)
-    static let temperatureTextColor = CGColor(red: 0.89, green: 0.93, blue: 0.95, alpha: 1)
 }
 
 class TodaysWeatherInfoCVCell: UICollectionViewCell {
@@ -59,8 +55,6 @@ class TodaysWeatherInfoCVCell: UICollectionViewCell {
             cellFrame.topAnchor.constraint(equalTo: contentView.topAnchor,constant: 10),
             cellFrame.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
             cellFrame.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
-//            cellFrame.widthAnchor.constraint(equalToConstant: 250),
-//            cellFrame.heightAnchor.constraint(equalToConstant: 175.5),
             
             mainInfoLabel.topAnchor.constraint(equalTo: cellFrame.topAnchor, constant: 15),
             mainInfoLabel.leadingAnchor.constraint(equalTo: cellFrame.leadingAnchor, constant: 20),
@@ -79,17 +73,16 @@ class TodaysWeatherInfoCVCell: UICollectionViewCell {
     
     private func setUI(){
         contentView.backgroundColor = .clear
-        cellFrame.backgroundColor = UIColor(cgColor: Constants.lighterBackgroundColor)
+        cellFrame.backgroundColor = UIColor(cgColor: Colors.lighterBackgroundColor)
         
-        cellFrame.backgroundColor = UIColor(cgColor: Constants.lighterBackgroundColor)
         cellFrame.layer.cornerRadius = 30
         
         mainInfoLabel.font = .systemFont(ofSize: 18)
         mainInfoLabel.numberOfLines = 4
-        mainInfoLabel.textColor = UIColor(cgColor: Constants.temperatureTextColor)
+        mainInfoLabel.textColor = UIColor(cgColor: Colors.lighterTextColor)
         
         detailInfoLabel.font = .systemFont(ofSize: 14)
-        detailInfoLabel.textColor = UIColor(cgColor: Constants.timeTextColor)
+        detailInfoLabel.textColor = UIColor(cgColor: Colors.textColor)
     }
     
     func configure(model: MainCellModel) {

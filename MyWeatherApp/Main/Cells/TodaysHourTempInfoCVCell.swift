@@ -8,12 +8,6 @@
 import Foundation
 import UIKit
 
-private enum Constants {
-    static let backgroundViewColor = CGColor(red: 0.21, green: 0.37, blue: 0.48, alpha: 1)
-    static let lighterBackgroundColor = CGColor(red: 0.41, green: 0.61, blue: 0.74, alpha: 1)
-    static let timeTextColor = CGColor(red: 0.67, green: 0.79, blue: 0.86, alpha: 1)
-    static let temperatureTextColor = CGColor(red: 0.89, green: 0.93, blue: 0.95, alpha: 1)
-}
 class TodaysHourTempInfoCVCell: UICollectionViewCell {
     
     static var identifier: String {
@@ -74,16 +68,16 @@ class TodaysHourTempInfoCVCell: UICollectionViewCell {
     }
     
     private func setUI(){
-        contentView.backgroundColor = UIColor(cgColor:Constants.backgroundViewColor)
+        contentView.backgroundColor = UIColor(cgColor:Colors.backgroundViewColor)
         
-        cellFrame.backgroundColor = UIColor(cgColor: Constants.lighterBackgroundColor)
+        cellFrame.backgroundColor = UIColor(cgColor: Colors.lighterBackgroundColor)
         cellFrame.layer.cornerRadius = 30
         
         timeLabel.font = .systemFont(ofSize: 13)
-        timeLabel.textColor = UIColor(cgColor: Constants.timeTextColor)
+        timeLabel.textColor = UIColor(cgColor: Colors.textColor)
         
         temperatureLabel.font = .systemFont(ofSize: 20)
-        temperatureLabel.textColor = UIColor(cgColor: Constants.temperatureTextColor)
+        temperatureLabel.textColor = UIColor(cgColor: Colors.lighterTextColor)
         temperatureLabel.text = "0"
     }
     

@@ -55,15 +55,19 @@ class MainPresenter: MainPresenterProtocol{
     func getFirstWeatherInfoCVCellInfo(indexPath: IndexPath) -> MainCellModel {
         return interactor?.getFirstWeatherInfoCVCellInfo(indexPath: indexPath) ?? MainCellModel()
     }
+    
     func getTodaysWeatherInfoCVCellInfo(indexPath: IndexPath) -> MainCellModel {
         return interactor?.getTodaysWeatherInfoCVCellInfo(indexPath: indexPath) ?? MainCellModel()
     }
+    
     func getTodaysHourTempInfoCollectionViewCellInfo(indexPath: IndexPath) -> MainCellModel {
         return interactor?.getTodaysHourTempInfoCollectionViewCellInfo(indexPath: indexPath) ?? MainCellModel()
     }
+    
     func getActivityCVCellInfo(indexPath: IndexPath) -> MainCellModel {
         return interactor?.getActivityCVCellInfo(indexPath: indexPath) ?? MainCellModel()
     }
+    
     func getXDaysCVCellInfo(indexPath: IndexPath) -> MainCellModel {
         return interactor?.getXDaysCVCellInfo(indexPath: indexPath) ?? MainCellModel()
     }
