@@ -85,8 +85,8 @@ class MainViewController: UIViewController {
 
     func addingViews() {
         self.view.addSubview(scrollView)
-        scrollView.addSubview(TopCollectionView)
         scrollView.addSubview(mapButton)
+        scrollView.addSubview(TopCollectionView)
         scrollView.addSubview(summaryView)
     }
     
@@ -107,10 +107,10 @@ class MainViewController: UIViewController {
             
             TopCollectionView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 100),
             TopCollectionView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
-            TopCollectionView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+//            TopCollectionView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
             TopCollectionView.heightAnchor.constraint(equalToConstant: 500),
             TopCollectionView.widthAnchor.constraint(equalToConstant: 393),
-            
+
             mapButton.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 10),
             mapButton.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 10),
             mapButton.widthAnchor.constraint(equalToConstant: 80),
@@ -118,8 +118,7 @@ class MainViewController: UIViewController {
         
             summaryView.topAnchor.constraint(equalTo: TopCollectionView.bottomAnchor, constant: 30),
             summaryView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 20),
-            summaryView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -20),
-//            summaryView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: 400),
+//            summaryView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -20),
             summaryView.heightAnchor.constraint(equalToConstant: 110),
             summaryView.widthAnchor.constraint(equalToConstant: 353)
             ])
@@ -129,7 +128,7 @@ class MainViewController: UIViewController {
         self.view.backgroundColor = UIColor(cgColor: Constants.backgroundViewColor)
         TopCollectionView.backgroundColor = .clear
         TopCollectionView.bounces = false
-        
+      
         mapButton.setTitle("Карта осадков", for: .normal)
         mapButton.titleLabel?.numberOfLines = 2
         mapButton.titleLabel?.font = .systemFont(ofSize: 17)

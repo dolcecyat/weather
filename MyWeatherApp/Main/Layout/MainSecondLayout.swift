@@ -1,8 +1,8 @@
 //
-//  MainLayout.swift
+//  MainSecondLayout.swift
 //  MyWeatherApp
 //
-//  Created by Анатолий Коробских on 03.12.2024.
+//  Created by Алина Класс on 07.12.2024.
 //
 
 import Foundation
@@ -10,18 +10,7 @@ import UIKit
 
 extension MainViewController {
     
-    private func createLayoutSection( group: NSCollectionLayoutGroup,
-                                      behavior: UICollectionLayoutSectionOrthogonalScrollingBehavior,
-                                      interGroupSpacing: CGFloat) -> NSCollectionLayoutSection {
-        let section  = NSCollectionLayoutSection(group: group)
-        section.orthogonalScrollingBehavior = behavior
-        section.interGroupSpacing = interGroupSpacing
-        return section
-    }
-    // MARK: First layout
-
-
-     func createFirstLayout() -> UICollectionViewCompositionalLayout {
+     func createSecondLayout() -> UICollectionViewCompositionalLayout {
         UICollectionViewCompositionalLayout { [weak self] sectionIndex, _ in
             guard let self = self else { return nil }
             let section = SectionsData.MainFirstCollectionView.allCases.first(where: {$0.sectionNumber == sectionIndex})
@@ -51,6 +40,15 @@ extension MainViewController {
         }
     }
     
+    private func createLayoutSection( group: NSCollectionLayoutGroup,
+                                      behavior: UICollectionLayoutSectionOrthogonalScrollingBehavior,
+                                      interGroupSpacing: CGFloat) -> NSCollectionLayoutSection {
+        let section  = NSCollectionLayoutSection(group: group)
+        section.orthogonalScrollingBehavior = behavior
+        section.interGroupSpacing = interGroupSpacing
+        return section
+    }
+    
     private func createTodaysDetailInfoSection() -> NSCollectionLayoutSection {
         let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(0.9), heightDimension: .fractionalHeight(0.7)), subitems: [item])
@@ -66,8 +64,4 @@ extension MainViewController {
         section.contentInsets = .init(top: 0, leading: -5, bottom: 0, trailing: 0)
         return section
     }
-    // MARK: Second Layout
-//    func createSecondLayout() -> UICollectionViewCompositionalLayout {
-//        
-//    }
 }

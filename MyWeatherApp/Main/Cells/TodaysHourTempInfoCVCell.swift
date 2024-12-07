@@ -51,8 +51,6 @@ class TodaysHourTempInfoCVCell: UICollectionViewCell {
             cellFrame.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
             cellFrame.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 5),
             cellFrame.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -5),
-//            cellFrame.widthAnchor.constraint(equalToConstant: 60),
-//            cellFrame.heightAnchor.constraint(equalToConstant: 60),
             
             weatherImage.topAnchor.constraint(equalTo: contentView.topAnchor),
             weatherImage.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
