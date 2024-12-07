@@ -54,26 +54,27 @@ class XDaysCVCell: UICollectionViewCell {
         dateLabel.translatesAutoresizingMaskIntoConstraints = false
        
         NSLayoutConstraint.activate([
-            cellFrame.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 10),
-            cellFrame.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
-            cellFrame.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: -10),
-            cellFrame.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
-            cellFrame.widthAnchor.constraint(lessThanOrEqualTo: contentView.widthAnchor, constant: 20),
-            cellFrame.heightAnchor.constraint(equalToConstant: 60),
+            cellFrame.bottomAnchor.constraint(equalTo: contentView.bottomAnchor,constant: -10),
+            cellFrame.topAnchor.constraint(equalTo: contentView.topAnchor),
+            cellFrame.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            cellFrame.trailingAnchor.constraint(equalTo: contentView.trailingAnchor,constant: -35),
+//            cellFrame.widthAnchor.constraint(lessThanOrEqualTo: contentView.widthAnchor, constant: 20),
+//            cellFrame.heightAnchor.constraint(equalToConstant: 60),
             
-            dateLabel.topAnchor.constraint(equalTo: cellFrame.topAnchor, constant: 10),
-            dateLabel.leadingAnchor.constraint(equalTo: cellFrame.leadingAnchor, constant: -10),
+            dateLabel.centerYAnchor.constraint(equalTo: cellFrame.centerYAnchor),
+            dateLabel.leadingAnchor.constraint(equalTo: cellFrame.leadingAnchor, constant: 10),
             
-            nightTempLabel.topAnchor.constraint(equalTo: cellFrame.topAnchor, constant: 10),
+            nightTempLabel.centerYAnchor.constraint(equalTo: cellFrame.centerYAnchor),
             nightTempLabel.trailingAnchor.constraint(equalTo: cellFrame.trailingAnchor,constant: -14),
             
-            dayTempLabel.topAnchor.constraint(equalTo: cellFrame.topAnchor, constant: 10),
+            dayTempLabel.centerYAnchor.constraint(equalTo: cellFrame.centerYAnchor),
             dayTempLabel.trailingAnchor.constraint(equalTo: nightTempLabel.leadingAnchor,constant: -14),
+            dayTempLabel.widthAnchor.constraint(equalToConstant: 40),
             
-            weatherImage.topAnchor.constraint(equalTo: cellFrame.topAnchor, constant: 10),
+            weatherImage.centerYAnchor.constraint(equalTo: cellFrame.centerYAnchor),
             weatherImage.trailingAnchor.constraint(equalTo: dayTempLabel.leadingAnchor,constant: -14),
-            weatherImage.heightAnchor.constraint(equalToConstant: 20),
-            weatherImage.widthAnchor.constraint(equalToConstant: 20),
+            weatherImage.heightAnchor.constraint(equalToConstant: 30),
+            weatherImage.widthAnchor.constraint(equalToConstant: 30),
             
             ])
     }
@@ -89,16 +90,23 @@ class XDaysCVCell: UICollectionViewCell {
         
         dayTempLabel.font = .systemFont(ofSize: 14)
         dayTempLabel.textColor = UIColor(cgColor: Colors.lighterTextColor)
+        dayTempLabel.numberOfLines = 2
+        dayTempLabel.textAlignment = .center
         
         nightTempLabel.font = .systemFont(ofSize: 14)
-        dayTempLabel.textColor = UIColor(cgColor: Colors.textColor)
+        nightTempLabel.textColor = UIColor(cgColor: Colors.textColor)
+        nightTempLabel.numberOfLines = 2
+        nightTempLabel.numberOfLines = 2
+        nightTempLabel.textAlignment = .center
+
+        
     }
     
     func configure(model: MainCellModel) {
         weatherImage.image = model.image
         dateLabel.text = "2 декабря"
-        dayTempLabel.text = "День /n \(model.dayTemp ?? "0")"
-        nightTempLabel.text = "Ночь /n \(model.nightTemp ?? "0")"
+        dayTempLabel.text = "День  \(model.dayTemp ?? "0")"
+        nightTempLabel.text = "Ночь \(model.nightTemp ?? "0")"
     }
     
 }

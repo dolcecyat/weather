@@ -23,8 +23,8 @@ class MainViewController: UIViewController {
 
     //MARK: - UI properties
     private var scrollView = UIScrollView()
-    private var TopCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
-//    private var BottomCollectionView = UICollectionView()
+    private var topCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
+    private var bottomCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
     private var mapButton = UIButton()
     private var summaryView = SummaryView()
     private var searchBar = UISearchBar()
@@ -64,8 +64,10 @@ class MainViewController: UIViewController {
     
     private func setDelegates() {
         searchBar.delegate = self
-        TopCollectionView.delegate = self
-        TopCollectionView.dataSource = self
+        topCollectionView.delegate = self
+        topCollectionView.dataSource = self
+        bottomCollectionView.delegate = self
+        bottomCollectionView.dataSource = self
 
     }
     // MARK: - SetUp UI
@@ -86,15 +88,17 @@ class MainViewController: UIViewController {
     func addingViews() {
         self.view.addSubview(scrollView)
         scrollView.addSubview(mapButton)
-        scrollView.addSubview(TopCollectionView)
+        scrollView.addSubview(topCollectionView)
         scrollView.addSubview(summaryView)
+        scrollView.addSubview(bottomCollectionView)
     }
     
     func makeConstaraints() {
         scrollView.translatesAutoresizingMaskIntoConstraints = false
-        TopCollectionView.translatesAutoresizingMaskIntoConstraints = false
+        topCollectionView.translatesAutoresizingMaskIntoConstraints = false
         mapButton.translatesAutoresizingMaskIntoConstraints = false
         summaryView.translatesAutoresizingMaskIntoConstraints = false
+        bottomCollectionView.translatesAutoresizingMaskIntoConstraints = false
         
         scrollView.frame = view.bounds
         scrollView.contentSize = CGSize(width:  view.frame.width, height: 2000)
@@ -105,30 +109,40 @@ class MainViewController: UIViewController {
             scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             
-            TopCollectionView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 100),
-            TopCollectionView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            topCollectionView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 100),
+            topCollectionView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
 //            TopCollectionView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
-            TopCollectionView.heightAnchor.constraint(equalToConstant: 500),
-            TopCollectionView.widthAnchor.constraint(equalToConstant: 393),
+            topCollectionView.heightAnchor.constraint(equalToConstant: 500),
+            topCollectionView.widthAnchor.constraint(equalToConstant: 393),
 
             mapButton.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 10),
             mapButton.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 10),
             mapButton.widthAnchor.constraint(equalToConstant: 80),
             mapButton.heightAnchor.constraint(equalToConstant: 80),
         
-            summaryView.topAnchor.constraint(equalTo: TopCollectionView.bottomAnchor, constant: 30),
+            summaryView.topAnchor.constraint(equalTo: topCollectionView.bottomAnchor, constant: 30),
             summaryView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 20),
 //            summaryView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -20),
             summaryView.heightAnchor.constraint(equalToConstant: 110),
-            summaryView.widthAnchor.constraint(equalToConstant: 353)
+            summaryView.widthAnchor.constraint(equalToConstant: 353),
+            
+            bottomCollectionView.topAnchor.constraint(equalTo: summaryView.bottomAnchor, constant: 30),
+            bottomCollectionView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 20),
+            bottomCollectionView.heightAnchor.constraint(equalToConstant: 760),
+            bottomCollectionView.widthAnchor.constraint(equalToConstant: 393),
+
             ])
     }
     
     private func setUpUI() {
         self.view.backgroundColor = UIColor(cgColor: Constants.backgroundViewColor)
-        TopCollectionView.backgroundColor = .clear
-        TopCollectionView.bounces = false
+        topCollectionView.backgroundColor = .clear
+        topCollectionView.bounces = false
       
+        bottomCollectionView.backgroundColor = .clear
+        bottomCollectionView.bounces = false
+        bottomCollectionView.isScrollEnabled = false
+        
         mapButton.setTitle("Карта осадков", for: .normal)
         mapButton.titleLabel?.numberOfLines = 2
         mapButton.titleLabel?.font = .systemFont(ofSize: 17)
@@ -141,11 +155,17 @@ class MainViewController: UIViewController {
         let config = UICollectionViewCompositionalLayoutConfiguration()
         let firstLO = createFirstLayout()
         firstLO.configuration = config
-        TopCollectionView = UICollectionView(frame: .zero, collectionViewLayout: firstLO)
-        TopCollectionView.register(FirstWeatherInfoCVCell.self, forCellWithReuseIdentifier: FirstWeatherInfoCVCell.identifier)
-        TopCollectionView.register(TodaysWeatherInfoCVCell.self, forCellWithReuseIdentifier: TodaysWeatherInfoCVCell.identifier)
-        TopCollectionView.register(TodaysHourTempInfoCVCell.self, forCellWithReuseIdentifier: TodaysHourTempInfoCVCell.identifier)
+        topCollectionView = UICollectionView(frame: .zero, collectionViewLayout: firstLO)
+        topCollectionView.register(FirstWeatherInfoCVCell.self, forCellWithReuseIdentifier: FirstWeatherInfoCVCell.identifier)
+        topCollectionView.register(TodaysWeatherInfoCVCell.self, forCellWithReuseIdentifier: TodaysWeatherInfoCVCell.identifier)
+        topCollectionView.register(TodaysHourTempInfoCVCell.self, forCellWithReuseIdentifier: TodaysHourTempInfoCVCell.identifier)
         
+        
+        let secondLd = createSecondLayout()
+        secondLd.configuration = config
+        bottomCollectionView = UICollectionView(frame: .zero, collectionViewLayout: secondLd)
+        bottomCollectionView.register(ActivityCVCell.self, forCellWithReuseIdentifier: ActivityCVCell.identifier)
+        bottomCollectionView.register(XDaysCVCell.self, forCellWithReuseIdentifier: XDaysCVCell.identifier)
 
     }
   
@@ -184,21 +204,30 @@ extension MainViewController: MainViewProtocol {
 extension MainViewController : UICollectionViewDelegate, UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-      /*  presenter?.getNumberOfSection() ??*/ 2
+        /*  presenter?.getNumberOfSection() ??*/ 2
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if section == 0 {
-            return 6
-        }else {return 24}
-        
-    /*    presenter?.getNumberOfItemsInSection() ??*//* 2*/
+        var numberOfRows: Int = 0
+        if collectionView == topCollectionView {
+            if section == 0 {
+                numberOfRows = 6
+            } else {
+                numberOfRows = 24}
+        }else if collectionView == bottomCollectionView {
+            if section == 0 {
+                numberOfRows = 5
+            } else {
+                numberOfRows = 10}
+        }
+        return numberOfRows
+        /*    presenter?.getNumberOfItemsInSection() ??*//* 2*/
     }
     
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         var cellFor  = UICollectionViewCell()
-        if collectionView == TopCollectionView {
+        if collectionView == topCollectionView {
             let sec = SectionsData.MainFirstCollectionView.allCases.first (where: { $0.sectionNumber == indexPath.section })
             switch sec {
             case .TodaysDetailInfo:
@@ -216,12 +245,24 @@ extension MainViewController : UICollectionViewDelegate, UICollectionViewDataSou
                 guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TodaysHourTempInfoCVCell.identifier, for: indexPath) as? TodaysHourTempInfoCVCell,let modelForCell =   presenter?.getTodaysHourTempInfoCollectionViewCellInfo(indexPath: indexPath)  else { return UICollectionViewCell() }
                 cell.configure(model: modelForCell)
                 cellFor = cell
-            case .none: 
+            case .none:
                 print("1")
             }
             
-        } else {
-            
+        } else if collectionView == bottomCollectionView {
+            let sec = SectionsData.MainSecondCollectionView.allCases.first (where: { $0.sectionNumber == indexPath.section })
+            switch sec {
+            case .ActivityInfo:
+                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ActivityCVCell.identifier, for: indexPath) as? ActivityCVCell,let modelForCell =   presenter?.getActivityCVCellInfo(indexPath: indexPath)  else { return UICollectionViewCell() }
+                cell.configure(model: modelForCell)
+                cellFor = cell
+            case.XDayInfo:
+                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: XDaysCVCell.identifier, for: indexPath) as? XDaysCVCell,let modelForCell =   presenter?.getXDaysCVCellInfo(indexPath: indexPath)  else { return UICollectionViewCell() }
+                cell.configure(model: modelForCell)
+                cellFor = cell
+            case .none:
+                print("2")
+            }
         }
         return cellFor
     }

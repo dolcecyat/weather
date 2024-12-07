@@ -45,20 +45,21 @@ class ActivityCVCell: UICollectionViewCell {
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            cellFrame.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 10),
-            cellFrame.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
-            cellFrame.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: -10),
-            cellFrame.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
-            cellFrame.widthAnchor.constraint(equalToConstant: 60),
-            cellFrame.heightAnchor.constraint(equalToConstant: 60),
+            cellFrame.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            cellFrame.topAnchor.constraint(equalTo: contentView.topAnchor),
+            cellFrame.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,constant: 5),
+            cellFrame.trailingAnchor.constraint(equalTo: contentView.trailingAnchor,constant: -5),
+//            cellFrame.widthAnchor.constraint(equalToConstant: 60),
+//            cellFrame.heightAnchor.constraint(equalToConstant: 60),
             
-            activityImage.topAnchor.constraint(equalTo: contentView.topAnchor),
-            activityImage.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            activityImage.heightAnchor.constraint(equalToConstant: 20),
-            activityImage.widthAnchor.constraint(equalToConstant: 20),
+            activityImage.topAnchor.constraint(equalTo: cellFrame.topAnchor,constant: 5),
+            activityImage.centerXAnchor.constraint(equalTo: cellFrame.centerXAnchor),
+            activityImage.heightAnchor.constraint(equalToConstant: 30),
+            activityImage.widthAnchor.constraint(equalToConstant: 35),
             
-            nameLabel.topAnchor.constraint(equalTo: cellFrame.topAnchor, constant: 20),
+            nameLabel.bottomAnchor.constraint(equalTo: cellFrame.bottomAnchor, constant: -2),
             nameLabel.centerXAnchor.constraint(equalTo: cellFrame.centerXAnchor),
+            nameLabel.widthAnchor.constraint(equalToConstant: 65)
         ])
     }
     
@@ -68,8 +69,10 @@ class ActivityCVCell: UICollectionViewCell {
         cellFrame.backgroundColor = UIColor(cgColor: Colors.lighterBackgroundColor)
         cellFrame.layer.cornerRadius = 10
         
-        nameLabel.font = .systemFont(ofSize: 10)
+        nameLabel.font = .systemFont(ofSize: 15)
         nameLabel.textColor = UIColor(cgColor: Colors.lighterTextColor)
+        nameLabel.textAlignment = .center
+        nameLabel.numberOfLines = 2
     }
     
     func configure(model: MainCellModel) {
