@@ -9,24 +9,27 @@ import UIKit
 
 private enum Constants {
     static let imageNameForLeftBarButtonItem = "gearshape.fill"
-    static let backgroundViewColor = CGColor(red: 0.21, green: 0.37, blue: 0.48, alpha: 1)
-    static let backgroundSearchBarColor = CGColor(red: 0.41, green: 0.61, blue: 0.74, alpha: 1)
-    static let temperatureTextColor = CGColor(red: 0.89, green: 0.93, blue: 0.95, alpha: 1)
+    static let imageNameForRightBarButtonItem = "location.fill"
+    static let mapButtonLabel = "Карта осадков"
+    static let monthWeatherButtonLabel = "Прогноз на месяц →"
 }
 
 protocol MainViewProtocol: AnyObject {
     var presenter: MainPresenterProtocol? { get set }
+    func reloadData()
 }
 
 class MainViewController: UIViewController {
     var presenter: MainPresenterProtocol?
 
     //MARK: - UI properties
+     
     private var scrollView = UIScrollView()
     private var topCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
     private var bottomCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
     private var mapButton = UIButton()
     private var summaryView = SummaryView()
+    private var monthButton = UIButton()
     private var searchBar = UISearchBar()
     
     // MARK: - Init
@@ -73,15 +76,15 @@ class MainViewController: UIViewController {
     // MARK: - SetUp UI
     
     private func setupNavBar() {
-        navigationController?.navigationBar.barTintColor =  UIColor(cgColor: Constants.backgroundViewColor)
+        navigationController?.navigationBar.barTintColor =  UIColor(cgColor: Colors.backgroundViewColor)
         navigationController?.navigationBar.barStyle = .black
-        navigationController?.navigationBar.tintColor = UIColor(cgColor: Constants.backgroundSearchBarColor)
-#warning ("при свайпе обратно не показывается")
-//        navigationController?.hidesBarsOnSwipe = true
+        navigationController?.navigationBar.tintColor = UIColor(cgColor: Colors.lighterBackgroundColor)
+#warning ("при свайпе обратно не показывается --- теперь почему то работает????")
+        navigationController?.hidesBarsOnSwipe = true
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: Constants.imageNameForLeftBarButtonItem), style: .plain, target: self, action: #selector(openSettings))
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "location.fill"), style: .plain, target: self, action: #selector(getLocation))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: Constants.imageNameForRightBarButtonItem), style: .plain, target: self, action: #selector(getLocation))
         navigationItem.titleView = searchBar
-        searchBar.searchTextField.backgroundColor = UIColor(cgColor: Constants.backgroundSearchBarColor)
+        searchBar.searchTextField.backgroundColor = UIColor(cgColor: Colors.lighterBackgroundColor)
         searchBar.sizeToFit()
     }
 
@@ -91,6 +94,7 @@ class MainViewController: UIViewController {
         scrollView.addSubview(topCollectionView)
         scrollView.addSubview(summaryView)
         scrollView.addSubview(bottomCollectionView)
+        scrollView.addSubview(monthButton)
     }
     
     func makeConstaraints() {
@@ -99,6 +103,7 @@ class MainViewController: UIViewController {
         mapButton.translatesAutoresizingMaskIntoConstraints = false
         summaryView.translatesAutoresizingMaskIntoConstraints = false
         bottomCollectionView.translatesAutoresizingMaskIntoConstraints = false
+        monthButton.translatesAutoresizingMaskIntoConstraints = false
         
         scrollView.frame = view.bounds
         scrollView.contentSize = CGSize(width:  view.frame.width, height: 2000)
@@ -120,22 +125,26 @@ class MainViewController: UIViewController {
             mapButton.widthAnchor.constraint(equalToConstant: 80),
             mapButton.heightAnchor.constraint(equalToConstant: 80),
         
-            summaryView.topAnchor.constraint(equalTo: topCollectionView.bottomAnchor, constant: 30),
+            summaryView.topAnchor.constraint(equalTo: topCollectionView.bottomAnchor, constant: 20),
             summaryView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 20),
 //            summaryView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -20),
             summaryView.heightAnchor.constraint(equalToConstant: 110),
             summaryView.widthAnchor.constraint(equalToConstant: 353),
             
             bottomCollectionView.topAnchor.constraint(equalTo: summaryView.bottomAnchor, constant: 30),
-            bottomCollectionView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 20),
+            bottomCollectionView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 0),
             bottomCollectionView.heightAnchor.constraint(equalToConstant: 760),
             bottomCollectionView.widthAnchor.constraint(equalToConstant: 393),
-
+            
+            monthButton.topAnchor.constraint(equalTo: bottomCollectionView.bottomAnchor, constant: 15),
+            monthButton.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+            monthButton.heightAnchor.constraint(equalToConstant: 70),
+            monthButton.widthAnchor.constraint(equalToConstant: 250),
             ])
     }
     
     private func setUpUI() {
-        self.view.backgroundColor = UIColor(cgColor: Constants.backgroundViewColor)
+        self.view.backgroundColor = UIColor(cgColor: Colors.backgroundViewColor)
         topCollectionView.backgroundColor = .clear
         topCollectionView.bounces = false
       
@@ -143,14 +152,22 @@ class MainViewController: UIViewController {
         bottomCollectionView.bounces = false
         bottomCollectionView.isScrollEnabled = false
         
-        mapButton.setTitle("Карта осадков", for: .normal)
-        mapButton.titleLabel?.numberOfLines = 2
+        mapButton.setTitle(Constants.mapButtonLabel, for: .normal)
         mapButton.titleLabel?.font = .systemFont(ofSize: 17)
+        mapButton.titleLabel?.numberOfLines = 2
         mapButton.titleLabel?.textAlignment = .center
-        mapButton.setTitleColor(UIColor(cgColor: Constants.temperatureTextColor), for: .normal)
-        mapButton.backgroundColor = UIColor(cgColor: Constants.backgroundSearchBarColor)
+        mapButton.setTitleColor(UIColor(cgColor: Colors.lighterTextColor), for: .normal)
+        mapButton.backgroundColor = UIColor(cgColor: Colors.lighterBackgroundColor)
         mapButton.layer.cornerRadius = 40
+        
+        monthButton.setTitle(Constants.monthWeatherButtonLabel, for: .normal)
+        monthButton.titleLabel?.font = .systemFont(ofSize: 18)
+        monthButton.titleLabel?.textAlignment = .center
+        monthButton.setTitleColor(UIColor(cgColor: Colors.lighterTextColor), for: .normal)
+        monthButton.backgroundColor = UIColor(cgColor: Colors.lighterBackgroundColor)
+        monthButton.layer.cornerRadius = 35
     }
+    
     func setCollectionViews() {
         let config = UICollectionViewCompositionalLayoutConfiguration()
         let firstLO = createFirstLayout()
@@ -160,16 +177,13 @@ class MainViewController: UIViewController {
         topCollectionView.register(TodaysWeatherInfoCVCell.self, forCellWithReuseIdentifier: TodaysWeatherInfoCVCell.identifier)
         topCollectionView.register(TodaysHourTempInfoCVCell.self, forCellWithReuseIdentifier: TodaysHourTempInfoCVCell.identifier)
         
-        
         let secondLd = createSecondLayout()
         secondLd.configuration = config
         bottomCollectionView = UICollectionView(frame: .zero, collectionViewLayout: secondLd)
         bottomCollectionView.register(ActivityCVCell.self, forCellWithReuseIdentifier: ActivityCVCell.identifier)
         bottomCollectionView.register(XDaysCVCell.self, forCellWithReuseIdentifier: XDaysCVCell.identifier)
-
     }
   
-    
     // MARK: - NavigationBarButton actions
     
     @objc private func openSettings() {
@@ -184,9 +198,13 @@ class MainViewController: UIViewController {
     
     private func setUpActions() {
         mapButton.addTarget(self, action: #selector(map), for: .touchUpInside)
+        monthButton.addTarget(self, action: #selector(monthWeather), for: .touchUpInside)
     }
     
     @objc private func map() {
+
+    }
+    @objc private func monthWeather() {
 
     }
 }
@@ -199,12 +217,22 @@ extension MainViewController {
 // MARK: -
 extension MainViewController: MainViewProtocol {
     
+    func reloadData() {
+        topCollectionView.reloadData()
+        bottomCollectionView.reloadData()
+    }
 }
 
 extension MainViewController : UICollectionViewDelegate, UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        /*  presenter?.getNumberOfSection() ??*/ 2
+        var secNumber = 0
+        if collectionView == topCollectionView {
+            secNumber = presenter?.getNumberOfSectionTopCV() ?? 0
+        } else if collectionView == bottomCollectionView {
+            secNumber = presenter?.getNumberOfSectionBottomCV() ?? 0
+        }
+        return secNumber
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -214,7 +242,7 @@ extension MainViewController : UICollectionViewDelegate, UICollectionViewDataSou
                 numberOfRows = 6
             } else {
                 numberOfRows = 24}
-        }else if collectionView == bottomCollectionView {
+        } else if collectionView == bottomCollectionView {
             if section == 0 {
                 numberOfRows = 5
             } else {
@@ -223,7 +251,6 @@ extension MainViewController : UICollectionViewDelegate, UICollectionViewDataSou
         return numberOfRows
         /*    presenter?.getNumberOfItemsInSection() ??*//* 2*/
     }
-    
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         var cellFor  = UICollectionViewCell()
@@ -248,7 +275,6 @@ extension MainViewController : UICollectionViewDelegate, UICollectionViewDataSou
             case .none:
                 print("1")
             }
-            
         } else if collectionView == bottomCollectionView {
             let sec = SectionsData.MainSecondCollectionView.allCases.first (where: { $0.sectionNumber == indexPath.section })
             switch sec {

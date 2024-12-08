@@ -10,6 +10,15 @@ import UIKit
 
 struct SectionsData {
     
+    enum CollectionViews: CaseIterable {
+        case MainFirstCollectionView
+        case MainSecondCollectionView
+        
+        var sectionNumber: Int {
+            return CollectionViews.allCases.firstIndex(of: self) ?? 0
+        }
+    }
+    
     enum MainFirstCollectionView: CaseIterable {
         case TodaysDetailInfo
         case HourInfo

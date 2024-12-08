@@ -13,7 +13,8 @@ protocol MainInteractorProtocol: AnyObject {
     var presenter: MainPresenterProtocol? { get set }
     func getLocationWeatherData()
     func getNumberOfItemsInSection() -> Int
-    func getNumberOfSection() -> Int
+    func getNumberOfSectionTopCV() -> Int
+    func getNumberOfSectionBottomCV() -> Int
     func getTodaysHourTempInfoCollectionViewCellInfo(indexPath: IndexPath) -> MainCellModel
     func getFirstWeatherInfoCVCellInfo(indexPath: IndexPath) -> MainCellModel
     func getTodaysWeatherInfoCVCellInfo(indexPath: IndexPath) -> MainCellModel
@@ -41,8 +42,12 @@ class MainInteractor: NSObject, MainInteractorProtocol {
         weaterManager.delegate = self
     }
     
-    func getNumberOfSection() -> Int {
+    func getNumberOfSectionTopCV() -> Int {
         SectionsData.MainFirstCollectionView.allCases.count
+    }
+    
+    func getNumberOfSectionBottomCV() -> Int {
+        SectionsData.MainSecondCollectionView.allCases.count
     }
     
     func getNumberOfItemsInSection() -> Int {
@@ -58,6 +63,7 @@ class MainInteractor: NSObject, MainInteractorProtocol {
         model.image = UIImage(systemName: "cloud.fill")
         return model
     }
+    
     func getTodaysWeatherInfoCVCellInfo(indexPath: IndexPath) -> MainCellModel {
         model.image = UIImage(systemName: "cloud.fill")
         model.mainInfo = "Aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
@@ -79,9 +85,10 @@ class MainInteractor: NSObject, MainInteractorProtocol {
         model.activityName = actName
         return model
     }
+    
     func getXDaysCVCellInfo(indexPath: IndexPath) -> MainCellModel {
         model.dayTemp = currentWeather.tempString
-        model.image = UIImage(systemName: "cloud")
+        model.image = UIImage(systemName: "cloud.fill")
         model.nightTemp = "4"
         model.date = "2 декабря"
         return model
@@ -94,6 +101,9 @@ extension MainInteractor: WeatherManagerDelegate {
     func didUpdateWeather(_ weatherManager: WeatherManager, weather: WeatherModel) {
         currentWeather = weather
         print(weather)
+        DispatchQueue.main.async { [weak self] in
+            self?.presenter?.sendWeatherData()
+        }
     }
     
     func didFailWithError(error: any Error) {

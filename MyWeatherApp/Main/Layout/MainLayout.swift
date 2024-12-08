@@ -79,7 +79,7 @@ extension MainViewController {
                 let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.1)), subitems: [item])
                 
                 let section = self.createLayoutSection(group: group, behavior: .continuous, interGroupSpacing: 5)
-                section.contentInsets = .init(top: 0, leading: 0, bottom: 10, trailing: 5)
+                section.contentInsets = .init(top: 0, leading: 3, bottom: 10, trailing: 20)
                 
                 return section
                 
@@ -87,7 +87,7 @@ extension MainViewController {
                 let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.1)))
                 let group = NSCollectionLayoutGroup.vertical(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.9)), subitems: [item])
                 let section = self.createLayoutSection(group: group, behavior: .groupPaging, interGroupSpacing: 10)
-                section.contentInsets = .init(top: 0, leading: 0, bottom: 0, trailing: 0)
+                section.contentInsets = .init(top: 0, leading: 15, bottom: 0, trailing: 10)
                 return section
             case .none:
                 return nil

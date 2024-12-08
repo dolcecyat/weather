@@ -47,7 +47,7 @@ class ActivityCVCell: UICollectionViewCell {
         NSLayoutConstraint.activate([
             cellFrame.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
             cellFrame.topAnchor.constraint(equalTo: contentView.topAnchor),
-            cellFrame.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,constant: 5),
+            cellFrame.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,constant: 0),
             cellFrame.trailingAnchor.constraint(equalTo: contentView.trailingAnchor,constant: -5),
 //            cellFrame.widthAnchor.constraint(equalToConstant: 60),
 //            cellFrame.heightAnchor.constraint(equalToConstant: 60),
@@ -57,7 +57,7 @@ class ActivityCVCell: UICollectionViewCell {
             activityImage.heightAnchor.constraint(equalToConstant: 30),
             activityImage.widthAnchor.constraint(equalToConstant: 35),
             
-            nameLabel.bottomAnchor.constraint(equalTo: cellFrame.bottomAnchor, constant: -2),
+            nameLabel.topAnchor.constraint(equalTo: activityImage.bottomAnchor, constant: 2),
             nameLabel.centerXAnchor.constraint(equalTo: cellFrame.centerXAnchor),
             nameLabel.widthAnchor.constraint(equalToConstant: 65)
         ])

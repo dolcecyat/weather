@@ -13,7 +13,8 @@ protocol MainPresenterProtocol: AnyObject {
     var interactor: MainInteractorProtocol? { get set }
     func locationButtonPressed()
     func sendWeatherData()
-    func getNumberOfSection() -> Int
+    func getNumberOfSectionTopCV() -> Int
+    func getNumberOfSectionBottomCV() -> Int
     func getNumberOfItemsInSection()-> Int
     func getTodaysHourTempInfoCollectionViewCellInfo(indexPath: IndexPath) -> MainCellModel
     func getFirstWeatherInfoCVCellInfo(indexPath: IndexPath) -> MainCellModel
@@ -34,16 +35,20 @@ class MainPresenter: MainPresenterProtocol{
     
     // MARK: - WeatherData
     func sendWeatherData() {
-        
+        view?.reloadData()
     }
     
     func locationButtonPressed() {
         interactor?.getLocationWeatherData()
     }
     // MARK: - UICollectionVieDataSource
-    func getNumberOfSection() -> Int {
-        interactor?.getNumberOfSection() ?? .zero
+    func getNumberOfSectionTopCV() -> Int {
+        interactor?.getNumberOfSectionTopCV() ?? .zero
     }
+    func getNumberOfSectionBottomCV() -> Int {
+        interactor?.getNumberOfSectionBottomCV() ?? .zero
+    }
+
     
     func getNumberOfItemsInSection() -> Int {
         interactor?.getNumberOfItemsInSection() ?? 2

@@ -58,14 +58,14 @@ class XDaysCVCell: UICollectionViewCell {
             cellFrame.topAnchor.constraint(equalTo: contentView.topAnchor),
             cellFrame.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             cellFrame.trailingAnchor.constraint(equalTo: contentView.trailingAnchor,constant: -35),
-//            cellFrame.widthAnchor.constraint(lessThanOrEqualTo: contentView.widthAnchor, constant: 20),
-//            cellFrame.heightAnchor.constraint(equalToConstant: 60),
             
             dateLabel.centerYAnchor.constraint(equalTo: cellFrame.centerYAnchor),
             dateLabel.leadingAnchor.constraint(equalTo: cellFrame.leadingAnchor, constant: 10),
             
             nightTempLabel.centerYAnchor.constraint(equalTo: cellFrame.centerYAnchor),
             nightTempLabel.trailingAnchor.constraint(equalTo: cellFrame.trailingAnchor,constant: -14),
+            nightTempLabel.widthAnchor.constraint(equalToConstant: 40),
+
             
             dayTempLabel.centerYAnchor.constraint(equalTo: cellFrame.centerYAnchor),
             dayTempLabel.trailingAnchor.constraint(equalTo: nightTempLabel.leadingAnchor,constant: -14),
@@ -94,7 +94,7 @@ class XDaysCVCell: UICollectionViewCell {
         dayTempLabel.textAlignment = .center
         
         nightTempLabel.font = .systemFont(ofSize: 14)
-        nightTempLabel.textColor = UIColor(cgColor: Colors.textColor)
+        nightTempLabel.textColor = UIColor(cgColor: Colors.lighterTextColor)
         nightTempLabel.numberOfLines = 2
         nightTempLabel.numberOfLines = 2
         nightTempLabel.textAlignment = .center
