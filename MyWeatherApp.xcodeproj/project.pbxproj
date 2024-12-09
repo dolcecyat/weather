@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4108B51A2D070CAD0075F9DD /* SettingsColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4108B5192D070CAD0075F9DD /* SettingsColors.swift */; };
+		4108B51F2D07185D0075F9DD /* ParametersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4108B51E2D0718550075F9DD /* ParametersView.swift */; };
+		4108B5212D072A890075F9DD /* PressureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4108B5202D072A810075F9DD /* PressureView.swift */; };
+		4108B5252D072D350075F9DD /* WindView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4108B5242D072D270075F9DD /* WindView.swift */; };
 		ED86FDA82CF8857F00FB9882 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED86FDA72CF8857F00FB9882 /* AppDelegate.swift */; };
 		ED86FDAA2CF8857F00FB9882 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED86FDA92CF8857F00FB9882 /* SceneDelegate.swift */; };
 		ED86FDB12CF8858000FB9882 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED86FDB02CF8858000FB9882 /* Assets.xcassets */; };
@@ -33,10 +37,14 @@
 		ED86FDEE2CFF2A2600FB9882 /* FirstWeatherInfoCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED86FDED2CFF2A2600FB9882 /* FirstWeatherInfoCVCell.swift */; };
 		ED86FDF02CFF39EB00FB9882 /* MainLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED86FDEF2CFF39EB00FB9882 /* MainLayout.swift */; };
 		ED86FDF52D00CC7D00FB9882 /* SummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED86FDF42D00CC7D00FB9882 /* SummaryView.swift */; };
-		ED86FDF72D00CD9800FB9882 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED86FDF62D00CD9800FB9882 /* Colors.swift */; };
+		ED86FDF72D00CD9800FB9882 /* MainColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED86FDF62D00CD9800FB9882 /* MainColors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4108B5192D070CAD0075F9DD /* SettingsColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsColors.swift; sourceTree = "<group>"; };
+		4108B51E2D0718550075F9DD /* ParametersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParametersView.swift; sourceTree = "<group>"; };
+		4108B5202D072A810075F9DD /* PressureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PressureView.swift; sourceTree = "<group>"; };
+		4108B5242D072D270075F9DD /* WindView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindView.swift; sourceTree = "<group>"; };
 		ED86FDA42CF8857F00FB9882 /* MyWeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyWeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED86FDA72CF8857F00FB9882 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ED86FDA92CF8857F00FB9882 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -65,7 +73,7 @@
 		ED86FDED2CFF2A2600FB9882 /* FirstWeatherInfoCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstWeatherInfoCVCell.swift; sourceTree = "<group>"; };
 		ED86FDEF2CFF39EB00FB9882 /* MainLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainLayout.swift; sourceTree = "<group>"; };
 		ED86FDF42D00CC7D00FB9882 /* SummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryView.swift; sourceTree = "<group>"; };
-		ED86FDF62D00CD9800FB9882 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		ED86FDF62D00CD9800FB9882 /* MainColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainColors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +87,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4108B5182D070C7A0075F9DD /* MainVIPER */ = {
+			isa = PBXGroup;
+			children = (
+				ED86FDBC2CF889C000FB9882 /* MainPresenter.swift */,
+				ED86FDBE2CF88A7400FB9882 /* MainRouter.swift */,
+				ED86FDC02CF88AB900FB9882 /* MainInteractor.swift */,
+				ED86FDC22CF88B0800FB9882 /* MainModuleBuilder.swift */,
+				ED86FDD92CF9C88B00FB9882 /* MainViewController.swift */,
+			);
+			path = MainVIPER;
+			sourceTree = "<group>";
+		};
+		4108B51D2D07183F0075F9DD /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				4108B5242D072D270075F9DD /* WindView.swift */,
+				4108B5202D072A810075F9DD /* PressureView.swift */,
+				4108B51E2D0718550075F9DD /* ParametersView.swift */,
+			);
+			path = Subviews;
+			sourceTree = "<group>";
+		};
 		ED86FD9B2CF8857F00FB9882 = {
 			isa = PBXGroup;
 			children = (
@@ -112,16 +142,12 @@
 		ED86FDBB2CF887F400FB9882 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				ED86FDF62D00CD9800FB9882 /* MainColors.swift */,
 				ED86FDDD2CFA002100FB9882 /* Cells */,
+				ED86FDF12D0081E500FB9882 /* Layout */,
 				ED86FDD62CF9C7C100FB9882 /* Weather */,
 				ED86FDD12CF9BF1400FB9882 /* SubViews */,
-				ED86FDBC2CF889C000FB9882 /* MainPresenter.swift */,
-				ED86FDBE2CF88A7400FB9882 /* MainRouter.swift */,
-				ED86FDC02CF88AB900FB9882 /* MainInteractor.swift */,
-				ED86FDC22CF88B0800FB9882 /* MainModuleBuilder.swift */,
-				ED86FDD92CF9C88B00FB9882 /* MainViewController.swift */,
-				ED86FDF12D0081E500FB9882 /* Layout */,
-				ED86FDF62D00CD9800FB9882 /* Colors.swift */,
+				4108B5182D070C7A0075F9DD /* MainVIPER */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -129,11 +155,13 @@
 		ED86FDC42CF8982B00FB9882 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				ED86FDC52CF8984500FB9882 /* SettingsViewController.swift */,
+				4108B51D2D07183F0075F9DD /* Subviews */,
+				4108B5192D070CAD0075F9DD /* SettingsColors.swift */,
 				ED86FDC72CF8986000FB9882 /* SettingsPresenter.swift */,
 				ED86FDC92CF8986B00FB9882 /* SettingsRouter.swift */,
 				ED86FDCB2CF8988500FB9882 /* SettingsInteractor.swift */,
 				ED86FDCD2CF8989500FB9882 /* SettingsModuleBuilder.swift */,
+				ED86FDC52CF8984500FB9882 /* SettingsViewController.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -252,9 +280,11 @@
 				ED86FDD82CF9C7E800FB9882 /* WeatherData.swift in Sources */,
 				ED86FDF02CFF39EB00FB9882 /* MainLayout.swift in Sources */,
 				ED86FDA82CF8857F00FB9882 /* AppDelegate.swift in Sources */,
+				4108B5252D072D350075F9DD /* WindView.swift in Sources */,
 				ED86FDE72CFDE4B400FB9882 /* SectionsData.swift in Sources */,
 				ED86FDF52D00CC7D00FB9882 /* SummaryView.swift in Sources */,
-				ED86FDF72D00CD9800FB9882 /* Colors.swift in Sources */,
+				ED86FDF72D00CD9800FB9882 /* MainColors.swift in Sources */,
+				4108B51F2D07185D0075F9DD /* ParametersView.swift in Sources */,
 				ED86FDC32CF88B0800FB9882 /* MainModuleBuilder.swift in Sources */,
 				ED86FDD32CF9C71F00FB9882 /* WeatherManager.swift in Sources */,
 				ED86FDDF2CFA003400FB9882 /* TodaysWeatherInfoCVCell.swift in Sources */,
@@ -269,8 +299,10 @@
 				ED86FDD52CF9C79500FB9882 /* WeatherModel.swift in Sources */,
 				ED86FDC12CF88AB900FB9882 /* MainInteractor.swift in Sources */,
 				ED86FDEC2CFDE9BA00FB9882 /* MainCellModel.swift in Sources */,
+				4108B5212D072A890075F9DD /* PressureView.swift in Sources */,
 				ED86FDEE2CFF2A2600FB9882 /* FirstWeatherInfoCVCell.swift in Sources */,
 				ED86FDC62CF8984500FB9882 /* SettingsViewController.swift in Sources */,
+				4108B51A2D070CAD0075F9DD /* SettingsColors.swift in Sources */,
 				ED86FDE12CFA007300FB9882 /* TodaysHourTempInfoCVCell.swift in Sources */,
 				ED86FDCA2CF8986B00FB9882 /* SettingsRouter.swift in Sources */,
 			);

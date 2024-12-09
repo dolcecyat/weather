@@ -79,18 +79,18 @@ class FirstWeatherInfoCVCell: UICollectionViewCell {
         cellFrame.backgroundColor = .clear
         
         cellFrame.layer.cornerRadius = 32
-        cellFrame.layer.borderColor = Colors.lighterBackgroundColor
+        cellFrame.layer.borderColor = MainColors.lighterBackgroundColor
         cellFrame.layer.borderWidth = 2.0
         
         feelLabel.font = .systemFont(ofSize: 15)
-        feelLabel.textColor = UIColor(cgColor: Colors.textColor)
+        feelLabel.textColor = UIColor(cgColor: MainColors.textColor)
         
         temperatureLabel.font = .systemFont(ofSize: 40)
-        temperatureLabel.textColor = UIColor(cgColor: Colors.lighterTextColor)
+        temperatureLabel.textColor = UIColor(cgColor: MainColors.lighterTextColor)
         temperatureLabel.text = "0"
         
         mainInfoLabel.font = .systemFont(ofSize: 20)
-        mainInfoLabel.textColor = UIColor(cgColor: Colors.lighterTextColor)
+        mainInfoLabel.textColor = UIColor(cgColor: MainColors.lighterTextColor)
         mainInfoLabel.numberOfLines = 4
     }
     

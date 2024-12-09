@@ -76,15 +76,15 @@ class MainViewController: UIViewController {
     // MARK: - SetUp UI
     
     private func setupNavBar() {
-        navigationController?.navigationBar.barTintColor =  UIColor(cgColor: Colors.backgroundViewColor)
+        navigationController?.navigationBar.barTintColor =  UIColor(cgColor: MainColors.backgroundViewColor)
         navigationController?.navigationBar.barStyle = .black
-        navigationController?.navigationBar.tintColor = UIColor(cgColor: Colors.lighterBackgroundColor)
+        navigationController?.navigationBar.tintColor = UIColor(cgColor: MainColors.lighterBackgroundColor)
 #warning ("при свайпе обратно не показывается --- теперь почему то работает????")
         navigationController?.hidesBarsOnSwipe = true
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: Constants.imageNameForLeftBarButtonItem), style: .plain, target: self, action: #selector(openSettings))
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: Constants.imageNameForRightBarButtonItem), style: .plain, target: self, action: #selector(getLocation))
         navigationItem.titleView = searchBar
-        searchBar.searchTextField.backgroundColor = UIColor(cgColor: Colors.lighterBackgroundColor)
+        searchBar.searchTextField.backgroundColor = UIColor(cgColor: MainColors.lighterBackgroundColor)
         searchBar.sizeToFit()
     }
 
@@ -144,7 +144,7 @@ class MainViewController: UIViewController {
     }
     
     private func setUpUI() {
-        self.view.backgroundColor = UIColor(cgColor: Colors.backgroundViewColor)
+        self.view.backgroundColor = UIColor(cgColor: MainColors.backgroundViewColor)
         topCollectionView.backgroundColor = .clear
         topCollectionView.bounces = false
       
@@ -156,15 +156,15 @@ class MainViewController: UIViewController {
         mapButton.titleLabel?.font = .systemFont(ofSize: 17)
         mapButton.titleLabel?.numberOfLines = 2
         mapButton.titleLabel?.textAlignment = .center
-        mapButton.setTitleColor(UIColor(cgColor: Colors.lighterTextColor), for: .normal)
-        mapButton.backgroundColor = UIColor(cgColor: Colors.lighterBackgroundColor)
+        mapButton.setTitleColor(UIColor(cgColor: MainColors.lighterTextColor), for: .normal)
+        mapButton.backgroundColor = UIColor(cgColor: MainColors.lighterBackgroundColor)
         mapButton.layer.cornerRadius = 40
         
         monthButton.setTitle(Constants.monthWeatherButtonLabel, for: .normal)
         monthButton.titleLabel?.font = .systemFont(ofSize: 18)
         monthButton.titleLabel?.textAlignment = .center
-        monthButton.setTitleColor(UIColor(cgColor: Colors.lighterTextColor), for: .normal)
-        monthButton.backgroundColor = UIColor(cgColor: Colors.lighterBackgroundColor)
+        monthButton.setTitleColor(UIColor(cgColor: MainColors.lighterTextColor), for: .normal)
+        monthButton.backgroundColor = UIColor(cgColor: MainColors.lighterBackgroundColor)
         monthButton.layer.cornerRadius = 35
     }
     

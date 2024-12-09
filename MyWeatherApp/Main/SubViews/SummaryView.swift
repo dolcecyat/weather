@@ -59,17 +59,17 @@ class SummaryView: UIView {
     }
     
     private func setUI() {
-        viewFrame.backgroundColor = UIColor(cgColor: Colors.lighterBackgroundColor)
+        viewFrame.backgroundColor = UIColor(cgColor: MainColors.lighterBackgroundColor)
         viewFrame.layer.cornerRadius = 20
         labelButton.setTitle(sumTitle, for: .normal)
-        labelButton.setTitleColor(UIColor(cgColor: Colors.lighterTextColor), for: .normal)
+        labelButton.setTitleColor(UIColor(cgColor: MainColors.lighterTextColor), for: .normal)
         labelButton.backgroundColor = .clear
         labelButton.titleLabel?.font = .systemFont(ofSize: 15)
         labelButton.titleLabel?.numberOfLines = 2
         
         button.setTitle("Читать полную сводку", for: .normal)
-        button.setTitleColor(UIColor(cgColor: Colors.lighterTextColor), for: .normal)
-        button.backgroundColor = UIColor(cgColor: Colors.evenLighterBackgroundColor)
+        button.setTitleColor(UIColor(cgColor: MainColors.lighterTextColor), for: .normal)
+        button.backgroundColor = UIColor(cgColor: MainColors.evenLighterBackgroundColor)
         button.layer.cornerRadius = 10
     }
     

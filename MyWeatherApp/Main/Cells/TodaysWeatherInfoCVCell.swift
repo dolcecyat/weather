@@ -73,16 +73,16 @@ class TodaysWeatherInfoCVCell: UICollectionViewCell {
     
     private func setUI(){
         contentView.backgroundColor = .clear
-        cellFrame.backgroundColor = UIColor(cgColor: Colors.lighterBackgroundColor)
+        cellFrame.backgroundColor = UIColor(cgColor: MainColors.lighterBackgroundColor)
         
         cellFrame.layer.cornerRadius = 30
         
         mainInfoLabel.font = .systemFont(ofSize: 18)
         mainInfoLabel.numberOfLines = 4
-        mainInfoLabel.textColor = UIColor(cgColor: Colors.lighterTextColor)
+        mainInfoLabel.textColor = UIColor(cgColor: MainColors.lighterTextColor)
         
         detailInfoLabel.font = .systemFont(ofSize: 14)
-        detailInfoLabel.textColor = UIColor(cgColor: Colors.textColor)
+        detailInfoLabel.textColor = UIColor(cgColor: MainColors.textColor)
     }
     
     func configure(model: MainCellModel) {

@@ -66,16 +66,16 @@ class TodaysHourTempInfoCVCell: UICollectionViewCell {
     }
     
     private func setUI(){
-        contentView.backgroundColor = UIColor(cgColor:Colors.backgroundViewColor)
+        contentView.backgroundColor = UIColor(cgColor:MainColors.backgroundViewColor)
         
-        cellFrame.backgroundColor = UIColor(cgColor: Colors.lighterBackgroundColor)
+        cellFrame.backgroundColor = UIColor(cgColor: MainColors.lighterBackgroundColor)
         cellFrame.layer.cornerRadius = 30
         
         timeLabel.font = .systemFont(ofSize: 13)
-        timeLabel.textColor = UIColor(cgColor: Colors.textColor)
+        timeLabel.textColor = UIColor(cgColor: MainColors.textColor)
         
         temperatureLabel.font = .systemFont(ofSize: 20)
-        temperatureLabel.textColor = UIColor(cgColor: Colors.lighterTextColor)
+        temperatureLabel.textColor = UIColor(cgColor: MainColors.lighterTextColor)
         temperatureLabel.text = "0"
     }
     

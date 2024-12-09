@@ -64,13 +64,13 @@ class ActivityCVCell: UICollectionViewCell {
     }
     
     private func setUI(){
-        contentView.backgroundColor = UIColor(cgColor: Colors.backgroundViewColor)
+        contentView.backgroundColor = UIColor(cgColor: MainColors.backgroundViewColor)
         
-        cellFrame.backgroundColor = UIColor(cgColor: Colors.lighterBackgroundColor)
+        cellFrame.backgroundColor = UIColor(cgColor: MainColors.lighterBackgroundColor)
         cellFrame.layer.cornerRadius = 10
         
         nameLabel.font = .systemFont(ofSize: 15)
-        nameLabel.textColor = UIColor(cgColor: Colors.lighterTextColor)
+        nameLabel.textColor = UIColor(cgColor: MainColors.lighterTextColor)
         nameLabel.textAlignment = .center
         nameLabel.numberOfLines = 2
     }

@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-enum Colors {
+enum MainColors {
     static let backgroundViewColor = CGColor(red: 0.21, green: 0.37, blue: 0.48, alpha: 1)
     static let lighterBackgroundColor = CGColor(red: 0.41, green: 0.61, blue: 0.74, alpha: 1)
     static let evenLighterBackgroundColor = CGColor(red: 0.51, green: 0.68, blue: 0.79, alpha: 1)

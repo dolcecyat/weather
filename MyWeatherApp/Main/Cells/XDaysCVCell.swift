@@ -80,21 +80,21 @@ class XDaysCVCell: UICollectionViewCell {
     }
     
     private func setUI() {
-        contentView.backgroundColor = UIColor(cgColor:Colors.backgroundViewColor)
+        contentView.backgroundColor = UIColor(cgColor:MainColors.backgroundViewColor)
         
-        cellFrame.backgroundColor = UIColor(cgColor: Colors.lighterBackgroundColor)
+        cellFrame.backgroundColor = UIColor(cgColor: MainColors.lighterBackgroundColor)
         cellFrame.layer.cornerRadius = 10
         
-        dateLabel.textColor = UIColor(cgColor: Colors.lighterTextColor)
+        dateLabel.textColor = UIColor(cgColor: MainColors.lighterTextColor)
         dateLabel.font = .systemFont(ofSize: 14)
         
         dayTempLabel.font = .systemFont(ofSize: 14)
-        dayTempLabel.textColor = UIColor(cgColor: Colors.lighterTextColor)
+        dayTempLabel.textColor = UIColor(cgColor: MainColors.lighterTextColor)
         dayTempLabel.numberOfLines = 2
         dayTempLabel.textAlignment = .center
         
         nightTempLabel.font = .systemFont(ofSize: 14)
-        nightTempLabel.textColor = UIColor(cgColor: Colors.lighterTextColor)
+        nightTempLabel.textColor = UIColor(cgColor: MainColors.lighterTextColor)
         nightTempLabel.numberOfLines = 2
         nightTempLabel.numberOfLines = 2
         nightTempLabel.textAlignment = .center
