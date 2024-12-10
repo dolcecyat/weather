@@ -14,7 +14,7 @@ private enum Constants {
     static let monthWeatherButtonLabel = "Прогноз на месяц →"
 }
 
-protocol MainViewProtocol: AnyObject {
+protocol MainViewProtocol: UIViewController {
     var presenter: MainPresenterProtocol? { get set }
     func reloadData()
 }
@@ -187,7 +187,7 @@ class MainViewController: UIViewController {
     // MARK: - NavigationBarButton actions
     
     @objc private func openSettings() {
-        
+        presenter?.openSettingViewController()
     }
     
     @objc private func getLocation() {

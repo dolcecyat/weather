@@ -11,6 +11,7 @@ protocol MainPresenterProtocol: AnyObject {
     var view: MainViewProtocol? { get set }
     var router: MainRouterProtocol? { get set}
     var interactor: MainInteractorProtocol? { get set }
+    func openSettingViewController()
     func locationButtonPressed()
     func sendWeatherData()
     func getNumberOfSectionTopCV() -> Int
@@ -37,6 +38,9 @@ class MainPresenter: MainPresenterProtocol{
     func sendWeatherData() {
         view?.reloadData()
     }
+    func openSettingViewController() {
+        router?.openSettingViewController()
+    }
     
     func locationButtonPressed() {
         interactor?.getLocationWeatherData()
@@ -49,14 +53,12 @@ class MainPresenter: MainPresenterProtocol{
         interactor?.getNumberOfSectionBottomCV() ?? .zero
     }
 
-    
     func getNumberOfItemsInSection() -> Int {
         interactor?.getNumberOfItemsInSection() ?? 2
        
     }
     // MARK: - Cells Info
     
-  
     func getFirstWeatherInfoCVCellInfo(indexPath: IndexPath) -> MainCellModel {
         return interactor?.getFirstWeatherInfoCVCellInfo(indexPath: indexPath) ?? MainCellModel()
     }

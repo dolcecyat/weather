@@ -1,5 +1,5 @@
 //
-//  Untitled.swift
+//  windView.swift
 //  MyWeatherApp
 //
 //  Created by Алина Класс on 09.12.2024.
@@ -8,13 +8,13 @@
 import UIKit
 
 private enum Constants {
-    static let options = ["м/с","км/ч","миль/ч","узлы"]
+    static let options = ["гПа","мм рт. ст","мбар","дюйм рт. ст."]
 }
 
-class WindView: UIView {
+class PressureView: UIView {
     
-    private var WindLabel =  UILabel()
-    private var WindImage = UIImageView()
+    private var pressureLabel = UILabel()
+    private var pressureImage = UIImageView()
     private var segmentPicker = UISegmentedControl(items: Constants.options)
     
     override init(frame: CGRect) {
@@ -31,40 +31,40 @@ class WindView: UIView {
     
     
     private func addViews() {
-        self.addSubview(WindLabel)
-        self.addSubview(WindImage)
+        self.addSubview(pressureLabel)
+        self.addSubview(pressureImage)
         self.addSubview(segmentPicker)
     }
     
     private func makeConstraints() {
-        WindLabel.translatesAutoresizingMaskIntoConstraints = false
-        WindImage.translatesAutoresizingMaskIntoConstraints = false
+        pressureLabel.translatesAutoresizingMaskIntoConstraints = false
+        pressureImage.translatesAutoresizingMaskIntoConstraints = false
         segmentPicker.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            WindImage.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
-            WindImage.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 25),
-            WindImage.widthAnchor.constraint(equalToConstant: 30),
-            WindImage.heightAnchor.constraint(equalToConstant: 30),
+            pressureImage.topAnchor.constraint(equalTo: self.topAnchor, constant: 13),
+            pressureImage.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 25),
+            pressureImage.widthAnchor.constraint(equalToConstant: 30),
+            pressureImage.heightAnchor.constraint(equalToConstant: 30),
             
-            WindLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 15),
-            WindLabel.leadingAnchor.constraint(equalTo: WindImage.trailingAnchor, constant: 10),
+            pressureLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 15),
+            pressureLabel.leadingAnchor.constraint(equalTo: pressureImage.trailingAnchor, constant: 10),
             
-            segmentPicker.topAnchor.constraint(equalTo: WindImage.bottomAnchor, constant: 20),
+            segmentPicker.topAnchor.constraint(equalTo: pressureImage.bottomAnchor, constant: 15),
             segmentPicker.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
             segmentPicker.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
-            segmentPicker.heightAnchor.constraint(equalToConstant: 50)
+            segmentPicker.heightAnchor.constraint(equalToConstant: 40)
         ])
     }
     
     private func setUI() {
         self.backgroundColor = SettingsColors.lighterBackgroundColor
         
-        WindImage.image = UIImage(systemName: "wind")
-        WindImage.tintColor = SettingsColors.textColor
-        WindLabel.text = "Сила ветра"
-        WindLabel.font = UIFont.systemFont(ofSize: 19)
-        WindLabel.textColor = SettingsColors.textColor
+        pressureImage.image = UIImage(systemName: "barometer")
+        pressureImage.tintColor = SettingsColors.textColor
+        pressureLabel.text = "Давление"
+        pressureLabel.font = UIFont.systemFont(ofSize: 19)
+        pressureLabel.textColor = SettingsColors.textColor
         
 #warning ("почему то не меняется цвет ширина и края")
         segmentPicker.selectedSegmentIndex = 0
@@ -93,4 +93,3 @@ class WindView: UIView {
         }
     }
 }
-

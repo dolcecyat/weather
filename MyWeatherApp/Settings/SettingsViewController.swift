@@ -21,9 +21,10 @@ class SettingsViewController: UIViewController {
     
     // MARK: UI properties
     private var scrollView = UIScrollView()
-    private var contentView = UIView()
-    private var parView = WindView()
-    private var modeView = UIView()
+    private var tempView = ParametersView()
+    private var windView = WindView()
+    private var pressureView = PressureView()
+    private var modeView = ModeView()
     private var designView = UIView()
     private var helpInfoTableView = UITableView()
     
@@ -59,14 +60,21 @@ class SettingsViewController: UIViewController {
 
     private func addingViews() {
         self.view.addSubview(scrollView)
-        scrollView.addSubview(contentView)
-        contentView.addSubview(parView)
+        scrollView.addSubview(tempView)
+        scrollView.addSubview(windView)
+        scrollView.addSubview(pressureView)
+        scrollView.addSubview(modeView)
     }
     
     private func makeConstaraints() {
         scrollView.translatesAutoresizingMaskIntoConstraints = false
-        contentView.translatesAutoresizingMaskIntoConstraints = false
-        parView.translatesAutoresizingMaskIntoConstraints = false
+        tempView.translatesAutoresizingMaskIntoConstraints = false
+        windView.translatesAutoresizingMaskIntoConstraints = false
+        pressureView.translatesAutoresizingMaskIntoConstraints = false
+        modeView.translatesAutoresizingMaskIntoConstraints = false
+        
+        scrollView.frame = view.bounds
+        scrollView.contentSize = CGSize(width:  view.frame.width, height: 1000)
         
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
@@ -74,23 +82,37 @@ class SettingsViewController: UIViewController {
             scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             
-            contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
-            contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
-            contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
-            contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+            tempView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            tempView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor,constant: 10),
+            tempView.widthAnchor.constraint(equalToConstant: 373),
+            tempView.heightAnchor.constraint(equalToConstant: 110),
             
-            parView.topAnchor.constraint(equalTo: contentView.topAnchor),
-            parView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            parView.widthAnchor.constraint(equalToConstant: 393),
+            windView.topAnchor.constraint(equalTo: tempView.bottomAnchor,constant: 20),
+            windView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor,constant: 10),
+            windView.widthAnchor.constraint(equalToConstant: 373),
+            windView.heightAnchor.constraint(equalToConstant: 115),
+            
+            pressureView.topAnchor.constraint(equalTo: windView.bottomAnchor,constant: 20),
+            pressureView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor,constant: 10),
+            pressureView.widthAnchor.constraint(equalToConstant: 373),
+            pressureView.heightAnchor.constraint(equalToConstant: 115),
+            
+            modeView.topAnchor.constraint(equalTo: pressureView.bottomAnchor,constant: 20),
+            modeView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor,constant: 10),
+            modeView.widthAnchor.constraint(equalToConstant: 373),
+            modeView.heightAnchor.constraint(equalToConstant: 115),
             ])
         
     }
     private func setUpUI() {
         self.view.backgroundColor = SettingsColors.backgroundViewColor
+        tempView.roundCorners(view: tempView)
+        windView.roundCorners(view: windView)
+        pressureView.roundCorners(view: pressureView)
+        modeView.roundCorners(view: modeView)
+
 
     }
-
-    
 }
 
 extension SettingsViewController: SettingsViewProtocol {

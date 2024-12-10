@@ -50,10 +50,10 @@ class ParametersView: UIView {
             temperatureLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 15),
             temperatureLabel.leadingAnchor.constraint(equalTo: temperatureImage.trailingAnchor, constant: 10),
             
-            segmentPicker.topAnchor.constraint(equalTo: temperatureImage.bottomAnchor, constant: 20),
+            segmentPicker.topAnchor.constraint(equalTo: temperatureImage.bottomAnchor, constant: 15),
             segmentPicker.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
             segmentPicker.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
-            segmentPicker.heightAnchor.constraint(equalToConstant: 50)
+            segmentPicker.heightAnchor.constraint(equalToConstant: 35)
         ])
     }
     
@@ -87,5 +87,11 @@ class ParametersView: UIView {
         default:
             print("°C")
         }
+    }
+}
+
+extension UIView {
+    func roundCorners(view : UIView) {
+        view.layer.cornerRadius = 20
     }
 }
