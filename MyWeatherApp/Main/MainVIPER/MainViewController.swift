@@ -297,15 +297,17 @@ extension MainViewController : UICollectionViewDelegate, UICollectionViewDataSou
 extension MainViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        if let city = searchBar.searchTextField.text {
+            presenter?.getWeatherData(city)
+        }
+        searchBar.text = ""
         searchBar.resignFirstResponder()
     }
-    
-    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
-        return true
-    }
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if searchText.count > 2 {
+  
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        if let city = searchBar.searchTextField.text {
+            presenter?.getWeatherData(city)
         }
+        searchBar.text = ""
     }
 }

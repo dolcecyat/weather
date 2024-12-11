@@ -12,6 +12,7 @@ import UIKit
 protocol MainInteractorProtocol: AnyObject {
     var presenter: MainPresenterProtocol? { get set }
     func getLocationWeatherData()
+    func getWeatherData(_ city: String)
     func getNumberOfItemsInSection() -> Int
     func getNumberOfSectionTopCV() -> Int
     func getNumberOfSectionBottomCV() -> Int
@@ -108,6 +109,10 @@ extension MainInteractor: WeatherManagerDelegate {
     
     func didFailWithError(error: any Error) {
         print(error)
+    }
+    
+    func getWeatherData(_ city: String) {
+        weaterManager.fetchWeather(cityName: city)
     }
     
     func getLocationWeatherData(){

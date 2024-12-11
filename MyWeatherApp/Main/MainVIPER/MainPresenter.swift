@@ -13,6 +13,7 @@ protocol MainPresenterProtocol: AnyObject {
     var interactor: MainInteractorProtocol? { get set }
     func openSettingViewController()
     func locationButtonPressed()
+    func getWeatherData(_ city: String)
     func sendWeatherData()
     func getNumberOfSectionTopCV() -> Int
     func getNumberOfSectionBottomCV() -> Int
@@ -44,6 +45,10 @@ class MainPresenter: MainPresenterProtocol{
     
     func locationButtonPressed() {
         interactor?.getLocationWeatherData()
+    }
+    
+    func getWeatherData(_ city: String) {
+        interactor?.getWeatherData(city)
     }
     // MARK: - UICollectionVieDataSource
     func getNumberOfSectionTopCV() -> Int {
