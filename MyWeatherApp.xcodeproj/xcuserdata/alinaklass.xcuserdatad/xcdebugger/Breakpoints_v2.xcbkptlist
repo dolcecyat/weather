@@ -34,64 +34,6 @@
             endingLineNumber = "10"
             landmarkName = "AppDelegate"
             landmarkType = "3">
-            <Locations>
-               <Location
-                  uuid = "28255DDA-DB03-4791-B065-F7FEEB18421D - 88400babba298acb"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MyWeatherApp.AppDelegate.__allocating_init() -&gt; MyWeatherApp.AppDelegate"
-                  moduleName = "MyWeatherApp.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/alinaklass/Desktop/Apps/weather/MyWeatherApp/AppDelegate.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0">
-               </Location>
-               <Location
-                  uuid = "28255DDA-DB03-4791-B065-F7FEEB18421D - a245aaa6c78c5e65"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MyWeatherApp.AppDelegate.init() -&gt; MyWeatherApp.AppDelegate"
-                  moduleName = "MyWeatherApp.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/alinaklass/Desktop/Apps/weather/%3Cstdin%3E"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0">
-               </Location>
-               <Location
-                  uuid = "28255DDA-DB03-4791-B065-F7FEEB18421D - c3a7c628d370d596"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MyWeatherApp.AppDelegate.__deallocating_deinit"
-                  moduleName = "MyWeatherApp.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/alinaklass/Desktop/Apps/weather/MyWeatherApp/AppDelegate.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0">
-               </Location>
-               <Location
-                  uuid = "28255DDA-DB03-4791-B065-F7FEEB18421D - 7d934dd71f4eebe6"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "main"
-                  moduleName = "MyWeatherApp.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/alinaklass/Desktop/Apps/weather/MyWeatherApp/AppDelegate.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "11"
-                  endingLineNumber = "11">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

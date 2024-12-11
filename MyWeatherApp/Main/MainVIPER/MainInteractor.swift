@@ -112,7 +112,7 @@ extension MainInteractor: WeatherManagerDelegate {
     }
     
     func getWeatherData(_ city: String) {
-        weaterManager.fetchWeather(cityName: city)
+//        weaterManager.fetchWeather(cityName: city)
     }
     
     func getLocationWeatherData(){
@@ -131,7 +131,7 @@ extension MainInteractor: CLLocationManagerDelegate {
             locationManager.stopUpdatingLocation()
             let lat = location.coordinate.latitude
             let lon = location.coordinate.longitude
-            weaterManager.fetchWeather(latitude:lat, longitute: lon)
+            weaterManager.fetchWeather(latitude:lat, longitude: lon)
         }
     }
     

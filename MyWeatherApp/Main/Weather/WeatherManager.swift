@@ -13,53 +13,56 @@ protocol WeatherManagerDelegate {
     func didFailWithError(error:Error)
 }
 
-struct WeatherManager {
-    let weatherURL = "https://api.openweathermap.org/data/2.5/weather?&appid=da017acde10f970c1a9de3becfe05d1d&units=metric"
+
+// Структуры для декодирования данных
+struct WeatherData: Codable {
+    let now: Int
+    let fact: Fact
+}
+
+struct Fact: Codable {
+    let temp: Int
+    let feels_like: Int
+    let condition: String
+}
+
+class WeatherManager {
     
     var delegate: WeatherManagerDelegate?
     
-    func fetchWeather(cityName: String) {
-        let urlString = "\(weatherURL)&q=\(cityName)"
-        performRequest(with : urlString)
-    }
-    
-    func fetchWeather( latitude: CLLocationDegrees, longitute:CLLocationDegrees) {
-        let urlString = "\(weatherURL)&lat=\(latitude)&lon=\(longitute)"
-        performRequest(with: urlString)
-    }
-    
-    private func performRequest (with urlString: String){
-        //create url
-        if let url = URL(string: urlString){
-            let session = URLSession(configuration: .default)
-            let task = session.dataTask(with: url) { (data, response, error) in
-                if error != nil{
-                    delegate?.didFailWithError(error: error!)
-                    return
-                }
-                if let safeData = data {
-                    if let weather =  parseJSON(safeData){
-                        self.delegate?.didUpdateWeather(self, weather: weather)
-                    }
-                }
+    func fetchWeather(latitude: CLLocationDegrees, longitude: CLLocationDegrees) {
+        let apiKey = "1668adb2-c3d2-4f97-9c57-932f9a73d1bf"  // Замените на ваш ключ доступа
+        let urlString = "https://api.weather.yandex.ru/v2/forecast?\(latitude)\(longitude)lang=ru_RU&limit=7&hours=false&extra=false"
+        
+        guard let url = URL(string: urlString) else {
+            print("Некорректный URL")
+            return
+        }
+        
+        var request = URLRequest(url: url)
+
+        request.allHTTPHeaderFields = ["X-Yandex-API-Key" : apiKey]
+        // Выполняем запрос
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if let error = error {
+                print("Ошибка запроса: \(error.localizedDescription)")
+                return
             }
-            task.resume()
+            guard let data = data else {
+                print("Нет данных")
+                return
+            }
+            do {
+                print(data)
+                let weatherData = try JSONDecoder().decode(WeatherData.self, from: data)
+                print("Температура: \(weatherData.fact.temp)°C")
+                print("Ощущается как: \(weatherData.fact.feels_like)°C")
+                print("Погодное условие: \(weatherData.fact.condition)")
+            } catch {
+                print("Ошибка декодирования данных: \(error.localizedDescription)")
+            }
         }
-    }
-    
-    private func parseJSON(_ weatherData: Data)-> WeatherModel?{
-        let decoder = JSONDecoder()
-        do{
-            let decodedData = try decoder.decode(WeatherData.self, from: weatherData)
-            let id = decodedData.weather[0].id
-            let temp = decodedData.main.temp
-            let name = decodedData.name
-            let weather = WeatherModel(conditionId: id, cityName: name, temperature: temp)
-            return weather
-        }catch {
-            delegate?.didFailWithError(error: error)
-            return nil
-        }
+        
+        task.resume()
     }
 }
-
