@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4108B51A2D070CAD0075F9DD /* SettingsColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4108B5192D070CAD0075F9DD /* SettingsColors.swift */; };
+		4120E0E32D0B06DA00E8BF35 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4120E0E22D0B06D900E8BF35 /* DataManager.swift */; };
 		ED86FDA82CF8857F00FB9882 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED86FDA72CF8857F00FB9882 /* AppDelegate.swift */; };
 		ED86FDAA2CF8857F00FB9882 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED86FDA92CF8857F00FB9882 /* SceneDelegate.swift */; };
 		ED86FDB12CF8858000FB9882 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED86FDB02CF8858000FB9882 /* Assets.xcassets */; };
@@ -22,7 +23,6 @@
 		ED86FDCC2CF8988500FB9882 /* SettingsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED86FDCB2CF8988500FB9882 /* SettingsInteractor.swift */; };
 		ED86FDCE2CF8989500FB9882 /* SettingsModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED86FDCD2CF8989500FB9882 /* SettingsModuleBuilder.swift */; };
 		ED86FDD32CF9C71F00FB9882 /* WeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED86FDD22CF9C71F00FB9882 /* WeatherManager.swift */; };
-		ED86FDD52CF9C79500FB9882 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED86FDD42CF9C79500FB9882 /* WeatherModel.swift */; };
 		ED86FDD82CF9C7E800FB9882 /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED86FDD72CF9C7E800FB9882 /* WeatherData.swift */; };
 		ED86FDDA2CF9C88C00FB9882 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED86FDD92CF9C88B00FB9882 /* MainViewController.swift */; };
 		ED86FDDF2CFA003400FB9882 /* TodaysWeatherInfoCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED86FDDE2CFA003400FB9882 /* TodaysWeatherInfoCVCell.swift */; };
@@ -39,6 +39,7 @@
 
 /* Begin PBXFileReference section */
 		4108B5192D070CAD0075F9DD /* SettingsColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsColors.swift; sourceTree = "<group>"; };
+		4120E0E22D0B06D900E8BF35 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		ED86FDA42CF8857F00FB9882 /* MyWeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyWeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED86FDA72CF8857F00FB9882 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ED86FDA92CF8857F00FB9882 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -55,7 +56,6 @@
 		ED86FDCB2CF8988500FB9882 /* SettingsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsInteractor.swift; sourceTree = "<group>"; };
 		ED86FDCD2CF8989500FB9882 /* SettingsModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModuleBuilder.swift; sourceTree = "<group>"; };
 		ED86FDD22CF9C71F00FB9882 /* WeatherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherManager.swift; sourceTree = "<group>"; };
-		ED86FDD42CF9C79500FB9882 /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
 		ED86FDD72CF9C7E800FB9882 /* WeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
 		ED86FDD92CF9C88B00FB9882 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		ED86FDDE2CFA003400FB9882 /* TodaysWeatherInfoCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodaysWeatherInfoCVCell.swift; sourceTree = "<group>"; };
@@ -165,8 +165,8 @@
 		ED86FDD62CF9C7C100FB9882 /* Weather */ = {
 			isa = PBXGroup;
 			children = (
+				4120E0E22D0B06D900E8BF35 /* DataManager.swift */,
 				ED86FDD22CF9C71F00FB9882 /* WeatherManager.swift */,
-				ED86FDD42CF9C79500FB9882 /* WeatherModel.swift */,
 				ED86FDD72CF9C7E800FB9882 /* WeatherData.swift */,
 			);
 			path = Weather;
@@ -278,6 +278,7 @@
 				ED86FDD32CF9C71F00FB9882 /* WeatherManager.swift in Sources */,
 				ED86FDDF2CFA003400FB9882 /* TodaysWeatherInfoCVCell.swift in Sources */,
 				ED86FDCE2CF8989500FB9882 /* SettingsModuleBuilder.swift in Sources */,
+				4120E0E32D0B06DA00E8BF35 /* DataManager.swift in Sources */,
 				ED86FDAA2CF8857F00FB9882 /* SceneDelegate.swift in Sources */,
 				ED86FDE32CFA008300FB9882 /* ActivityCVCell.swift in Sources */,
 				ED86FDCC2CF8988500FB9882 /* SettingsInteractor.swift in Sources */,
@@ -285,7 +286,6 @@
 				ED86FDDA2CF9C88C00FB9882 /* MainViewController.swift in Sources */,
 				ED86FDBD2CF889C000FB9882 /* MainPresenter.swift in Sources */,
 				ED86FDE52CFA00A900FB9882 /* XDaysCVCell.swift in Sources */,
-				ED86FDD52CF9C79500FB9882 /* WeatherModel.swift in Sources */,
 				ED86FDC12CF88AB900FB9882 /* MainInteractor.swift in Sources */,
 				ED86FDEC2CFDE9BA00FB9882 /* MainCellModel.swift in Sources */,
 				ED86FDEE2CFF2A2600FB9882 /* FirstWeatherInfoCVCell.swift in Sources */,

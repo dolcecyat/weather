@@ -80,7 +80,7 @@ class TodaysHourTempInfoCVCell: UICollectionViewCell {
     }
     
     func configure(model: MainCellModel) {
-        weatherImage.image = model.image
+        weatherImage.image = model.conditionImage
         timeLabel.text = model.time
         temperatureLabel.text = model.mainTemp
     }

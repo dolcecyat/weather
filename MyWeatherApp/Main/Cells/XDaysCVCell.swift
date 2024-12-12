@@ -103,7 +103,7 @@ class XDaysCVCell: UICollectionViewCell {
     }
     
     func configure(model: MainCellModel) {
-        weatherImage.image = model.image
+        weatherImage.image = model.conditionImage
         dateLabel.text = "2 декабря"
         dayTempLabel.text = "День  \(model.dayTemp ?? "0")"
         nightTempLabel.text = "Ночь \(model.nightTemp ?? "0")"

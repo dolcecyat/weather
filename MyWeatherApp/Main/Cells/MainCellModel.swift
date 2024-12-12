@@ -17,6 +17,6 @@ struct MainCellModel {
     var date: String?
     var mainTemp: String?
     var time: String?
-    var image: UIImage?
+    var conditionImage: UIImage?
     var activityImage: UIImage?
 }

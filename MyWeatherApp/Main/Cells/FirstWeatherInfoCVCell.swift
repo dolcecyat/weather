@@ -95,7 +95,7 @@ class FirstWeatherInfoCVCell: UICollectionViewCell {
     }
     
     func configure(model: MainCellModel) {
-        weatherImage.image = model.image
+        weatherImage.image = model.conditionImage
         feelLabel.text = model.detailInfo
         temperatureLabel.text = model.mainTemp
         mainInfoLabel.text = model.mainInfo

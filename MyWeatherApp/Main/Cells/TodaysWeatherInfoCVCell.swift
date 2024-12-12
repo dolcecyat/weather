@@ -86,7 +86,7 @@ class TodaysWeatherInfoCVCell: UICollectionViewCell {
     }
     
     func configure(model: MainCellModel) {
-        weatherImage.image = model.image
+        weatherImage.image = model.conditionImage
         mainInfoLabel.text = model.mainInfo
         detailInfoLabel.text = model.detailInfo
     }
