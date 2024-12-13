@@ -259,10 +259,6 @@ extension MainViewController : UICollectionViewDelegate, UICollectionViewDataSou
             switch sec {
             case .TodaysDetailInfo:
                 switch indexPath.item {
-                case 0:
-                    guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FirstWeatherInfoCVCell.identifier, for: indexPath) as? FirstWeatherInfoCVCell,let modelForCell =   presenter?.getFirstWeatherInfoCVCellInfo(indexPath: indexPath)  else { return UICollectionViewCell() }
-                    cell.configure(model: modelForCell)
-                    cellFor = cell
                 default:
                     guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TodaysWeatherInfoCVCell.identifier, for: indexPath) as? TodaysWeatherInfoCVCell,let modelForCell =   presenter?.getTodaysWeatherInfoCVCellInfo(indexPath: indexPath)  else { return UICollectionViewCell() }
                     cell.configure(model: modelForCell)

@@ -28,6 +28,18 @@ struct SectionsData {
         }
     }
     
+    enum TodaysInfoWeatherInfoCells: CaseIterable {
+        case mainInfo
+        case wind
+        case pressure
+        case humidity
+        case water
+        case UVIndex
+        
+        var sectionNumber: Int {
+            return TodaysInfoWeatherInfoCells.allCases.firstIndex(of: self) ?? 0
+        }
+    }
     enum MainSecondCollectionView: CaseIterable {
         case ActivityInfo
         case XDayInfo

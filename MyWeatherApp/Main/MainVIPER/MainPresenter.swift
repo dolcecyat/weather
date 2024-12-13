@@ -19,7 +19,7 @@ protocol MainPresenterProtocol: AnyObject {
     func getNumberOfSectionBottomCV() -> Int
     func getNumberOfItemsInSection()-> Int
     func getTodaysHourTempInfoCollectionViewCellInfo(indexPath: IndexPath) -> MainCellModel
-    func getFirstWeatherInfoCVCellInfo(indexPath: IndexPath) -> MainCellModel
+//    func getFirstWeatherInfoCVCellInfo(indexPath: IndexPath) -> MainCellModel
     func getTodaysWeatherInfoCVCellInfo(indexPath: IndexPath) -> MainCellModel
     func getActivityCVCellInfo(indexPath: IndexPath) -> MainCellModel
     func getXDaysCVCellInfo(indexPath: IndexPath) -> MainCellModel
@@ -64,9 +64,9 @@ class MainPresenter: MainPresenterProtocol{
     }
     // MARK: - Cells Info
     
-    func getFirstWeatherInfoCVCellInfo(indexPath: IndexPath) -> MainCellModel {
-        return interactor?.getFirstWeatherInfoCVCellInfo(indexPath: indexPath) ?? MainCellModel()
-    }
+//    func getFirstWeatherInfoCVCellInfo(indexPath: IndexPath) -> MainCellModel {
+////        return interactor?.getFirstWeatherInfoCVCellInfo(indexPath: indexPath) ?? MainCellModel()
+//    }
     
     func getTodaysWeatherInfoCVCellInfo(indexPath: IndexPath) -> MainCellModel {
         return interactor?.getTodaysWeatherInfoCVCellInfo(indexPath: indexPath) ?? MainCellModel()

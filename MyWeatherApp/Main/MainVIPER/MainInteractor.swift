@@ -18,7 +18,7 @@ protocol MainInteractorProtocol: AnyObject {
     func getNumberOfSectionTopCV() -> Int
     func getNumberOfSectionBottomCV() -> Int
     func getTodaysHourTempInfoCollectionViewCellInfo(indexPath: IndexPath) -> MainCellModel
-    func getFirstWeatherInfoCVCellInfo(indexPath: IndexPath) -> MainCellModel
+//    func getFirstWeatherInfoCVCellInfo(indexPath: IndexPath) -> MainCellModel
     func getTodaysWeatherInfoCVCellInfo(indexPath: IndexPath) -> MainCellModel
     func getActivityCVCellInfo(indexPath: IndexPath) -> MainCellModel
     func getXDaysCVCellInfo(indexPath: IndexPath) -> MainCellModel
@@ -58,24 +58,58 @@ class MainInteractor: NSObject, MainInteractorProtocol {
     }
     
     // MARK: - CellsData
-    
-    func getFirstWeatherInfoCVCellInfo(indexPath: IndexPath) -> MainCellModel {
-        if let currentWeather {
-            model.mainTemp = currentWeather.fact.temp?.description
-            model.mainInfo = "\(dataManager.getConditionName(condition: currentWeather.fact.condition))"
-            model.detailInfo = "Ощущается как \(currentWeather.fact.feelsLike.description)"
-            model.conditionImage = dataManager.getConditionImage(condition: currentWeather.fact.condition)
-            return model }
-        return model
-    }
+//    
+//    func getFirstWeatherInfoCVCellInfo(indexPath: IndexPath) -> MainCellModel {
+//        if let currentWeather {
+//            model.mainTemp = currentWeather.fact.temp?.description
+//            model.mainInfo = "\(dataManager.getConditionName(condition: currentWeather.fact.condition))"
+//            model.detailInfo = "Ощущается как \(currentWeather.fact.feelsLike.description)"
+//            model.conditionImage = dataManager.getConditionImage(condition: currentWeather.fact.condition)
+//            return model }
+//        return model
+//    }
     
     func getTodaysWeatherInfoCVCellInfo(indexPath: IndexPath) -> MainCellModel {
-        model.conditionImage = UIImage(systemName: "cloud.fill")
-        model.mainInfo = "Aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-        model.detailInfo = "Aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        if let currentWeather {
+            let sec = SectionsData.TodaysInfoWeatherInfoCells.allCases.first (where: { $0.sectionNumber == indexPath.row })
+            switch sec {
+            case .mainInfo:
+                model.mainTemp = currentWeather.fact.temp?.description
+                model.mainInfo = "\(dataManager.getConditionName(condition: currentWeather.fact.condition))"
+                model.detailInfo = "Ощущается как \(currentWeather.fact.feelsLike.description)"
+                model.conditionImage = dataManager.getConditionImage(condition: currentWeather.fact.condition)
+                return model
+            case .wind:
+                model.mainInfo = "Ветер \(currentWeather.fact.windSpeed)"
+                model.detailInfo = "Порывы до \(currentWeather.fact.windGust)"
+                model.conditionImage = UIImage(systemName: "arrow.2.circlepath")
+                return model
+            case .pressure:
+                model.mainInfo = "Давление \(currentWeather.fact.pressureMm)"
+                model.detailInfo =  currentWeather.fact.pressurePa.description
+                model.conditionImage = UIImage(systemName: "cloud.fill")
+                return model
+            case .humidity:
+                model.mainInfo = "Влажность \(currentWeather.fact.humidity)"
+                model.detailInfo = "---"
+                model.conditionImage = UIImage(systemName: "cloud.fill")
+                return model
+            case .water:
+                model.mainInfo = "Водопроницаемость \(currentWeather.fact.precStrength)"
+                model.detailInfo = "---"
+                model.conditionImage = UIImage(systemName: "cloud.fill")
+                return model
+            case .UVIndex:
+                model.mainInfo = "Индекс UV \(currentWeather.fact.uvIndex ?? 0)"
+                model.detailInfo = "---"
+                model.conditionImage = UIImage(systemName: "cloud.fill")
+                return model
+            case .none:
+                "----"
+            }
+        }
         return model
     }
-    
     func getTodaysHourTempInfoCollectionViewCellInfo(indexPath: IndexPath) -> MainCellModel {
         model.conditionImage = UIImage(systemName: "cloud.fill")
         model.time = sectionsData.hours[indexPath.row]
@@ -92,7 +126,7 @@ class MainInteractor: NSObject, MainInteractorProtocol {
     }
     
     func getXDaysCVCellInfo(indexPath: IndexPath) -> MainCellModel {
-//        model.dayTemp = currentWeather.tempString
+        model.dayTemp = currentWeather?.fact.temp?.description
         model.conditionImage = UIImage(systemName: "cloud.fill")
         model.nightTemp = "4"
         model.date = "2 декабря"
