@@ -7,7 +7,7 @@
 
 import UIKit
 
-private enum Consta {
+private enum Constants {
     static let options = ["°C","°F"]
 }
 
@@ -15,7 +15,7 @@ class ParametersView: UIView {
     
     private var temperatureLabel =  UILabel()
     private var temperatureImage = UIImageView()
-    private var segmentPicker = UISegmentedControl(items: Consta.options)
+    private var segmentPicker = UISegmentedControl(items: Constants.options)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -28,7 +28,6 @@ class ParametersView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
     
     private func addViews() {
         self.addSubview(temperatureLabel)

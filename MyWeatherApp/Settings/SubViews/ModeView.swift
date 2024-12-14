@@ -7,14 +7,14 @@
 
 import UIKit
 
-private enum Con {
+private enum Constants {
     static let options = ["Светлое","Темное","Системное"]
 }
 
 class ModeView: UIView {
     
     private var label =  UILabel()
-    private var segmentPicker = UISegmentedControl(items: Con.options)
+    private var segmentPicker = UISegmentedControl(items: Constants.options)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -27,7 +27,6 @@ class ModeView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
     
     private func addViews() {
         self.addSubview(label)

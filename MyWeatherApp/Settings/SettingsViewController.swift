@@ -101,8 +101,7 @@ class SettingsViewController: UIViewController {
             modeView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor,constant: 10),
             modeView.widthAnchor.constraint(equalToConstant: 373),
             modeView.heightAnchor.constraint(equalToConstant: 115),
-            ])
-        
+        ])
     }
     private func setUpUI() {
         self.view.backgroundColor = SettingsColors.backgroundViewColor
@@ -110,8 +109,6 @@ class SettingsViewController: UIViewController {
         windView.roundCorners(view: windView)
         pressureView.roundCorners(view: pressureView)
         modeView.roundCorners(view: modeView)
-
-
     }
 }
 

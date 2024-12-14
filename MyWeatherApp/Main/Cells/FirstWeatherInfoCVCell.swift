@@ -49,13 +49,12 @@ class FirstWeatherInfoCVCell: UICollectionViewCell {
         temperatureLabel.translatesAutoresizingMaskIntoConstraints = false
         mainInfoLabel.translatesAutoresizingMaskIntoConstraints = false
         
-        
         NSLayoutConstraint.activate([
             cellFrame.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
             cellFrame.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
             cellFrame.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
             cellFrame.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
-//            cellFrame.heightAnchor.constraint(equalToConstant: 300),
+            //            cellFrame.heightAnchor.constraint(equalToConstant: 300),
             
             feelLabel.topAnchor.constraint(equalTo: cellFrame.topAnchor, constant: 20),
             feelLabel.leadingAnchor.constraint(equalTo: cellFrame.leadingAnchor, constant: 20),

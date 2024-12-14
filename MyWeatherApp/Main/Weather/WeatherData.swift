@@ -125,14 +125,13 @@ struct Forecast: Codable {
         case hours, parts
     }
 }
-
+// MARK: Parts
 struct Parts: Codable {
     let day: Day
     
     enum CodingKeys: String, CodingKey {
         case day
     }
-
 }
 
 struct Day: Codable {

@@ -49,7 +49,7 @@ class XDaysCVCell: UICollectionViewCell {
         dayTempLabel.translatesAutoresizingMaskIntoConstraints = false
         nightTempLabel.translatesAutoresizingMaskIntoConstraints = false
         dateLabel.translatesAutoresizingMaskIntoConstraints = false
-       
+        
         NSLayoutConstraint.activate([
             cellFrame.bottomAnchor.constraint(equalTo: contentView.bottomAnchor,constant: -10),
             cellFrame.topAnchor.constraint(equalTo: contentView.topAnchor),
@@ -62,7 +62,7 @@ class XDaysCVCell: UICollectionViewCell {
             nightTempLabel.centerYAnchor.constraint(equalTo: cellFrame.centerYAnchor),
             nightTempLabel.trailingAnchor.constraint(equalTo: cellFrame.trailingAnchor,constant: -14),
             nightTempLabel.widthAnchor.constraint(equalToConstant: 40),
-
+            
             
             dayTempLabel.centerYAnchor.constraint(equalTo: cellFrame.centerYAnchor),
             dayTempLabel.trailingAnchor.constraint(equalTo: nightTempLabel.leadingAnchor,constant: -14),
@@ -73,7 +73,7 @@ class XDaysCVCell: UICollectionViewCell {
             weatherImage.heightAnchor.constraint(equalToConstant: 30),
             weatherImage.widthAnchor.constraint(equalToConstant: 40),
             
-            ])
+        ])
     }
     
     private func setUI() {
@@ -95,8 +95,6 @@ class XDaysCVCell: UICollectionViewCell {
         nightTempLabel.numberOfLines = 2
         nightTempLabel.numberOfLines = 2
         nightTempLabel.textAlignment = .center
-
-        
     }
     
     func configure(model: MainCellModel) {
@@ -105,5 +103,4 @@ class XDaysCVCell: UICollectionViewCell {
         dayTempLabel.text = "День  \(model.dayTemp ?? "0")"
         nightTempLabel.text = "Ночь \(model.nightTemp ?? "0")"
     }
-    
 }

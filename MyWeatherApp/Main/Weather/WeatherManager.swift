@@ -28,7 +28,6 @@ class WeatherManager {
         var request = URLRequest(url: url)
         request.allHTTPHeaderFields = ["X-Yandex-API-Key" : apiKey]
         print(url)
-        // Выполняем запрос
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let error = error {
                 print("Ошибка запроса: \(error.localizedDescription)")

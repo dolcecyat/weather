@@ -35,6 +35,7 @@ class MainPresenter: MainPresenterProtocol{
     }
     
     // MARK: - WeatherData
+    
     func sendWeatherData() {
         view?.reloadData()
     }
@@ -50,6 +51,7 @@ class MainPresenter: MainPresenterProtocol{
         interactor?.getWeatherData(city)
     }
     // MARK: - UICollectionVieDataSource
+    
     func getNumberOfSectionTopCV() -> Int {
         interactor?.getNumberOfSectionTopCV() ?? .zero
     }
@@ -62,7 +64,6 @@ class MainPresenter: MainPresenterProtocol{
        
     }
     // MARK: - Cells Info
-    
     
     func getTodaysWeatherInfoCVCellInfo(indexPath: IndexPath) -> MainCellModel {
         return interactor?.getTodaysWeatherInfoCVCellInfo(indexPath: indexPath) ?? MainCellModel()

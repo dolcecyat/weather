@@ -49,8 +49,8 @@ class ActivityCVCell: UICollectionViewCell {
             cellFrame.topAnchor.constraint(equalTo: contentView.topAnchor),
             cellFrame.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,constant: 0),
             cellFrame.trailingAnchor.constraint(equalTo: contentView.trailingAnchor,constant: -5),
-//            cellFrame.widthAnchor.constraint(equalToConstant: 60),
-//            cellFrame.heightAnchor.constraint(equalToConstant: 60),
+            //            cellFrame.widthAnchor.constraint(equalToConstant: 60),
+            //            cellFrame.heightAnchor.constraint(equalToConstant: 60),
             
             activityImage.topAnchor.constraint(equalTo: cellFrame.topAnchor,constant: 5),
             activityImage.centerXAnchor.constraint(equalTo: cellFrame.centerXAnchor),

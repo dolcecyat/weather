@@ -7,7 +7,7 @@
 
 import UIKit
 
-private enum Cons {
+private enum Constants {
     static let options = ["м/с","км/ч","миль/ч","узлы"]
 }
 
@@ -15,7 +15,7 @@ class WindView: UIView {
     
     private var WindLabel =  UILabel()
     private var WindImage = UIImageView()
-    private var segmentPicker = UISegmentedControl(items: Cons.options)
+    private var segmentPicker = UISegmentedControl(items: Constants.options)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -28,7 +28,6 @@ class WindView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
     
     private func addViews() {
         self.addSubview(WindLabel)

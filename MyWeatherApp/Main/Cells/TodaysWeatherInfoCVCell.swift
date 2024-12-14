@@ -46,7 +46,6 @@ class TodaysWeatherInfoCVCell: UICollectionViewCell {
         mainInfoLabel.translatesAutoresizingMaskIntoConstraints = false
         detailInfoLabel.translatesAutoresizingMaskIntoConstraints = false
         
-        
         NSLayoutConstraint.activate([
             cellFrame.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
             cellFrame.topAnchor.constraint(equalTo: contentView.topAnchor,constant: 10),
@@ -56,7 +55,6 @@ class TodaysWeatherInfoCVCell: UICollectionViewCell {
             mainInfoLabel.topAnchor.constraint(equalTo: cellFrame.topAnchor, constant: 15),
             mainInfoLabel.leadingAnchor.constraint(equalTo: cellFrame.leadingAnchor, constant: 20),
             mainInfoLabel.widthAnchor.constraint(equalToConstant: 200),
-            
             
             weatherImage.topAnchor.constraint(equalTo: cellFrame.topAnchor,constant: 10),
             weatherImage.trailingAnchor.constraint(equalTo: cellFrame.trailingAnchor,constant: -10),
