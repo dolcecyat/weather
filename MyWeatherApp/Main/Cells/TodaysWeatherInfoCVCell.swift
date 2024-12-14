@@ -8,9 +8,6 @@
 import Foundation
 import UIKit
 
-private enum Constants {
-}
-
 class TodaysWeatherInfoCVCell: UICollectionViewCell {
     
     static var identifier: String {
@@ -77,11 +74,11 @@ class TodaysWeatherInfoCVCell: UICollectionViewCell {
         
         cellFrame.layer.cornerRadius = 30
         
-        mainInfoLabel.font = .systemFont(ofSize: 18)
+        mainInfoLabel.font = .systemFont(ofSize: 29)
         mainInfoLabel.numberOfLines = 4
         mainInfoLabel.textColor = UIColor(cgColor: MainColors.lighterTextColor)
         
-        detailInfoLabel.font = .systemFont(ofSize: 14)
+        detailInfoLabel.font = .systemFont(ofSize: 21)
         detailInfoLabel.textColor = UIColor(cgColor: MainColors.textColor)
     }
     

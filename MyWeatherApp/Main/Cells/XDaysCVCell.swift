@@ -8,9 +8,6 @@
 import Foundation
 import UIKit
 
-private enum Constants {
-}
-
 class XDaysCVCell: UICollectionViewCell {
     
     static var identifier: String {
@@ -57,7 +54,7 @@ class XDaysCVCell: UICollectionViewCell {
             cellFrame.bottomAnchor.constraint(equalTo: contentView.bottomAnchor,constant: -10),
             cellFrame.topAnchor.constraint(equalTo: contentView.topAnchor),
             cellFrame.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            cellFrame.trailingAnchor.constraint(equalTo: contentView.trailingAnchor,constant: -35),
+            cellFrame.trailingAnchor.constraint(equalTo: contentView.trailingAnchor,constant: -15),
             
             dateLabel.centerYAnchor.constraint(equalTo: cellFrame.centerYAnchor),
             dateLabel.leadingAnchor.constraint(equalTo: cellFrame.leadingAnchor, constant: 10),
@@ -74,7 +71,7 @@ class XDaysCVCell: UICollectionViewCell {
             weatherImage.centerYAnchor.constraint(equalTo: cellFrame.centerYAnchor),
             weatherImage.trailingAnchor.constraint(equalTo: dayTempLabel.leadingAnchor,constant: -14),
             weatherImage.heightAnchor.constraint(equalToConstant: 30),
-            weatherImage.widthAnchor.constraint(equalToConstant: 30),
+            weatherImage.widthAnchor.constraint(equalToConstant: 40),
             
             ])
     }
@@ -104,7 +101,7 @@ class XDaysCVCell: UICollectionViewCell {
     
     func configure(model: MainCellModel) {
         weatherImage.image = model.conditionImage
-        dateLabel.text = "2 декабря"
+        dateLabel.text = model.date
         dayTempLabel.text = "День  \(model.dayTemp ?? "0")"
         nightTempLabel.text = "Ночь \(model.nightTemp ?? "0")"
     }

@@ -6,9 +6,24 @@
 //
 import Foundation
 import UIKit
+
 class DataManager {
     
     func getConditionName(condition: FactCondition) -> String {
+        enum months: String {
+            case one = "января"
+            case two = "февраля"
+            case three = "марта"
+            case four = "апреля"
+            case five = "май"
+            case six = "июня"
+            case seven = "июля"
+            case einght = " августа"
+            case nine = "сентября"
+            case ten = " октября"
+            case eleven = "ноября"
+            case twelve = "декабря"
+        }
         switch condition {
         case .clear: return "Ясно"
         case .partlyCloudy: return "Малооблачно"
@@ -33,7 +48,7 @@ class DataManager {
     }
     
     func getConditionImage(condition: FactCondition) -> UIImage {
-        switch condition{
+        switch condition {
         case .clear: return UIImage(systemName: "sun.horizon")!
         case .partlyCloudy: return UIImage(systemName: "cloud.sun.fill")!
         case .cloudy: return UIImage(systemName: "smoke.fill")!
@@ -54,5 +69,20 @@ class DataManager {
         case .thunderstormWithRain: return UIImage(systemName: "cloud.bolt.rain.fill")!
         case .thunderstormWithHail: return UIImage(systemName: "cloud.bolt.rain.fill")!
         }
+    }
+    
+    func getDate(from dateString: String) -> String {
+        var formattedDate: String = ""
+        let inputFormatter = DateFormatter()
+        inputFormatter.dateFormat = "yyyy-MM-dd"
+        if let date = inputFormatter.date(from: dateString) {
+            let outputFormatter = DateFormatter()
+            outputFormatter.dateFormat = "d MMMM EEEE"
+            outputFormatter.locale = Locale(identifier: "ru_RU")
+             formattedDate = outputFormatter.string(from: date)
+        } else {
+            print("Ошибка в преобразовании даты.")
+        }
+        return formattedDate
     }
 }

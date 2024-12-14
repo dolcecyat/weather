@@ -7,7 +7,7 @@
 
 import UIKit
 
-private enum Constants {
+private enum Const {
     static let options = ["гПа","мм рт. ст","мбар","дюйм рт. ст."]
 }
 
@@ -15,7 +15,7 @@ class PressureView: UIView {
     
     private var pressureLabel = UILabel()
     private var pressureImage = UIImageView()
-    private var segmentPicker = UISegmentedControl(items: Constants.options)
+    private var segmentPicker = UISegmentedControl(items: Const.options)
     
     override init(frame: CGRect) {
         super.init(frame: frame)

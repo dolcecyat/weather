@@ -7,14 +7,14 @@
 
 import UIKit
 
-private enum Constants {
+private enum Con {
     static let options = ["Светлое","Темное","Системное"]
 }
 
 class ModeView: UIView {
     
     private var label =  UILabel()
-    private var segmentPicker = UISegmentedControl(items: Constants.options)
+    private var segmentPicker = UISegmentedControl(items: Con.options)
     
     override init(frame: CGRect) {
         super.init(frame: frame)

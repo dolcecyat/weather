@@ -105,11 +105,12 @@ enum WindDir: String, Codable {
 // MARK: - Forecast
 struct Forecast: Codable {
     let date: String
-    let dateTs, week: Int
+    let dateTs: Int
+    let week: Int
     let sunrise, sunset, riseBegin, setEnd: String
     let moonCode: Int
-    let moonText: String
     let parts: Parts
+    let moonText: String
     let hours: [Hour]
 
 
@@ -121,10 +122,30 @@ struct Forecast: Codable {
         case setEnd = "set_end"
         case moonCode = "moon_code"
         case moonText = "moon_text"
-        case parts, hours
+        case hours, parts
     }
 }
 
+struct Parts: Codable {
+    let day: Day
+    
+    enum CodingKeys: String, CodingKey {
+        case day
+    }
+
+}
+
+struct Day: Codable {
+    let tempMax, tempMin : Int
+    let condition: FactCondition
+    
+    enum CodingKeys: String, CodingKey {
+        
+        case tempMax = "temp_max"
+        case tempMin = "temp_min"
+        case condition
+    }
+}
 // MARK: - Hour
 struct Hour: Codable {
     let hour: String
@@ -150,86 +171,20 @@ enum Icon: String, Codable {
     case skcN = "skc_n"
 }
 
-// MARK: - Parts
-struct Parts: Codable {
-    let day: Day
-    let dayShort, evening, morning, night: Fact
-    let nightShort: Fact
-
-    enum CodingKeys: String, CodingKey {
-        case day
-        case dayShort = "day_short"
-        case evening, morning, night
-        case nightShort = "night_short"
-    }
-}
-
-// MARK: - Day
-struct Day: Codable {
-    let daytime: Daytime
-    let source: String
-    let cloudness: Double
-    let condition: FactCondition
-    let freshSnowMm, humidity: Int
-    let icon: Icon
-    let polar: Bool
-    let precMm: Double
-    let precPeriod, precProb: Int
-    let precStrength: Double
-    let precType, pressureMm, pressurePa, tempAvg: Int
-    let tempMax, tempMin, feelsLike: Int
-    let uvIndex: Int?
-    let windAngle: Int
-    let windDir: WindDir
-    let windGust, windSpeed: Double
-
-    enum CodingKeys: String, CodingKey {
-        case daytime
-        case source = "_source"
-        case cloudness, condition
-        case freshSnowMm = "fresh_snow_mm"
-        case humidity, icon, polar
-        case precMm = "prec_mm"
-        case precPeriod = "prec_period"
-        case precProb = "prec_prob"
-        case precStrength = "prec_strength"
-        case precType = "prec_type"
-        case pressureMm = "pressure_mm"
-        case pressurePa = "pressure_pa"
-        case tempAvg = "temp_avg"
-        case tempMax = "temp_max"
-        case tempMin = "temp_min"
-        case feelsLike = "feels_like"
-        case uvIndex = "uv_index"
-        case windAngle = "wind_angle"
-        case windDir = "wind_dir"
-        case windGust = "wind_gust"
-        case windSpeed = "wind_speed"
-    }
-}
-
 // MARK: - Info
 struct Info: Codable {
     let n: Bool
     let url: String
     let lat, lon: Double
-    let tzinfo: Tzinfo
     let defPressureMm, defPressurePa, zoom: Int
     let nr, ns, nsr, p: Bool
     let f, h: Bool
 
     enum CodingKeys: String, CodingKey {
-        case n, url, lat, lon, tzinfo
+        case n, url, lat, lon
         case defPressureMm = "def_pressure_mm"
         case defPressurePa = "def_pressure_pa"
         case zoom, nr, ns, nsr, p, f
         case h = "_h"
     }
-}
-
-// MARK: - Tzinfo
-struct Tzinfo: Codable {
-    let name, abbr: String
-    let dst: Bool
-    let offset: Int
 }

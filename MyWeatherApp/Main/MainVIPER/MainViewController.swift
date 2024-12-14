@@ -133,10 +133,10 @@ class MainViewController: UIViewController {
             
             bottomCollectionView.topAnchor.constraint(equalTo: summaryView.bottomAnchor, constant: 30),
             bottomCollectionView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 0),
-            bottomCollectionView.heightAnchor.constraint(equalToConstant: 760),
+            bottomCollectionView.heightAnchor.constraint(equalToConstant: 690),
             bottomCollectionView.widthAnchor.constraint(equalToConstant: 393),
             
-            monthButton.topAnchor.constraint(equalTo: bottomCollectionView.bottomAnchor, constant: 15),
+            monthButton.topAnchor.constraint(equalTo: bottomCollectionView.bottomAnchor, constant: 0),
             monthButton.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
             monthButton.heightAnchor.constraint(equalToConstant: 70),
             monthButton.widthAnchor.constraint(equalToConstant: 250),
@@ -246,7 +246,7 @@ extension MainViewController : UICollectionViewDelegate, UICollectionViewDataSou
             if section == 0 {
                 numberOfRows = 5
             } else {
-                numberOfRows = 10}
+                numberOfRows = 7}
         }
         return numberOfRows
         /*    presenter?.getNumberOfItemsInSection() ??*//* 2*/
@@ -259,6 +259,10 @@ extension MainViewController : UICollectionViewDelegate, UICollectionViewDataSou
             switch sec {
             case .TodaysDetailInfo:
                 switch indexPath.item {
+                case 0:
+                    guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FirstWeatherInfoCVCell.identifier, for: indexPath) as? FirstWeatherInfoCVCell, let modelForCell =   presenter?.getTodaysWeatherInfoCVCellInfo(indexPath: indexPath)  else { return UICollectionViewCell() }
+                    cell.configure(model: modelForCell)
+                    cellFor = cell
                 default:
                     guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TodaysWeatherInfoCVCell.identifier, for: indexPath) as? TodaysWeatherInfoCVCell,let modelForCell =   presenter?.getTodaysWeatherInfoCVCellInfo(indexPath: indexPath)  else { return UICollectionViewCell() }
                     cell.configure(model: modelForCell)

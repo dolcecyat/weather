@@ -19,7 +19,6 @@ protocol MainPresenterProtocol: AnyObject {
     func getNumberOfSectionBottomCV() -> Int
     func getNumberOfItemsInSection()-> Int
     func getTodaysHourTempInfoCollectionViewCellInfo(indexPath: IndexPath) -> MainCellModel
-//    func getFirstWeatherInfoCVCellInfo(indexPath: IndexPath) -> MainCellModel
     func getTodaysWeatherInfoCVCellInfo(indexPath: IndexPath) -> MainCellModel
     func getActivityCVCellInfo(indexPath: IndexPath) -> MainCellModel
     func getXDaysCVCellInfo(indexPath: IndexPath) -> MainCellModel

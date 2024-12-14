@@ -50,22 +50,7 @@ extension MainViewController {
             }
         }
     }
-    
-    //    private func createTodaysDetailInfoSection() -> NSCollectionLayoutSection {
-    //        let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
-    //        let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(0.9), heightDimension: .fractionalHeight(0.7)), subitems: [item])
-    //        let section = createLayoutSection(group: group, behavior: .groupPaging, interGroupSpacing: 5)
-    //        section.contentInsets = .init(top: 0, leading: -5, bottom: 0, trailing: 0)
-    //        return section
-    //    }
-    
-    //    private func createHourInfoSection() -> NSCollectionLayoutSection {
-    //        let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(0.2), heightDimension: .fractionalHeight(1)))
-    //        let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.3)), subitems: [item])
-    //        let section = createLayoutSection(group: group, behavior: .continuous, interGroupSpacing: 1)
-    //        section.contentInsets = .init(top: 0, leading: -5, bottom: 0, trailing: 0)
-    //        return section
-    //    }
+  
     //     MARK: Second Layout
     
     func createSecondLayout() -> UICollectionViewCompositionalLayout {
@@ -76,7 +61,7 @@ extension MainViewController {
             case .ActivityInfo:
                 let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(0.25), heightDimension: .fractionalHeight(1)))
                 
-                let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.1)), subitems: [item])
+                let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.12)), subitems: [item])
                 
                 let section = self.createLayoutSection(group: group, behavior: .continuous, interGroupSpacing: 5)
                 section.contentInsets = .init(top: 0, leading: 3, bottom: 10, trailing: 20)
@@ -84,10 +69,10 @@ extension MainViewController {
                 return section
                 
             case .XDayInfo:
-                let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.1)))
-                let group = NSCollectionLayoutGroup.vertical(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.9)), subitems: [item])
-                let section = self.createLayoutSection(group: group, behavior: .groupPaging, interGroupSpacing: 10)
-                section.contentInsets = .init(top: 0, leading: 15, bottom: 0, trailing: 10)
+                let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.14)))
+                let group = NSCollectionLayoutGroup.vertical(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.82)), subitems: [item])
+                let section = self.createLayoutSection(group: group, behavior: .none, interGroupSpacing: 10)
+                section.contentInsets = .init(top: 10, leading: 15, bottom: 0, trailing: 0)
                 return section
             case .none:
                 return nil

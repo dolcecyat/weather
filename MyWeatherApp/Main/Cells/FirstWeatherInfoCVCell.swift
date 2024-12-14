@@ -70,7 +70,7 @@ class FirstWeatherInfoCVCell: UICollectionViewCell {
             
             mainInfoLabel.topAnchor.constraint(equalTo: temperatureLabel.bottomAnchor, constant: 10),
             mainInfoLabel.leadingAnchor.constraint(equalTo: cellFrame.leadingAnchor,constant: 20),
-            mainInfoLabel.widthAnchor.constraint(equalToConstant: 250)
+            mainInfoLabel.widthAnchor.constraint(equalToConstant: 280)
         ])
     }
     
@@ -82,14 +82,14 @@ class FirstWeatherInfoCVCell: UICollectionViewCell {
         cellFrame.layer.borderColor = MainColors.lighterBackgroundColor
         cellFrame.layer.borderWidth = 2.0
         
-        feelLabel.font = .systemFont(ofSize: 15)
+        feelLabel.font = .systemFont(ofSize: 17)
         feelLabel.textColor = UIColor(cgColor: MainColors.textColor)
         
-        temperatureLabel.font = .systemFont(ofSize: 40)
+        temperatureLabel.font = .systemFont(ofSize: 45)
         temperatureLabel.textColor = UIColor(cgColor: MainColors.lighterTextColor)
         temperatureLabel.text = "0"
         
-        mainInfoLabel.font = .systemFont(ofSize: 20)
+        mainInfoLabel.font = .systemFont(ofSize: 23)
         mainInfoLabel.textColor = UIColor(cgColor: MainColors.lighterTextColor)
         mainInfoLabel.numberOfLines = 4
     }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-private enum Constants {
+private enum Consta {
     static let options = ["°C","°F"]
 }
 
@@ -15,7 +15,7 @@ class ParametersView: UIView {
     
     private var temperatureLabel =  UILabel()
     private var temperatureImage = UIImageView()
-    private var segmentPicker = UISegmentedControl(items: Constants.options)
+    private var segmentPicker = UISegmentedControl(items: Consta.options)
     
     override init(frame: CGRect) {
         super.init(frame: frame)

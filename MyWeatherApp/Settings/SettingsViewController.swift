@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-private enum Constants{
+private enum Constants {
     static let navigationBarTitle = "Настройки"
 }
 
