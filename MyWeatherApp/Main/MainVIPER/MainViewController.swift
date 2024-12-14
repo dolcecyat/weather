@@ -238,18 +238,23 @@ extension MainViewController : UICollectionViewDelegate, UICollectionViewDataSou
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         var numberOfRows: Int = 0
         if collectionView == topCollectionView {
-            if section == 0 {
-                numberOfRows = 6
-            } else {
-                numberOfRows = 24}
+            let sec = SectionsData.MainFirstCollectionView.allCases.first (where: { $0.sectionNumber == section })
+            switch sec {
+            case .TodaysDetailInfo:
+                numberOfRows = presenter?.getNumberOfItemsInSection(collectionView: "Top", section: 0) ?? 1
+            default :
+                numberOfRows = presenter?.getNumberOfItemsInSection(collectionView: "Top", section: 1) ?? 1
+            }
         } else if collectionView == bottomCollectionView {
-            if section == 0 {
-                numberOfRows = 5
-            } else {
-                numberOfRows = 7}
+            let sec = SectionsData.MainSecondCollectionView.allCases.first (where: { $0.sectionNumber == section })
+            switch sec {
+            case .ActivityInfo:
+                numberOfRows = presenter?.getNumberOfItemsInSection(collectionView: "Bottom", section: 0) ?? 1
+            default :
+                numberOfRows = presenter?.getNumberOfItemsInSection(collectionView: "Bottom", section: 1) ?? 1
+            }
         }
         return numberOfRows
-        /*    presenter?.getNumberOfItemsInSection() ??*//* 2*/
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

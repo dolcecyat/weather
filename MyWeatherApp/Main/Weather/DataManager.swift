@@ -10,20 +10,7 @@ import UIKit
 class DataManager {
     
     func getConditionName(condition: FactCondition) -> String {
-        enum months: String {
-            case one = "января"
-            case two = "февраля"
-            case three = "марта"
-            case four = "апреля"
-            case five = "май"
-            case six = "июня"
-            case seven = "июля"
-            case einght = " августа"
-            case nine = "сентября"
-            case ten = " октября"
-            case eleven = "ноября"
-            case twelve = "декабря"
-        }
+        
         switch condition {
         case .clear: return "Ясно"
         case .partlyCloudy: return "Малооблачно"
