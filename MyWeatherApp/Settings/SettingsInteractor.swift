@@ -20,6 +20,7 @@ class SettingsInteractor: SettingsInteractorProtocol {
     
     func didChangeSettings(value: String, key: SettingsData.Keys){
         udStrorage.saveSettings(value: value, key: key)
+        print("try save 2")
     }
     func getCurrentSettings(for key: SettingsData.Keys) -> String {
         return udStrorage.getSettings(key: key) ?? "Error"

@@ -7,13 +7,19 @@
 
 import Foundation
 
+protocol SettingsChangeDelegate: AnyObject {
+    func didChangeSettings(value: String,key: SettingsData.Keys)
+    func getCurrentSettings(for key: SettingsData.Keys) -> String
+}
+
 protocol SettingsPresenterProtocol: AnyObject {
     var view: SettingsViewProtocol? { get set }
     var router: SettingsRouterProtocol? { get set}
     var interactor: SettingsInteractorProtocol? { get set }
 }
 
-class SettingsPresenter: SettingsPresenterProtocol, SettingsDelegate {
+class SettingsPresenter: SettingsPresenterProtocol, SettingsChangeDelegate {
+    
     weak var view: SettingsViewProtocol?
     var router: SettingsRouterProtocol?
     var interactor: SettingsInteractorProtocol?
@@ -23,12 +29,13 @@ class SettingsPresenter: SettingsPresenterProtocol, SettingsDelegate {
         self.interactor = interactor
     }
     
-    func didChangeSettings(value: String, key: SettingsData.Keys){
+    func didChangeSettings(value: String, key: SettingsData.Keys) {
         interactor?.didChangeSettings(value: value, key: key)
+        print("try save")
     }
     
     func getCurrentSettings(for key: SettingsData.Keys) -> String {
-        return interactor?.getCurrentSettings(for: key) ?? "0"
+        return interactor?.getCurrentSettings(for: key) ?? "1"
     }
 }
 //extension SettingsPresenter: SettingsDelegate {

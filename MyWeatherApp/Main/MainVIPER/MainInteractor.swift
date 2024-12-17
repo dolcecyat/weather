@@ -37,7 +37,6 @@ class MainInteractor: NSObject, MainInteractorProtocol {
     var currentWeather: WeatherData?
     
     weak var presenter: MainPresenterProtocol?
-//    var delegate: WeatherManagerDelegate?
     
     override init() {
         super.init()

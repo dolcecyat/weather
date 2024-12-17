@@ -13,7 +13,7 @@ private enum Constants {
 
 class TempView: UIView {
     
-    weak var delegate: SettingsDelegate?
+    var delegate: SettingsChangeDelegate?
     private var temperatureLabel =  UILabel()
     private var temperatureImage = UIImageView()
     private var segmentPicker = UISegmentedControl(items: Constants.options)
@@ -66,7 +66,7 @@ class TempView: UIView {
         temperatureLabel.font = UIFont.systemFont(ofSize: 19)
         temperatureLabel.textColor = SettingsColors.textColor
         
-        segmentPicker.selectedSegmentIndex = getCurrentSetting()
+        segmentPicker.selectedSegmentIndex = 1/*getCurrentSetting()*/
         segmentPicker.backgroundColor = .clear
         segmentPicker.layer.borderWidth = 1
         segmentPicker.layer.borderColor = SettingsColors.evenLighterBackgroundColor.cgColor
@@ -74,8 +74,8 @@ class TempView: UIView {
     
     private func setActions() {
         segmentPicker.addTarget(self,action: #selector(selectTemp),for: .valueChanged)
-        
     }
+    
     @objc private func selectTemp() {
         switch segmentPicker.selectedSegmentIndex {
         case 0:

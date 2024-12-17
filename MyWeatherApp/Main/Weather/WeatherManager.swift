@@ -28,7 +28,7 @@ class WeatherManager {
         var request = URLRequest(url: url)
         request.allHTTPHeaderFields = ["X-Yandex-API-Key" : apiKey]
         print(url)
-        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+        let task = URLSession.shared.dataTask(with: request) { [weak self] (data, response, error) in
             if let error = error {
                 print("Ошибка запроса: \(error.localizedDescription)")
                 return
@@ -39,7 +39,7 @@ class WeatherManager {
             }
             do {
                 let weatherData = try JSONDecoder().decode(WeatherData.self, from: data)
-                self.delegate?.didUpdateWeather(self, weather: weatherData)
+                self?.delegate?.didUpdateWeather(self ?? WeatherManager(), weather: weatherData)
                 print(weatherData)
           
             } catch {

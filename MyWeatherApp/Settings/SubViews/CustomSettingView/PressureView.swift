@@ -6,10 +6,6 @@
 //
 
 import UIKit
-protocol SettingsDelegate: AnyObject {
-    func didChangeSettings(value: String,key: SettingsData.Keys)
-    func getCurrentSettings(for key: SettingsData.Keys) -> String
-}
 
 private enum Constants {
     static let options = ["гПа","мм рт. ст","мбар","дюйм рт. ст."]
@@ -17,7 +13,7 @@ private enum Constants {
 
 class PressureView: UIView {
     
-    weak var delegate: SettingsDelegate?
+    weak var delegate: SettingsChangeDelegate?
     
     private var pressureLabel = UILabel()
     private var pressureImage = UIImageView()

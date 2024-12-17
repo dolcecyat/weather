@@ -8,6 +8,7 @@
 import Foundation
 
 struct SettingsData {
+    
     enum tempGrade: String {
         case сelsius = "°C"
         case Fahrenheit = "°F"

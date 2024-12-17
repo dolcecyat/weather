@@ -19,6 +19,7 @@ class UDStrorage {
     
     func saveSettings (value: String, key: SettingsData.Keys) {
         ud.set(value, forKey: key.rawValue)
+        print("saved")
     }
     
     func getSettings (key: SettingsData.Keys) -> String? {
