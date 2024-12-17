@@ -37,7 +37,7 @@ class MainInteractor: NSObject, MainInteractorProtocol {
     var currentWeather: WeatherData?
     
     weak var presenter: MainPresenterProtocol?
-    var delegate: WeatherManagerDelegate?
+//    var delegate: WeatherManagerDelegate?
     
     override init() {
         super.init()
@@ -115,7 +115,7 @@ class MainInteractor: NSObject, MainInteractorProtocol {
                 model.conditionImage = UIImage(systemName: "cloud.fill")
                 return model
             case .none:
-                "----"
+                 print("error")
             }
         }
         return model

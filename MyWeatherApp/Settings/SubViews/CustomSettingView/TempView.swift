@@ -1,18 +1,19 @@
 //
-//  parametersView.swift
+//  TempView.swift
 //  MyWeatherApp
 //
-//  Created by Алина Класс on 09.12.2024.
+//  Created by Алина Класс on 17.12.2024.
 //
 
 import UIKit
 
 private enum Constants {
-    static let options = ["°C","°F"]
+    static let options = [SettingsData.tempGrade.сelsius.rawValue,SettingsData.tempGrade.Fahrenheit.rawValue]
 }
 
-class ParametersView: UIView {
+class TempView: UIView {
     
+    weak var delegate: SettingsDelegate?
     private var temperatureLabel =  UILabel()
     private var temperatureImage = UIImageView()
     private var segmentPicker = UISegmentedControl(items: Constants.options)
@@ -65,26 +66,32 @@ class ParametersView: UIView {
         temperatureLabel.font = UIFont.systemFont(ofSize: 19)
         temperatureLabel.textColor = SettingsColors.textColor
         
-#warning ("почему то не меняется цвет ширина и края")
-        segmentPicker.selectedSegmentIndex = 0
+        segmentPicker.selectedSegmentIndex = getCurrentSetting()
         segmentPicker.backgroundColor = .clear
-        segmentPicker.layer.cornerRadius = 30
         segmentPicker.layer.borderWidth = 1
         segmentPicker.layer.borderColor = SettingsColors.evenLighterBackgroundColor.cgColor
     }
     
     private func setActions() {
         segmentPicker.addTarget(self,action: #selector(selectTemp),for: .valueChanged)
+        
     }
- 
     @objc private func selectTemp() {
         switch segmentPicker.selectedSegmentIndex {
         case 0:
-            print("°C")
+            delegate?.didChangeSettings(value: SettingsData.tempGrade.сelsius.rawValue, key: SettingsData.Keys.tempSettrings)
         case 1:
-            print("°F")
+            delegate?.didChangeSettings(value: SettingsData.tempGrade.Fahrenheit.rawValue, key: SettingsData.Keys.tempSettrings)
         default:
             print("°C")
+        }
+    }
+    private func getCurrentSetting() -> Int {
+        guard let currentSetting = delegate?.getCurrentSettings(for:  SettingsData.Keys.tempSettrings) else { return 0 }
+        if currentSetting == SettingsData.tempGrade.сelsius.rawValue {
+            return 0
+        } else {
+            return 1
         }
     }
 }
@@ -94,3 +101,4 @@ extension UIView {
         view.layer.cornerRadius = 20
     }
 }
+

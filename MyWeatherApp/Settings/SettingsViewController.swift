@@ -21,7 +21,7 @@ class SettingsViewController: UIViewController {
     
     // MARK: UI properties
     private var scrollView = UIScrollView()
-    private var tempView = ParametersView()
+    private var tempView = TempView()
     private var windView = WindView()
     private var pressureView = PressureView()
     private var modeView = ModeView()
@@ -115,3 +115,4 @@ class SettingsViewController: UIViewController {
 extension SettingsViewController: SettingsViewProtocol {
     
 }
+

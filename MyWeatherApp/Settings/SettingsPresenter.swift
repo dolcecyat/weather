@@ -13,7 +13,7 @@ protocol SettingsPresenterProtocol: AnyObject {
     var interactor: SettingsInteractorProtocol? { get set }
 }
 
-class SettingsPresenter: SettingsPresenterProtocol{
+class SettingsPresenter: SettingsPresenterProtocol, SettingsDelegate {
     weak var view: SettingsViewProtocol?
     var router: SettingsRouterProtocol?
     var interactor: SettingsInteractorProtocol?
@@ -22,5 +22,23 @@ class SettingsPresenter: SettingsPresenterProtocol{
         self.router = router
         self.interactor = interactor
     }
+    
+    func didChangeSettings(value: String, key: SettingsData.Keys){
+        interactor?.didChangeSettings(value: value, key: key)
+    }
+    
+    func getCurrentSettings(for key: SettingsData.Keys) -> String {
+        return interactor?.getCurrentSettings(for: key) ?? "0"
+    }
 }
+//extension SettingsPresenter: SettingsDelegate {
+//    // возможно можно сделать отдельный менеджер
+//    func didChangeSettings(value: String, key: SettingsData.Keys){
+//        interactor?.didChangeSettings(value: value, key: key)
+//    }
+//    
+//    func getCurrentSettings(for key: SettingsData.Keys) -> String {
+//        return interactor?.getCurrentSettings(for: key) ?? "0"
+//    }
+//}
 

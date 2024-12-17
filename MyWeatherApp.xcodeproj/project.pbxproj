@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		4108B51A2D070CAD0075F9DD /* SettingsColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4108B5192D070CAD0075F9DD /* SettingsColors.swift */; };
 		4120E0E32D0B06DA00E8BF35 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4120E0E22D0B06D900E8BF35 /* DataManager.swift */; };
+		4120E0FB2D11B9D400E8BF35 /* SettingsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4120E0FA2D11B9D400E8BF35 /* SettingsData.swift */; };
+		4120E1082D11CD7800E8BF35 /* UDStrorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4120E1072D11CD7800E8BF35 /* UDStrorage.swift */; };
 		ED86FDA82CF8857F00FB9882 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED86FDA72CF8857F00FB9882 /* AppDelegate.swift */; };
 		ED86FDAA2CF8857F00FB9882 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED86FDA92CF8857F00FB9882 /* SceneDelegate.swift */; };
 		ED86FDB12CF8858000FB9882 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED86FDB02CF8858000FB9882 /* Assets.xcassets */; };
@@ -40,6 +42,8 @@
 /* Begin PBXFileReference section */
 		4108B5192D070CAD0075F9DD /* SettingsColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsColors.swift; sourceTree = "<group>"; };
 		4120E0E22D0B06D900E8BF35 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		4120E0FA2D11B9D400E8BF35 /* SettingsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsData.swift; sourceTree = "<group>"; };
+		4120E1072D11CD7800E8BF35 /* UDStrorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UDStrorage.swift; sourceTree = "<group>"; };
 		ED86FDA42CF8857F00FB9882 /* MyWeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyWeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED86FDA72CF8857F00FB9882 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ED86FDA92CF8857F00FB9882 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -134,8 +138,8 @@
 				ED86FDDD2CFA002100FB9882 /* Cells */,
 				ED86FDF12D0081E500FB9882 /* Layout */,
 				ED86FDD62CF9C7C100FB9882 /* Weather */,
-				ED86FDD12CF9BF1400FB9882 /* SubViews */,
 				4108B5182D070C7A0075F9DD /* MainVIPER */,
+				ED86FDD12CF9BF1400FB9882 /* SubViews */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -143,13 +147,15 @@
 		ED86FDC42CF8982B00FB9882 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				4108B5272D0864CD0075F9DD /* SubViews */,
 				4108B5192D070CAD0075F9DD /* SettingsColors.swift */,
 				ED86FDC72CF8986000FB9882 /* SettingsPresenter.swift */,
 				ED86FDC92CF8986B00FB9882 /* SettingsRouter.swift */,
 				ED86FDCB2CF8988500FB9882 /* SettingsInteractor.swift */,
 				ED86FDCD2CF8989500FB9882 /* SettingsModuleBuilder.swift */,
 				ED86FDC52CF8984500FB9882 /* SettingsViewController.swift */,
+				4108B5272D0864CD0075F9DD /* SubViews */,
+				4120E0FA2D11B9D400E8BF35 /* SettingsData.swift */,
+				4120E1072D11CD7800E8BF35 /* UDStrorage.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -271,11 +277,13 @@
 				ED86FDD82CF9C7E800FB9882 /* WeatherData.swift in Sources */,
 				ED86FDF02CFF39EB00FB9882 /* MainLayout.swift in Sources */,
 				ED86FDA82CF8857F00FB9882 /* AppDelegate.swift in Sources */,
+				4120E0FB2D11B9D400E8BF35 /* SettingsData.swift in Sources */,
 				ED86FDE72CFDE4B400FB9882 /* SectionsData.swift in Sources */,
 				ED86FDF52D00CC7D00FB9882 /* SummaryView.swift in Sources */,
 				ED86FDF72D00CD9800FB9882 /* MainColors.swift in Sources */,
 				ED86FDC32CF88B0800FB9882 /* MainModuleBuilder.swift in Sources */,
 				ED86FDD32CF9C71F00FB9882 /* WeatherManager.swift in Sources */,
+				4120E1082D11CD7800E8BF35 /* UDStrorage.swift in Sources */,
 				ED86FDDF2CFA003400FB9882 /* TodaysWeatherInfoCVCell.swift in Sources */,
 				ED86FDCE2CF8989500FB9882 /* SettingsModuleBuilder.swift in Sources */,
 				4120E0E32D0B06DA00E8BF35 /* DataManager.swift in Sources */,
