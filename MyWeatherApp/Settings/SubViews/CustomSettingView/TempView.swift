@@ -12,8 +12,7 @@ private enum Constants {
 }
 
 class TempView: UIView {
-    
-    var delegate: SettingsChangeDelegate?
+    let manager = ChangingSettingsManager()
     private var temperatureLabel =  UILabel()
     private var temperatureImage = UIImageView()
     private var segmentPicker = UISegmentedControl(items: Constants.options)
@@ -66,7 +65,7 @@ class TempView: UIView {
         temperatureLabel.font = UIFont.systemFont(ofSize: 19)
         temperatureLabel.textColor = SettingsColors.textColor
         
-        segmentPicker.selectedSegmentIndex = 1/*getCurrentSetting()*/
+        segmentPicker.selectedSegmentIndex = getCurrentSetting()
         segmentPicker.backgroundColor = .clear
         segmentPicker.layer.borderWidth = 1
         segmentPicker.layer.borderColor = SettingsColors.evenLighterBackgroundColor.cgColor
@@ -79,15 +78,15 @@ class TempView: UIView {
     @objc private func selectTemp() {
         switch segmentPicker.selectedSegmentIndex {
         case 0:
-            delegate?.didChangeSettings(value: SettingsData.tempGrade.сelsius.rawValue, key: SettingsData.Keys.tempSettrings)
+            manager.didChangeSettings(value: SettingsData.tempGrade.сelsius.rawValue, key: SettingsData.Keys.tempSettrings)
         case 1:
-            delegate?.didChangeSettings(value: SettingsData.tempGrade.Fahrenheit.rawValue, key: SettingsData.Keys.tempSettrings)
+            manager.didChangeSettings(value: SettingsData.tempGrade.Fahrenheit.rawValue, key: SettingsData.Keys.tempSettrings)
         default:
             print("°C")
         }
     }
     private func getCurrentSetting() -> Int {
-        guard let currentSetting = delegate?.getCurrentSettings(for:  SettingsData.Keys.tempSettrings) else { return 0 }
+        let currentSetting = manager.getCurrentSettings(for: SettingsData.Keys.tempSettrings)
         if currentSetting == SettingsData.tempGrade.сelsius.rawValue {
             return 0
         } else {

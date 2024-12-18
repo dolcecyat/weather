@@ -91,5 +91,20 @@ class WindView: UIView {
             print("0")
         }
     }
+    private func getCurrentSetting() -> Int {
+        let currentSetting = manager.getCurrentSettings(for: SettingsData.Keys.windSettrings)
+        switch currentSetting {
+        case SettingsData.windGrade.ms.rawValue:
+            return 0
+        case SettingsData.windGrade.kmh.rawValue:
+            return 1
+        case SettingsData.windGrade.milesh.rawValue:
+            return 2
+        case SettingsData.windGrade.knots.rawValue:
+            return 3
+        default:
+           return 0
+        }
+    }
 }
 

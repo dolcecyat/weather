@@ -7,32 +7,48 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "142AC38C-6EB8-4B5C-AB99-A8E95868E3B7"
+            uuid = "D9FA6962-3E11-47B5-AAC3-78B849A85688"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MyWeatherApp/Settings/SubViews/CustomSettingView/TempView.swift"
+            filePath = "MyWeatherApp/Settings/ChangingSettingsManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "90"
-            endingLineNumber = "90"
-            landmarkName = "getCurrentSetting()"
+            startingLineNumber = "14"
+            endingLineNumber = "14"
+            landmarkName = "didChangeSettings(value:key:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "149E207F-F2A1-497F-8E8A-CC8F2EDD6DA3"
+            uuid = "7701B049-C866-4B86-93AC-B4D510E319DE"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MyWeatherApp/Settings/SubViews/CustomSettingView/TempView.swift"
+            filePath = "MyWeatherApp/Settings/ChangingSettingsManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "82"
-            endingLineNumber = "82"
-            landmarkName = "selectTemp()"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "didChangeSettings(value:key:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E7A40334-A7F1-4185-85E4-3C7B42E522B7"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyWeatherApp/Settings/SettingsPresenter.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "init(router:interactor:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -9,13 +9,8 @@ import Foundation
 
 class UDStrorage {
     let ud = UserDefaults.standard
-//    
-//    enum Keys: String {
-//        case tempSettrings = "temp"
-//        case pressureSettrings = "pressure"
-//        case windSettrings = "wind"
-//        case styleSettrings = "style"
-//    }
+    
+    static let shared = UDStrorage()
     
     func saveSettings (value: String, key: SettingsData.Keys) {
         ud.set(value, forKey: key.rawValue)

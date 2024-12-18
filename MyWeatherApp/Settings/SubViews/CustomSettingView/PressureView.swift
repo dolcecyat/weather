@@ -12,9 +12,8 @@ private enum Constants {
 }
 
 class PressureView: UIView {
-    
-    weak var delegate: SettingsChangeDelegate?
-    
+    let manager = ChangingSettingsManager()
+
     private var pressureLabel = UILabel()
     private var pressureImage = UIImageView()
     private var segmentPicker = UISegmentedControl(items: Constants.options)
@@ -69,7 +68,7 @@ class PressureView: UIView {
         pressureLabel.textColor = SettingsColors.textColor
         
 #warning ("почему то не меняется цвет ширина и края")
-        segmentPicker.selectedSegmentIndex = 0
+        segmentPicker.selectedSegmentIndex = getCurrentSetting()
         segmentPicker.backgroundColor = .clear
         segmentPicker.layer.cornerRadius = 30
         segmentPicker.layer.borderWidth = 1
@@ -83,15 +82,31 @@ class PressureView: UIView {
     @objc private func selectPressure() {
         switch segmentPicker.selectedSegmentIndex {
         case 0:
-            print("0")
+            manager.didChangeSettings(value: SettingsData.pressureGrade.gPa.rawValue, key: SettingsData.Keys.pressureSettrings)
         case 1:
-            print("1")
+            manager.didChangeSettings(value: SettingsData.pressureGrade.mmRtSt.rawValue, key: SettingsData.Keys.pressureSettrings)
         case 2:
-            print("2")
+            manager.didChangeSettings(value: SettingsData.pressureGrade.mBar.rawValue, key: SettingsData.Keys.pressureSettrings)
         case 3:
-            print("3")
+            manager.didChangeSettings(value: SettingsData.pressureGrade.dRtSt.rawValue, key: SettingsData.Keys.pressureSettrings)
         default:
             print("°C")
+        }
+    }
+    
+    private func getCurrentSetting() -> Int {
+        let currentSetting = manager.getCurrentSettings(for: SettingsData.Keys.pressureSettrings)
+        switch currentSetting {
+        case SettingsData.pressureGrade.gPa.rawValue:
+            return 0
+        case SettingsData.pressureGrade.mmRtSt.rawValue:
+            return 1
+        case SettingsData.pressureGrade.mBar.rawValue:
+            return 2
+        case SettingsData.pressureGrade.dRtSt.rawValue:
+            return 3
+        default:
+           return 0
         }
     }
 }
