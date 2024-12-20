@@ -10,8 +10,8 @@ import Foundation
 struct SettingsData {
     
     enum tempGrade: String {
-        case сelsius = "°C"
-        case Fahrenheit = "°F"
+        case celsius = "°C"
+        case fahrenheit = "°F"
     }
     
     enum windGrade: String {

@@ -12,7 +12,7 @@ private enum Constants {
 }
 
 class ModeView: UIView {
-    
+    let manager = ChangingSettingsManager()
     private var label =  UILabel()
     private var segmentPicker = UISegmentedControl(items: Constants.options)
     
@@ -70,14 +70,27 @@ class ModeView: UIView {
     @objc private func selectMode() {
         switch segmentPicker.selectedSegmentIndex {
         case 0:
-            print("0")
+            manager.didChangeSettings(value: SettingsData.styleGrade.light.rawValue, key: SettingsData.Keys.styleSettrings)
         case 1:
-            print("1")
+            manager.didChangeSettings(value: SettingsData.styleGrade.dark.rawValue, key: SettingsData.Keys.styleSettrings)
         case 2:
-            print("2")
+            manager.didChangeSettings(value: SettingsData.styleGrade.system.rawValue, key: SettingsData.Keys.styleSettrings)
         default:
             print("0")
         }
     }
+    
+    private func getCurrentSetting() -> Int {
+        let currentSetting = manager.getCurrentSettings(for: SettingsData.Keys.styleSettrings)
+        switch currentSetting {
+        case SettingsData.styleGrade.light.rawValue:
+            return 0
+        case SettingsData.styleGrade.dark.rawValue:
+            return 1
+        case SettingsData.styleGrade.system.rawValue:
+            return 2
+        default:
+           return 0
+        }
+    }
 }
-

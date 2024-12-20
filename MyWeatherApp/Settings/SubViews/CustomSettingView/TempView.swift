@@ -8,7 +8,7 @@
 import UIKit
 
 private enum Constants {
-    static let options = [SettingsData.tempGrade.сelsius.rawValue,SettingsData.tempGrade.Fahrenheit.rawValue]
+    static let options = [SettingsData.tempGrade.celsius.rawValue,SettingsData.tempGrade.fahrenheit.rawValue]
 }
 
 class TempView: UIView {
@@ -78,26 +78,19 @@ class TempView: UIView {
     @objc private func selectTemp() {
         switch segmentPicker.selectedSegmentIndex {
         case 0:
-            manager.didChangeSettings(value: SettingsData.tempGrade.сelsius.rawValue, key: SettingsData.Keys.tempSettrings)
+            manager.didChangeSettings(value: SettingsData.tempGrade.celsius.rawValue, key: SettingsData.Keys.tempSettrings)
         case 1:
-            manager.didChangeSettings(value: SettingsData.tempGrade.Fahrenheit.rawValue, key: SettingsData.Keys.tempSettrings)
+            manager.didChangeSettings(value: SettingsData.tempGrade.fahrenheit.rawValue, key: SettingsData.Keys.tempSettrings)
         default:
             print("°C")
         }
     }
     private func getCurrentSetting() -> Int {
         let currentSetting = manager.getCurrentSettings(for: SettingsData.Keys.tempSettrings)
-        if currentSetting == SettingsData.tempGrade.сelsius.rawValue {
+        if currentSetting == SettingsData.tempGrade.celsius.rawValue {
             return 0
         } else {
             return 1
         }
     }
 }
-
-extension UIView {
-    func roundCorners(view : UIView) {
-        view.layer.cornerRadius = 20
-    }
-}
-

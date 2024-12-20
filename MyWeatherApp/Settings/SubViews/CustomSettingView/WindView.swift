@@ -12,7 +12,8 @@ private enum Constants {
 }
 
 class WindView: UIView {
-    
+    let manager = ChangingSettingsManager()
+
     private var WindLabel =  UILabel()
     private var WindImage = UIImageView()
     private var segmentPicker = UISegmentedControl(items: Constants.options)
@@ -66,7 +67,7 @@ class WindView: UIView {
         WindLabel.textColor = SettingsColors.textColor
         
 #warning ("почему то не меняется цвет ширина и края")
-        segmentPicker.selectedSegmentIndex = 0
+        segmentPicker.selectedSegmentIndex = getCurrentSetting()
         segmentPicker.backgroundColor = .clear
         segmentPicker.layer.cornerRadius = 30
         segmentPicker.layer.borderWidth = 1
@@ -80,13 +81,13 @@ class WindView: UIView {
     @objc private func selectPressure() {
         switch segmentPicker.selectedSegmentIndex {
         case 0:
-            print("0")
+            manager.didChangeSettings(value: SettingsData.windGrade.ms.rawValue, key: SettingsData.Keys.windSettrings)
         case 1:
-            print("1")
+            manager.didChangeSettings(value: SettingsData.windGrade.kmh.rawValue, key: SettingsData.Keys.windSettrings)
         case 2:
-            print("2")
+            manager.didChangeSettings(value: SettingsData.windGrade.milesh.rawValue, key: SettingsData.Keys.windSettrings)
         case 3:
-            print("3")
+            manager.didChangeSettings(value: SettingsData.windGrade.knots.rawValue, key: SettingsData.Keys.windSettrings)
         default:
             print("0")
         }

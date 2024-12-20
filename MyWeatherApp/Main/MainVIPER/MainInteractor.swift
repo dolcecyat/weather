@@ -29,6 +29,7 @@ protocol MainInteractorProtocol: AnyObject {
 
 class MainInteractor: NSObject, MainInteractorProtocol {
     
+    let settingsManager = ChangingSettingsManager()
     var model = MainCellModel()
     var sectionsData = SectionsData()
     let locationManager = CLLocationManager()
@@ -81,15 +82,15 @@ class MainInteractor: NSObject, MainInteractorProtocol {
             switch sec {
             case .mainInfo:
                 model = Constants.emptyModel
-                model.mainTemp = currentWeather.fact.temp?.description
-                model.mainInfo = "\(dataManager.getConditionName(condition: currentWeather.fact.condition))"
-                model.detailInfo = "Ощущается как \(currentWeather.fact.feelsLike.description)"
+                model.mainTemp = "\(getCtoFTemp(temp: currentWeather.fact.temp).description)°"
+                model.mainInfo = dataManager.getConditionName(condition: currentWeather.fact.condition)
+                model.detailInfo = "Ощущается как \(currentWeather.fact.feelsLike.description)°"
                 model.conditionImage = dataManager.getConditionImage(condition: currentWeather.fact.condition)
                 return model
             case .wind:
                 model = Constants.emptyModel
-                model.mainInfo = "Ветер \(currentWeather.fact.windSpeed) м/с"
-                model.detailInfo = "Порывы до \(currentWeather.fact.windGust) м/с"
+                model.mainInfo = "Ветер \(getWindNumber(number: currentWeather.fact.windSpeed)) \(getSetting(key: SettingsData.Keys.windSettrings))"
+                model.detailInfo = "Порывы до \(getWindNumber(number: currentWeather.fact.windGust)) \(getSetting(key: SettingsData.Keys.windSettrings))"
                 model.conditionImage = UIImage(systemName: "arrow.2.circlepath")
                 return model
             case .pressure:
@@ -124,7 +125,7 @@ class MainInteractor: NSObject, MainInteractorProtocol {
         model = Constants.emptyModel
         model.conditionImage = UIImage(systemName: "cloud.fill")
         model.time = sectionsData.hours[indexPath.row]
-        model.mainTemp = "\(currentWeather?.forecasts[0].hours[indexPath.row].temp.description ?? "0")°"
+        model.mainTemp = "\(getCtoFTemp(temp:currentWeather?.forecasts[0].hours[indexPath.row].temp).description)°"
         return model
     }
     
@@ -140,12 +141,39 @@ class MainInteractor: NSObject, MainInteractorProtocol {
     func getXDaysCVCellInfo(indexPath: IndexPath) -> MainCellModel {
         if let currentWeather {
             model = Constants.emptyModel
-            model.dayTemp = currentWeather.forecasts[indexPath.row].parts.day.tempMax.description
+            model.dayTemp = "\( getCtoFTemp(temp:currentWeather.forecasts[indexPath.row].parts.day.tempMax).description)°"
             model.conditionImage = dataManager.getConditionImage(condition: currentWeather.forecasts[indexPath.row].parts.day.condition)
-            model.nightTemp = currentWeather.forecasts[indexPath.row].parts.day.tempMin.description
+            model.nightTemp = "\( getCtoFTemp(temp:currentWeather.forecasts[indexPath.row].parts.day.tempMin).description)°"
             model.date = dataManager.getDate(from: currentWeather.forecasts[indexPath.row].date)
         }
         return model
+    }
+    
+    private func getSetting(key: SettingsData.Keys) -> String {
+        settingsManager.ud.getSettings(key: key) ?? "0"
+    }
+    
+    private func getWindNumber(number: Double?) -> Double {
+        guard let number else { return 0 }
+        let currennWindSet = settingsManager.getCurrentSettings(for: SettingsData.Keys.windSettrings)
+        if currennWindSet == SettingsData.windGrade.kmh.rawValue {
+            return number.msToKmh(ms: number)
+        } else if currennWindSet == SettingsData.windGrade.milesh.rawValue {
+            return number.msToMph(ms: number)
+        } else if currennWindSet == SettingsData.windGrade.knots.rawValue {
+            return number.msToknots(ms: number)
+        } else {
+            return number
+        }
+    }
+    private func getCtoFTemp(temp: Int?) -> Int {
+        guard let temp else { return 0 }
+        let currennTempSet = settingsManager.getCurrentSettings(for: SettingsData.Keys.tempSettrings)
+        if currennTempSet == SettingsData.tempGrade.celsius.rawValue {
+        return temp
+        } else {
+           return temp.ctof(intC: temp)
+        }
     }
 }
 
