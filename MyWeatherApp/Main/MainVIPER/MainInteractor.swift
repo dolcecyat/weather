@@ -29,7 +29,7 @@ protocol MainInteractorProtocol: AnyObject {
 
 class MainInteractor: NSObject, MainInteractorProtocol {
     
-    let settingsManager = ChangingSettingsManager()
+    let settingsManager = UDStrorageManager.shared
     var model = MainCellModel()
     var sectionsData = SectionsData()
     let locationManager = CLLocationManager()
@@ -84,7 +84,7 @@ class MainInteractor: NSObject, MainInteractorProtocol {
                 model = Constants.emptyModel
                 model.mainTemp = "\(getCtoFTemp(temp: currentWeather.fact.temp).description)°"
                 model.mainInfo = dataManager.getConditionName(condition: currentWeather.fact.condition)
-                model.detailInfo = "Ощущается как \(currentWeather.fact.feelsLike.description)°"
+                model.detailInfo = "Ощущается как \(getCtoFTemp(temp:currentWeather.fact.feelsLike))°"
                 model.conditionImage = dataManager.getConditionImage(condition: currentWeather.fact.condition)
                 return model
             case .wind:
@@ -150,11 +150,11 @@ class MainInteractor: NSObject, MainInteractorProtocol {
     }
     
     private func getSetting(key: SettingsData.Keys) -> String {
-        settingsManager.ud.getSettings(key: key) ?? "0"
+        settingsManager.getSettings(key: key) ?? "0"
     }
     
-    private func getWindNumber(number: Double?) -> Double {
-        guard let number else { return 0 }
+    private func getWindNumber(number: Double?) -> String {
+        guard let number else { return "" }
         let currennWindSet = settingsManager.getCurrentSettings(for: SettingsData.Keys.windSettrings)
         if currennWindSet == SettingsData.windGrade.kmh.rawValue {
             return number.msToKmh(ms: number)
@@ -163,7 +163,7 @@ class MainInteractor: NSObject, MainInteractorProtocol {
         } else if currennWindSet == SettingsData.windGrade.knots.rawValue {
             return number.msToknots(ms: number)
         } else {
-            return number
+            return String(format: "%.1f", number)
         }
     }
     private func getCtoFTemp(temp: Int?) -> Int {

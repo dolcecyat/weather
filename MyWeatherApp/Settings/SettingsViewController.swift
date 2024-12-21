@@ -27,6 +27,7 @@ class SettingsViewController: UIViewController {
     private var modeView = ModeView()
     private var designView = UIView()
     private var helpInfoTableView = UITableView()
+    var closure: ((Int)->())?
     
     // MARK: - Init
     
@@ -52,6 +53,9 @@ class SettingsViewController: UIViewController {
 //        setUpActions()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        closure?(2)
+    }
     private func setupNavBar() {
         navigationController?.navigationBar.barTintColor = SettingsColors.backgroundViewColor
         navigationController?.navigationBar.tintColor = SettingsColors.textColor

@@ -12,7 +12,7 @@ private enum Constants {
 }
 
 class ModeView: UIView {
-    let manager = ChangingSettingsManager()
+    let manager = UDStrorageManager.shared
     private var label =  UILabel()
     private var segmentPicker = UISegmentedControl(items: Constants.options)
     

@@ -18,7 +18,7 @@ class WeatherManager {
     var delegate: WeatherManagerDelegate?
     
     func fetchWeather(latitude: CLLocationDegrees, longitude: CLLocationDegrees) {
-        let apiKey = "1668adb2-c3d2-4f97-9c57-932f9a73d1bf"
+        let apiKey = "31e646b5-3e2b-4574-b500-b443cb73e3cf"
         let urlString = "https://api.weather.yandex.ru/v2/forecast?lat=\(latitude)&lon=\(longitude)&lang=ru_RU&limit=7&hours=true&extra=true"
         
         guard let url = URL(string: urlString) else {

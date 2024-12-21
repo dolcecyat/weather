@@ -16,7 +16,7 @@ private enum Constants {
 
 protocol MainViewProtocol: UIViewController {
     var presenter: MainPresenterProtocol? { get set }
-    func reloadData()
+    func updateData()
 }
 
 class MainViewController: UIViewController {
@@ -217,7 +217,7 @@ extension MainViewController {
 // MARK: -
 extension MainViewController: MainViewProtocol {
     
-    func reloadData() {
+    func updateData() {
         topCollectionView.reloadData()
         bottomCollectionView.reloadData()
     }

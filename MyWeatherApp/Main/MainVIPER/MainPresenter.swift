@@ -37,7 +37,7 @@ class MainPresenter: MainPresenterProtocol{
     // MARK: - WeatherData
     
     func sendWeatherData() {
-        view?.reloadData()
+        view?.updateData()
     }
     func openSettingViewController() {
         router?.openSettingViewController()

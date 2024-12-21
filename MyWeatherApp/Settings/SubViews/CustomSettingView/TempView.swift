@@ -12,7 +12,7 @@ private enum Constants {
 }
 
 class TempView: UIView {
-    let manager = ChangingSettingsManager()
+    let manager = UDStrorageManager.shared
     private var temperatureLabel =  UILabel()
     private var temperatureImage = UIImageView()
     private var segmentPicker = UISegmentedControl(items: Constants.options)

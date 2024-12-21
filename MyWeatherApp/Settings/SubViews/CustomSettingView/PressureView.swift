@@ -12,8 +12,7 @@ private enum Constants {
 }
 
 class PressureView: UIView {
-    let manager = ChangingSettingsManager()
-
+    let manager = UDStrorageManager.shared
     private var pressureLabel = UILabel()
     private var pressureImage = UIImageView()
     private var segmentPicker = UISegmentedControl(items: Constants.options)

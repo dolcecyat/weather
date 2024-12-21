@@ -10,8 +10,7 @@
 		4108B51A2D070CAD0075F9DD /* SettingsColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4108B5192D070CAD0075F9DD /* SettingsColors.swift */; };
 		4120E0E32D0B06DA00E8BF35 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4120E0E22D0B06D900E8BF35 /* DataManager.swift */; };
 		4120E0FB2D11B9D400E8BF35 /* SettingsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4120E0FA2D11B9D400E8BF35 /* SettingsData.swift */; };
-		4120E1082D11CD7800E8BF35 /* UDStrorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4120E1072D11CD7800E8BF35 /* UDStrorage.swift */; };
-		4120E10A2D12E69700E8BF35 /* ChangingSettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4120E1092D12E69700E8BF35 /* ChangingSettingsManager.swift */; };
+		4120E1082D11CD7800E8BF35 /* UDStrorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4120E1072D11CD7800E8BF35 /* UDStrorageManager.swift */; };
 		4120E10C2D141DE900E8BF35 /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4120E10B2D141DE900E8BF35 /* Extentions.swift */; };
 		ED86FDA82CF8857F00FB9882 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED86FDA72CF8857F00FB9882 /* AppDelegate.swift */; };
 		ED86FDAA2CF8857F00FB9882 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED86FDA92CF8857F00FB9882 /* SceneDelegate.swift */; };
@@ -45,8 +44,7 @@
 		4108B5192D070CAD0075F9DD /* SettingsColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsColors.swift; sourceTree = "<group>"; };
 		4120E0E22D0B06D900E8BF35 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		4120E0FA2D11B9D400E8BF35 /* SettingsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsData.swift; sourceTree = "<group>"; };
-		4120E1072D11CD7800E8BF35 /* UDStrorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UDStrorage.swift; sourceTree = "<group>"; };
-		4120E1092D12E69700E8BF35 /* ChangingSettingsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangingSettingsManager.swift; sourceTree = "<group>"; };
+		4120E1072D11CD7800E8BF35 /* UDStrorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UDStrorageManager.swift; sourceTree = "<group>"; };
 		4120E10B2D141DE900E8BF35 /* Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
 		ED86FDA42CF8857F00FB9882 /* MyWeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyWeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED86FDA72CF8857F00FB9882 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -160,8 +158,7 @@
 				ED86FDC52CF8984500FB9882 /* SettingsViewController.swift */,
 				4108B5272D0864CD0075F9DD /* SubViews */,
 				4120E0FA2D11B9D400E8BF35 /* SettingsData.swift */,
-				4120E1072D11CD7800E8BF35 /* UDStrorage.swift */,
-				4120E1092D12E69700E8BF35 /* ChangingSettingsManager.swift */,
+				4120E1072D11CD7800E8BF35 /* UDStrorageManager.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -290,8 +287,7 @@
 				4120E10C2D141DE900E8BF35 /* Extentions.swift in Sources */,
 				ED86FDC32CF88B0800FB9882 /* MainModuleBuilder.swift in Sources */,
 				ED86FDD32CF9C71F00FB9882 /* WeatherManager.swift in Sources */,
-				4120E1082D11CD7800E8BF35 /* UDStrorage.swift in Sources */,
-				4120E10A2D12E69700E8BF35 /* ChangingSettingsManager.swift in Sources */,
+				4120E1082D11CD7800E8BF35 /* UDStrorageManager.swift in Sources */,
 				ED86FDDF2CFA003400FB9882 /* TodaysWeatherInfoCVCell.swift in Sources */,
 				ED86FDCE2CF8989500FB9882 /* SettingsModuleBuilder.swift in Sources */,
 				4120E0E32D0B06DA00E8BF35 /* DataManager.swift in Sources */,

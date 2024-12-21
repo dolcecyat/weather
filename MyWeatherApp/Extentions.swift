@@ -22,19 +22,22 @@ extension Int {
 }
 
 extension Double {
-    func msToKmh(ms: Double) -> Double {
+    func msToKmh(ms: Double) -> String {
         let kmh = ms * 3.6
-        return kmh
+        let string = String(format: "%.1f", kmh)
+        return string
     }
     
-    func msToMph(ms: Double) -> Double {
+    func msToMph(ms: Double) -> String {
         let mph = ms * 2.236
-        return mph
+        let string = String(format: "%.1f", mph)
+        return string
     }
     
-    func msToknots(ms: Double) -> Double {
+    func msToknots(ms: Double) -> String {
         let knots = ms * 1.9438
-        return knots
+        let string = String(format: "%.1f", knots)
+        return string
     }
 }
 

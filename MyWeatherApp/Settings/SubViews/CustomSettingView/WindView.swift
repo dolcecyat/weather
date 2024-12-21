@@ -12,8 +12,7 @@ private enum Constants {
 }
 
 class WindView: UIView {
-    let manager = ChangingSettingsManager()
-
+    let manager = UDStrorageManager.shared
     private var WindLabel =  UILabel()
     private var WindImage = UIImageView()
     private var segmentPicker = UISegmentedControl(items: Constants.options)
