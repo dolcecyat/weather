@@ -100,7 +100,7 @@ class XDaysCVCell: UICollectionViewCell {
     func configure(model: MainCellModel) {
         weatherImage.image = model.conditionImage
         dateLabel.text = model.date
-        dayTempLabel.text = "День  \(model.dayTemp ?? "0")"
-        nightTempLabel.text = "Ночь \(model.nightTemp ?? "0")"
+        dayTempLabel.text = "День \(model.dayTemp ?? "")"
+        nightTempLabel.text = "Ночь \(model.nightTemp ?? "")"
     }
 }

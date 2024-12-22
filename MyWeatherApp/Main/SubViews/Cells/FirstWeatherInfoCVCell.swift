@@ -86,7 +86,7 @@ class FirstWeatherInfoCVCell: UICollectionViewCell {
         
         temperatureLabel.font = .systemFont(ofSize: 45)
         temperatureLabel.textColor = UIColor(cgColor: MainColors.lighterTextColor)
-        temperatureLabel.text = "0"
+        temperatureLabel.text = ""
         
         mainInfoLabel.font = .systemFont(ofSize: 23)
         mainInfoLabel.textColor = UIColor(cgColor: MainColors.lighterTextColor)

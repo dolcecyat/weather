@@ -241,17 +241,17 @@ extension MainViewController : UICollectionViewDelegate, UICollectionViewDataSou
             let sec = SectionsData.MainFirstCollectionView.allCases.first (where: { $0.sectionNumber == section })
             switch sec {
             case .TodaysDetailInfo:
-                numberOfRows = presenter?.getNumberOfItemsInSection(collectionView: "Top", section: 0) ?? 1
+                numberOfRows = presenter?.getNumberOfItemsInSection(collectionView: SectionsData.CollectionViews.MainFirstCollectionView, section: 0) ?? 1
             default :
-                numberOfRows = presenter?.getNumberOfItemsInSection(collectionView: "Top", section: 1) ?? 1
+                numberOfRows = presenter?.getNumberOfItemsInSection(collectionView: SectionsData.CollectionViews.MainFirstCollectionView, section: 1) ?? 1
             }
         } else if collectionView == bottomCollectionView {
             let sec = SectionsData.MainSecondCollectionView.allCases.first (where: { $0.sectionNumber == section })
             switch sec {
             case .ActivityInfo:
-                numberOfRows = presenter?.getNumberOfItemsInSection(collectionView: "Bottom", section: 0) ?? 1
+                numberOfRows = presenter?.getNumberOfItemsInSection(collectionView: SectionsData.CollectionViews.MainSecondCollectionView, section: 0) ?? 1
             default :
-                numberOfRows = presenter?.getNumberOfItemsInSection(collectionView: "Bottom", section: 1) ?? 1
+                numberOfRows = presenter?.getNumberOfItemsInSection(collectionView: SectionsData.CollectionViews.MainSecondCollectionView, section: 1) ?? 1
             }
         }
         return numberOfRows

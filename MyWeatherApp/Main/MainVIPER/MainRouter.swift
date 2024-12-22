@@ -20,7 +20,6 @@ class MainRouter: MainRouterProtocol {
         VCToOpen.closure = { [weak self] value in
             self?.presenter?.sendWeatherData()
         }
-        
         presenter?.view?.navigationController?.pushViewController(VCToOpen, animated: true)
     }
 }

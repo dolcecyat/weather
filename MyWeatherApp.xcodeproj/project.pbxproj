@@ -103,6 +103,18 @@
 			path = MainVIPER;
 			sourceTree = "<group>";
 		};
+		4120E10D2D1833EB00E8BF35 /* SettingsViper */ = {
+			isa = PBXGroup;
+			children = (
+				ED86FDC72CF8986000FB9882 /* SettingsPresenter.swift */,
+				ED86FDC92CF8986B00FB9882 /* SettingsRouter.swift */,
+				ED86FDCB2CF8988500FB9882 /* SettingsInteractor.swift */,
+				ED86FDCD2CF8989500FB9882 /* SettingsModuleBuilder.swift */,
+				ED86FDC52CF8984500FB9882 /* SettingsViewController.swift */,
+			);
+			path = SettingsViper;
+			sourceTree = "<group>";
+		};
 		ED86FD9B2CF8857F00FB9882 = {
 			isa = PBXGroup;
 			children = (
@@ -124,8 +136,8 @@
 			children = (
 				ED86FDC42CF8982B00FB9882 /* Settings */,
 				ED86FDBB2CF887F400FB9882 /* Main */,
-				ED86FDA72CF8857F00FB9882 /* AppDelegate.swift */,
 				ED86FDA92CF8857F00FB9882 /* SceneDelegate.swift */,
+				ED86FDA72CF8857F00FB9882 /* AppDelegate.swift */,
 				4120E10B2D141DE900E8BF35 /* Extentions.swift */,
 				ED86FDB02CF8858000FB9882 /* Assets.xcassets */,
 				ED86FDB22CF8858000FB9882 /* LaunchScreen.storyboard */,
@@ -137,12 +149,11 @@
 		ED86FDBB2CF887F400FB9882 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				ED86FDF62D00CD9800FB9882 /* MainColors.swift */,
-				ED86FDDD2CFA002100FB9882 /* Cells */,
-				ED86FDF12D0081E500FB9882 /* Layout */,
-				ED86FDD62CF9C7C100FB9882 /* Weather */,
 				4108B5182D070C7A0075F9DD /* MainVIPER */,
 				ED86FDD12CF9BF1400FB9882 /* SubViews */,
+				ED86FDF12D0081E500FB9882 /* Layout */,
+				ED86FDD62CF9C7C100FB9882 /* Weather */,
+				ED86FDF62D00CD9800FB9882 /* MainColors.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -150,15 +161,11 @@
 		ED86FDC42CF8982B00FB9882 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				4108B5192D070CAD0075F9DD /* SettingsColors.swift */,
-				ED86FDC72CF8986000FB9882 /* SettingsPresenter.swift */,
-				ED86FDC92CF8986B00FB9882 /* SettingsRouter.swift */,
-				ED86FDCB2CF8988500FB9882 /* SettingsInteractor.swift */,
-				ED86FDCD2CF8989500FB9882 /* SettingsModuleBuilder.swift */,
-				ED86FDC52CF8984500FB9882 /* SettingsViewController.swift */,
+				4120E10D2D1833EB00E8BF35 /* SettingsViper */,
 				4108B5272D0864CD0075F9DD /* SubViews */,
-				4120E0FA2D11B9D400E8BF35 /* SettingsData.swift */,
 				4120E1072D11CD7800E8BF35 /* UDStrorageManager.swift */,
+				4120E0FA2D11B9D400E8BF35 /* SettingsData.swift */,
+				4108B5192D070CAD0075F9DD /* SettingsColors.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -166,6 +173,7 @@
 		ED86FDD12CF9BF1400FB9882 /* SubViews */ = {
 			isa = PBXGroup;
 			children = (
+				ED86FDDD2CFA002100FB9882 /* Cells */,
 				ED86FDF42D00CC7D00FB9882 /* SummaryView.swift */,
 			);
 			path = SubViews;

@@ -55,7 +55,7 @@ class SummaryView: UIView {
             button.leadingAnchor.constraint(equalTo: viewFrame.leadingAnchor, constant: 15),
             button.topAnchor.constraint(equalTo: labelButton.bottomAnchor, constant: 10),
             button.heightAnchor.constraint(equalToConstant: 30),
-    ])
+        ])
     }
     
     private func setUI() {

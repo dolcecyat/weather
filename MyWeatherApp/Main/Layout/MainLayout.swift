@@ -20,7 +20,6 @@ extension MainViewController {
     }
     // MARK: First layout
     
-    
     func createFirstLayout() -> UICollectionViewCompositionalLayout {
         UICollectionViewCompositionalLayout { [weak self] sectionIndex, _ in
             guard let self = self else { return nil }
@@ -52,7 +51,6 @@ extension MainViewController {
     }
   
     //     MARK: Second Layout
-    
     func createSecondLayout() -> UICollectionViewCompositionalLayout {
         UICollectionViewCompositionalLayout { [weak self] sectionIndex, _ in
             guard let self = self else { return nil }
@@ -65,7 +63,6 @@ extension MainViewController {
                 
                 let section = self.createLayoutSection(group: group, behavior: .continuous, interGroupSpacing: 5)
                 section.contentInsets = .init(top: 0, leading: 3, bottom: 10, trailing: 20)
-                
                 return section
                 
             case .XDayInfo:

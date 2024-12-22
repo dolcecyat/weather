@@ -76,7 +76,7 @@ class TodaysHourTempInfoCVCell: UICollectionViewCell {
         
         temperatureLabel.font = .systemFont(ofSize: 20)
         temperatureLabel.textColor = UIColor(cgColor: MainColors.lighterTextColor)
-        temperatureLabel.text = "0"
+        temperatureLabel.text = ""
     }
     
     func configure(model: MainCellModel) {

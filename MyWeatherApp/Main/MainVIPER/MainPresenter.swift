@@ -17,7 +17,7 @@ protocol MainPresenterProtocol: AnyObject {
     func sendWeatherData()
     func getNumberOfSectionTopCV() -> Int
     func getNumberOfSectionBottomCV() -> Int
-    func getNumberOfItemsInSection(collectionView: String,section: Int)-> Int
+    func getNumberOfItemsInSection(collectionView: SectionsData.CollectionViews,section: Int)-> Int
     func getTodaysHourTempInfoCollectionViewCellInfo(indexPath: IndexPath) -> MainCellModel
     func getTodaysWeatherInfoCVCellInfo(indexPath: IndexPath) -> MainCellModel
     func getActivityCVCellInfo(indexPath: IndexPath) -> MainCellModel
@@ -59,7 +59,7 @@ class MainPresenter: MainPresenterProtocol{
         interactor?.getNumberOfSectionBottomCV() ?? .zero
     }
 
-    func getNumberOfItemsInSection(collectionView: String,section: Int) -> Int {
+    func getNumberOfItemsInSection(collectionView: SectionsData.CollectionViews,section: Int) -> Int {
         interactor?.getNumberOfItemsInSection(collectionView: collectionView, section: section) ?? 2
        
     }

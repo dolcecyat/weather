@@ -18,7 +18,7 @@ protocol MainInteractorProtocol: AnyObject {
     
     func getLocationWeatherData()
     func getWeatherData(_ city: String)
-    func getNumberOfItemsInSection(collectionView: String, section: Int) -> Int
+    func getNumberOfItemsInSection(collectionView: SectionsData.CollectionViews, section: Int) -> Int
     func getNumberOfSectionTopCV() -> Int
     func getNumberOfSectionBottomCV() -> Int
     func getTodaysHourTempInfoCollectionViewCellInfo(indexPath: IndexPath) -> MainCellModel
@@ -56,15 +56,16 @@ class MainInteractor: NSObject, MainInteractorProtocol {
         SectionsData.MainSecondCollectionView.allCases.count
     }
     
-    func getNumberOfItemsInSection(collectionView: String, section: Int) -> Int {
+    func getNumberOfItemsInSection(collectionView: SectionsData.CollectionViews, section: Int) -> Int {
         var numberOfRows: Int = 0
-        if collectionView == "Top" {
+        switch collectionView {
+        case .MainFirstCollectionView:
             if section == 0 {
                 numberOfRows = 6
             } else {
                 numberOfRows = sectionsData.hours.count
             }
-        } else if collectionView == "Bottom" {
+        case .MainSecondCollectionView:
             if section == 0 {
                 numberOfRows = SectionsData.Activity.allCases.count
             } else {
