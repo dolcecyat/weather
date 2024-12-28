@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol SettingsRouterProtocol: AnyObject{
+protocol SettingsRouterProtocol: AnyObject {
     var presenter: SettingsPresenterProtocol? { get set }
 }
 

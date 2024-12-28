@@ -19,7 +19,6 @@ class SettingsPresenter: SettingsPresenterProtocol {
     var router: SettingsRouterProtocol?
     var interactor: SettingsInteractorProtocol?
     
-    
     init(router: SettingsRouterProtocol, interactor: SettingsInteractorProtocol) {
         self.router = router
         self.interactor = interactor
