@@ -79,7 +79,6 @@ class MainViewController: UIViewController {
         navigationController?.navigationBar.barTintColor =  UIColor(cgColor: MainColors.backgroundViewColor)
         navigationController?.navigationBar.barStyle = .black
         navigationController?.navigationBar.tintColor = UIColor(cgColor: MainColors.lighterBackgroundColor)
-#warning ("при свайпе обратно не показывается --- теперь почему то работает????")
         navigationController?.hidesBarsOnSwipe = true
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: Constants.imageNameForLeftBarButtonItem), style: .plain, target: self, action: #selector(openSettings))
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: Constants.imageNameForRightBarButtonItem), style: .plain, target: self, action: #selector(getLocation))

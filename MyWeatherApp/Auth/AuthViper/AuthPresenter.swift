@@ -14,6 +14,7 @@ protocol AuthPresenterProtocol: AnyObject {
     
     func logInButtonPressed(login: String,password: String)
     func signUpButtonPressed()
+    func userLogged()
 }
 
 class AuthPresenter: AuthPresenterProtocol {
@@ -31,7 +32,11 @@ class AuthPresenter: AuthPresenterProtocol {
         interactor?.logInButtonPressed(login: login, password: password)
     }
     
-    func signUpButtonPressed(){
-        
+    func signUpButtonPressed() {
+        router?.showSignUpScreen()
+    }
+    
+    func userLogged() {
+        router?.showMainScreen()
     }
 }

@@ -10,24 +10,31 @@ import Foundation
 protocol AuthInteractorProtocol: AnyObject {
     var presenter: AuthPresenterProtocol? { get set }
     func logInButtonPressed(login: String,password: String)
-
 }
 
-class AuthInteractor: AuthInteractorProtocol, AuthDelegate {
+class AuthInteractor: AuthInteractorProtocol, AuthLogInDelegate {
     
     weak var presenter: AuthPresenterProtocol?
-    
-    var fireBaseAuthManager = FireBaseAuthManager()
+    var accInfo = AccountInfo(login: "", password: "", token: "")
     
     init() {
-        fireBaseAuthManager.delegate = self // Устанавливаем текущий объект как делегат
+        FireBaseAuthManager.shared.loginDelegate = self // Устанавливаем текущий объект как делегат
     }
     
     func logInButtonPressed(login: String, password: String) {
-        fireBaseAuthManager.logIn(login: login, password: password)
+        accInfo.login = login
+        accInfo.password = password
+        FireBaseAuthManager.shared.logIn(login: login, password: password)
     }
     
     func loggedIn(success: Bool) {
-        print("Logged in status: \(success)")
+        switch success {
+        case true:
+            presenter?.userLogged()
+            UDStrorageManager.shared.saveAccountInfo(login: accInfo.login,password: accInfo.password)
+            print("Logged in status: \(success)")
+        case false:
+            print("Logged in status: \(success)")
+        }
     }
 }

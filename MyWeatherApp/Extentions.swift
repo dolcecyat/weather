@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import VKID
 
 extension UIView {
     func roundCorners(view : UIView) {
@@ -41,3 +42,11 @@ extension Double {
     }
 }
 
+extension OneTapButton {
+    var closure: (() -> Void)? {
+        func anyfunc() {
+            
+        }
+        return anyfunc
+    }
+}

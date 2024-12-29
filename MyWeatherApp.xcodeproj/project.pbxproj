@@ -20,6 +20,17 @@
 		415A041E2D205C7E00BF0909 /* AuthModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415A041D2D205C7E00BF0909 /* AuthModuleBuilder.swift */; };
 		415A04212D2083A400BF0909 /* FireBaseAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415A04202D2083A400BF0909 /* FireBaseAuthManager.swift */; };
 		415A04232D2085DC00BF0909 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 415A04222D2085DC00BF0909 /* GoogleService-Info.plist */; };
+		415A04362D21648700BF0909 /* AccountInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415A04352D21647A00BF0909 /* AccountInfo.swift */; };
+		415A043D2D21658F00BF0909 /* ModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415A04372D21658F00BF0909 /* ModeView.swift */; };
+		415A043E2D21658F00BF0909 /* PressureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415A04382D21658F00BF0909 /* PressureView.swift */; };
+		415A043F2D21658F00BF0909 /* TempView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415A04392D21658F00BF0909 /* TempView.swift */; };
+		415A04402D21658F00BF0909 /* WindView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415A043A2D21658F00BF0909 /* WindView.swift */; };
+		415A04432D2165B900BF0909 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415A04422D2165AE00BF0909 /* SignUpViewController.swift */; };
+		415A04452D2165C600BF0909 /* SignUpPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415A04442D2165BC00BF0909 /* SignUpPresenter.swift */; };
+		415A04472D2165D200BF0909 /* SignUpInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415A04462D2165CA00BF0909 /* SignUpInteractor.swift */; };
+		415A04492D2165DC00BF0909 /* SignUpRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415A04482D2165D500BF0909 /* SignUpRouter.swift */; };
+		415A044B2D2165ED00BF0909 /* SignUpModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415A044A2D2165DF00BF0909 /* SignUpModuleBuilder.swift */; };
+		415A04512D2176C800BF0909 /* VKAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415A04502D2176C100BF0909 /* VKAuthManager.swift */; };
 		ED86FDA82CF8857F00FB9882 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED86FDA72CF8857F00FB9882 /* AppDelegate.swift */; };
 		ED86FDAA2CF8857F00FB9882 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED86FDA92CF8857F00FB9882 /* SceneDelegate.swift */; };
 		ED86FDB12CF8858000FB9882 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED86FDB02CF8858000FB9882 /* Assets.xcassets */; };
@@ -61,6 +72,17 @@
 		415A041D2D205C7E00BF0909 /* AuthModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModuleBuilder.swift; sourceTree = "<group>"; };
 		415A04202D2083A400BF0909 /* FireBaseAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireBaseAuthManager.swift; sourceTree = "<group>"; };
 		415A04222D2085DC00BF0909 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		415A04352D21647A00BF0909 /* AccountInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfo.swift; sourceTree = "<group>"; };
+		415A04372D21658F00BF0909 /* ModeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeView.swift; sourceTree = "<group>"; };
+		415A04382D21658F00BF0909 /* PressureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PressureView.swift; sourceTree = "<group>"; };
+		415A04392D21658F00BF0909 /* TempView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempView.swift; sourceTree = "<group>"; };
+		415A043A2D21658F00BF0909 /* WindView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindView.swift; sourceTree = "<group>"; };
+		415A04422D2165AE00BF0909 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		415A04442D2165BC00BF0909 /* SignUpPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPresenter.swift; sourceTree = "<group>"; };
+		415A04462D2165CA00BF0909 /* SignUpInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpInteractor.swift; sourceTree = "<group>"; };
+		415A04482D2165D500BF0909 /* SignUpRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRouter.swift; sourceTree = "<group>"; };
+		415A044A2D2165DF00BF0909 /* SignUpModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpModuleBuilder.swift; sourceTree = "<group>"; };
+		415A04502D2176C100BF0909 /* VKAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKAuthManager.swift; sourceTree = "<group>"; };
 		78640DE8036CFC1F18B463ED /* Pods_MyWeatherApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyWeatherApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3409DDDDCC20B3ACF236C42 /* Pods-MyWeatherApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyWeatherApp.debug.xcconfig"; path = "Target Support Files/Pods-MyWeatherApp/Pods-MyWeatherApp.debug.xcconfig"; sourceTree = "<group>"; };
 		ED86FDA42CF8857F00FB9882 /* MyWeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyWeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -93,14 +115,6 @@
 		ED86FDF62D00CD9800FB9882 /* MainColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainColors.swift; sourceTree = "<group>"; };
 		F5925BD42301CDA1CD2CA709 /* Pods-MyWeatherApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyWeatherApp.release.xcconfig"; path = "Target Support Files/Pods-MyWeatherApp/Pods-MyWeatherApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		4108B5272D0864CD0075F9DD /* SubViews */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = SubViews;
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		ED86FDA12CF8857F00FB9882 /* Frameworks */ = {
@@ -142,7 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				415A041F2D20838400BF0909 /* AuthViper */,
-				415A04202D2083A400BF0909 /* FireBaseAuthManager.swift */,
+				415A04352D21647A00BF0909 /* AccountInfo.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -157,6 +171,57 @@
 				415A041D2D205C7E00BF0909 /* AuthModuleBuilder.swift */,
 			);
 			path = AuthViper;
+			sourceTree = "<group>";
+		};
+		415A042D2D2162E400BF0909 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				415A04502D2176C100BF0909 /* VKAuthManager.swift */,
+				4120E1072D11CD7800E8BF35 /* UDStrorageManager.swift */,
+				ED86FDD22CF9C71F00FB9882 /* WeatherManager.swift */,
+				415A04202D2083A400BF0909 /* FireBaseAuthManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		415A042E2D21638100BF0909 /* CellsData */ = {
+			isa = PBXGroup;
+			children = (
+				ED86FDE62CFDE4B400FB9882 /* SectionsData.swift */,
+				ED86FDEB2CFDE9BA00FB9882 /* MainCellModel.swift */,
+			);
+			path = CellsData;
+			sourceTree = "<group>";
+		};
+		415A043B2D21658F00BF0909 /* CustomSettingView */ = {
+			isa = PBXGroup;
+			children = (
+				415A04372D21658F00BF0909 /* ModeView.swift */,
+				415A04382D21658F00BF0909 /* PressureView.swift */,
+				415A04392D21658F00BF0909 /* TempView.swift */,
+				415A043A2D21658F00BF0909 /* WindView.swift */,
+			);
+			path = CustomSettingView;
+			sourceTree = "<group>";
+		};
+		415A043C2D21658F00BF0909 /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				415A043B2D21658F00BF0909 /* CustomSettingView */,
+			);
+			path = SubViews;
+			sourceTree = "<group>";
+		};
+		415A04412D21659900BF0909 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				415A044A2D2165DF00BF0909 /* SignUpModuleBuilder.swift */,
+				415A04482D2165D500BF0909 /* SignUpRouter.swift */,
+				415A04462D2165CA00BF0909 /* SignUpInteractor.swift */,
+				415A04442D2165BC00BF0909 /* SignUpPresenter.swift */,
+				415A04422D2165AE00BF0909 /* SignUpViewController.swift */,
+			);
+			path = SignUp;
 			sourceTree = "<group>";
 		};
 		631B29035B983BC4FC4E4F0C /* Pods */ = {
@@ -197,9 +262,11 @@
 		ED86FDA62CF8857F00FB9882 /* MyWeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				415A04412D21659900BF0909 /* SignUp */,
 				415A04142D205AED00BF0909 /* Auth */,
 				ED86FDC42CF8982B00FB9882 /* Settings */,
 				ED86FDBB2CF887F400FB9882 /* Main */,
+				415A042D2D2162E400BF0909 /* Managers */,
 				ED86FDA92CF8857F00FB9882 /* SceneDelegate.swift */,
 				ED86FDA72CF8857F00FB9882 /* AppDelegate.swift */,
 				4120E10B2D141DE900E8BF35 /* Extentions.swift */,
@@ -227,8 +294,7 @@
 			isa = PBXGroup;
 			children = (
 				4120E10D2D1833EB00E8BF35 /* SettingsViper */,
-				4108B5272D0864CD0075F9DD /* SubViews */,
-				4120E1072D11CD7800E8BF35 /* UDStrorageManager.swift */,
+				415A043C2D21658F00BF0909 /* SubViews */,
 				4120E0FA2D11B9D400E8BF35 /* SettingsData.swift */,
 				4108B5192D070CAD0075F9DD /* SettingsColors.swift */,
 			);
@@ -238,8 +304,8 @@
 		ED86FDD12CF9BF1400FB9882 /* SubViews */ = {
 			isa = PBXGroup;
 			children = (
-				ED86FDDD2CFA002100FB9882 /* Cells */,
 				ED86FDF42D00CC7D00FB9882 /* SummaryView.swift */,
+				ED86FDDD2CFA002100FB9882 /* Cells */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -248,7 +314,6 @@
 			isa = PBXGroup;
 			children = (
 				4120E0E22D0B06D900E8BF35 /* DataManager.swift */,
-				ED86FDD22CF9C71F00FB9882 /* WeatherManager.swift */,
 				ED86FDD72CF9C7E800FB9882 /* WeatherData.swift */,
 			);
 			path = Weather;
@@ -257,13 +322,12 @@
 		ED86FDDD2CFA002100FB9882 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				415A042E2D21638100BF0909 /* CellsData */,
 				ED86FDED2CFF2A2600FB9882 /* FirstWeatherInfoCVCell.swift */,
 				ED86FDDE2CFA003400FB9882 /* TodaysWeatherInfoCVCell.swift */,
 				ED86FDE02CFA007300FB9882 /* TodaysHourTempInfoCVCell.swift */,
 				ED86FDE22CFA008300FB9882 /* ActivityCVCell.swift */,
 				ED86FDE42CFA00A900FB9882 /* XDaysCVCell.swift */,
-				ED86FDE62CFDE4B400FB9882 /* SectionsData.swift */,
-				ED86FDEB2CFDE9BA00FB9882 /* MainCellModel.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -292,9 +356,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				4108B5272D0864CD0075F9DD /* SubViews */,
 			);
 			name = MyWeatherApp;
 			productName = MyWeatherApp;
@@ -394,18 +455,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				415A04492D2165DC00BF0909 /* SignUpRouter.swift in Sources */,
 				415A041C2D205C2D00BF0909 /* AuthInteractor.swift in Sources */,
 				ED86FDBF2CF88A7400FB9882 /* MainRouter.swift in Sources */,
 				ED86FDD82CF9C7E800FB9882 /* WeatherData.swift in Sources */,
 				ED86FDF02CFF39EB00FB9882 /* MainLayout.swift in Sources */,
 				ED86FDA82CF8857F00FB9882 /* AppDelegate.swift in Sources */,
+				415A04452D2165C600BF0909 /* SignUpPresenter.swift in Sources */,
 				4120E0FB2D11B9D400E8BF35 /* SettingsData.swift in Sources */,
 				ED86FDE72CFDE4B400FB9882 /* SectionsData.swift in Sources */,
+				415A04512D2176C800BF0909 /* VKAuthManager.swift in Sources */,
 				ED86FDF52D00CC7D00FB9882 /* SummaryView.swift in Sources */,
 				ED86FDF72D00CD9800FB9882 /* MainColors.swift in Sources */,
 				4120E10C2D141DE900E8BF35 /* Extentions.swift in Sources */,
+				415A04362D21648700BF0909 /* AccountInfo.swift in Sources */,
 				ED86FDC32CF88B0800FB9882 /* MainModuleBuilder.swift in Sources */,
 				415A04212D2083A400BF0909 /* FireBaseAuthManager.swift in Sources */,
+				415A043D2D21658F00BF0909 /* ModeView.swift in Sources */,
+				415A043E2D21658F00BF0909 /* PressureView.swift in Sources */,
+				415A043F2D21658F00BF0909 /* TempView.swift in Sources */,
+				415A04402D21658F00BF0909 /* WindView.swift in Sources */,
 				ED86FDD32CF9C71F00FB9882 /* WeatherManager.swift in Sources */,
 				4120E1082D11CD7800E8BF35 /* UDStrorageManager.swift in Sources */,
 				ED86FDDF2CFA003400FB9882 /* TodaysWeatherInfoCVCell.swift in Sources */,
@@ -417,13 +486,16 @@
 				415A041E2D205C7E00BF0909 /* AuthModuleBuilder.swift in Sources */,
 				ED86FDCC2CF8988500FB9882 /* SettingsInteractor.swift in Sources */,
 				ED86FDC82CF8986000FB9882 /* SettingsPresenter.swift in Sources */,
+				415A04472D2165D200BF0909 /* SignUpInteractor.swift in Sources */,
 				ED86FDDA2CF9C88C00FB9882 /* MainViewController.swift in Sources */,
 				ED86FDBD2CF889C000FB9882 /* MainPresenter.swift in Sources */,
 				ED86FDE52CFA00A900FB9882 /* XDaysCVCell.swift in Sources */,
 				415A04132D20576000BF0909 /* AuthViewController.swift in Sources */,
 				ED86FDC12CF88AB900FB9882 /* MainInteractor.swift in Sources */,
+				415A044B2D2165ED00BF0909 /* SignUpModuleBuilder.swift in Sources */,
 				ED86FDEC2CFDE9BA00FB9882 /* MainCellModel.swift in Sources */,
 				ED86FDEE2CFF2A2600FB9882 /* FirstWeatherInfoCVCell.swift in Sources */,
+				415A04432D2165B900BF0909 /* SignUpViewController.swift in Sources */,
 				ED86FDC62CF8984500FB9882 /* SettingsViewController.swift in Sources */,
 				4108B51A2D070CAD0075F9DD /* SettingsColors.swift in Sources */,
 				ED86FDE12CFA007300FB9882 /* TodaysHourTempInfoCVCell.swift in Sources */,
