@@ -9,7 +9,6 @@ import Foundation
 
 class UDStrorageManager {
     let ud = UserDefaults.standard
-    var closure: (() -> Void)?
     static let shared = UDStrorageManager()
     
     func saveSettings (value: String, key: SettingsData.Keys) {
@@ -36,6 +35,5 @@ class UDStrorageManager {
     
     func saveToken(token: String) {
         ud.set(token, forKey: "vkUserToken")
-        closure
     }
 }

@@ -87,16 +87,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "35D54E89-3DA4-411C-8375-FF1413121144"
+            uuid = "77B4788C-1F1D-4E79-9698-80F0FF193238"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MyWeatherApp/Managers/UDStrorageManager.swift"
+            filePath = "MyWeatherApp/Managers/VKAuthManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
-            landmarkName = "saveToken(token:)"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "authorize(authResult:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0C930371-1367-4616-BA18-0FEAF373D87E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyWeatherApp/Managers/VKAuthManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "authorize(authResult:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

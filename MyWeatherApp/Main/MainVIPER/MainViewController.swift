@@ -24,6 +24,7 @@ class MainViewController: UIViewController {
 
     //MARK: - UI properties
      
+    private var contentView = UIView()
     private var scrollView = UIScrollView()
     private var topCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
     private var bottomCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
@@ -56,7 +57,7 @@ class MainViewController: UIViewController {
         setCollectionViews()
         setDelegates()
         addingViews()
-        makeConstaraints()
+        makeConstraints()
         setUpUI()
         setUpActions()
     }
@@ -79,7 +80,7 @@ class MainViewController: UIViewController {
         navigationController?.navigationBar.barTintColor =  UIColor(cgColor: MainColors.backgroundViewColor)
         navigationController?.navigationBar.barStyle = .black
         navigationController?.navigationBar.tintColor = UIColor(cgColor: MainColors.lighterBackgroundColor)
-        navigationController?.hidesBarsOnSwipe = true
+//        navigationController?.hidesBarsOnSwipe = true
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: Constants.imageNameForLeftBarButtonItem), style: .plain, target: self, action: #selector(openSettings))
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: Constants.imageNameForRightBarButtonItem), style: .plain, target: self, action: #selector(getLocation))
         navigationItem.titleView = searchBar
@@ -89,6 +90,7 @@ class MainViewController: UIViewController {
 
     func addingViews() {
         self.view.addSubview(scrollView)
+//        contentView.addSubview(scrollView)
         scrollView.addSubview(mapButton)
         scrollView.addSubview(topCollectionView)
         scrollView.addSubview(summaryView)
@@ -96,50 +98,51 @@ class MainViewController: UIViewController {
         scrollView.addSubview(monthButton)
     }
     
-    func makeConstaraints() {
+    func makeConstraints() {
         scrollView.translatesAutoresizingMaskIntoConstraints = false
-        topCollectionView.translatesAutoresizingMaskIntoConstraints = false
         mapButton.translatesAutoresizingMaskIntoConstraints = false
+        topCollectionView.translatesAutoresizingMaskIntoConstraints = false
         summaryView.translatesAutoresizingMaskIntoConstraints = false
         bottomCollectionView.translatesAutoresizingMaskIntoConstraints = false
         monthButton.translatesAutoresizingMaskIntoConstraints = false
         
-        scrollView.frame = view.bounds
-        scrollView.contentSize = CGSize(width:  view.frame.width, height: 2000)
-        
         NSLayoutConstraint.activate([
-            scrollView.topAnchor.constraint(equalTo: view.topAnchor),
+            // Ограничения для scrollView
+            scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             
-            topCollectionView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 100),
-            topCollectionView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
-//            TopCollectionView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
-            topCollectionView.heightAnchor.constraint(equalToConstant: 500),
-            topCollectionView.widthAnchor.constraint(equalToConstant: 393),
-
-            mapButton.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 10),
-            mapButton.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 10),
-            mapButton.widthAnchor.constraint(equalToConstant: 80),
+            mapButton.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 20),
+            mapButton.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 20),
+            mapButton.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -300),
             mapButton.heightAnchor.constraint(equalToConstant: 80),
-        
+            
+            // Пример для topCollectionView
+            topCollectionView.topAnchor.constraint(equalTo: mapButton.bottomAnchor, constant: 20),
+            topCollectionView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            topCollectionView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor,constant: 10),
+            topCollectionView.heightAnchor.constraint(equalToConstant: 500),
+            
+            // Пример для summaryView
             summaryView.topAnchor.constraint(equalTo: topCollectionView.bottomAnchor, constant: 20),
             summaryView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 20),
-//            summaryView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -20),
+            summaryView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -20),
             summaryView.heightAnchor.constraint(equalToConstant: 110),
-            summaryView.widthAnchor.constraint(equalToConstant: 353),
             
-            bottomCollectionView.topAnchor.constraint(equalTo: summaryView.bottomAnchor, constant: 30),
-            bottomCollectionView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 0),
+            // Пример для bottomCollectionView
+            bottomCollectionView.topAnchor.constraint(equalTo: summaryView.bottomAnchor, constant: 20),
+            bottomCollectionView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            bottomCollectionView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor,constant: 10),
             bottomCollectionView.heightAnchor.constraint(equalToConstant: 690),
-            bottomCollectionView.widthAnchor.constraint(equalToConstant: 393),
             
-            monthButton.topAnchor.constraint(equalTo: bottomCollectionView.bottomAnchor, constant: 0),
+            // Последний элемент привязан к scrollView.bottomAnchor
+            monthButton.topAnchor.constraint(equalTo: bottomCollectionView.bottomAnchor, constant: 20),
             monthButton.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
             monthButton.heightAnchor.constraint(equalToConstant: 70),
             monthButton.widthAnchor.constraint(equalToConstant: 250),
-            ])
+            monthButton.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -20),
+        ])
     }
     
     private func setUpUI() {

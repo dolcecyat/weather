@@ -145,9 +145,9 @@ class AuthViewController: UIViewController, AuthViewProtocol {
         vkButtonView = VKAuthManager.shared.vkid?.ui(for: vkButton).uiView() ?? UIView()
         self.view.addSubview(vkButtonView)
         vkButtonView.translatesAutoresizingMaskIntoConstraints = false
-        vkButtonView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+        vkButtonView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         vkButtonView.topAnchor.constraint(equalTo: signUpButton.bottomAnchor, constant: 20).isActive = true
-        vkButtonView.widthAnchor.constraint(equalToConstant: 300).isActive = true
+        vkButtonView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8).isActive = true
         vkButtonView.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
     }
@@ -163,7 +163,7 @@ class AuthViewController: UIViewController, AuthViewProtocol {
     private func setUpActions() {
         loginButton.addTarget(self, action: #selector(logInButtonPressed), for: .touchUpInside)
         signUpButton.addTarget(self, action: #selector(signUpButtonPressed), for: .touchUpInside)
-        UDStrorageManager.shared.closure = userLoggedWithVk
+        
     }
     
     @objc private func logInButtonPressed() {

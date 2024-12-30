@@ -11,7 +11,6 @@
 		4108B51A2D070CAD0075F9DD /* SettingsColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4108B5192D070CAD0075F9DD /* SettingsColors.swift */; };
 		4120E0E32D0B06DA00E8BF35 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4120E0E22D0B06D900E8BF35 /* DataManager.swift */; };
 		4120E0FB2D11B9D400E8BF35 /* SettingsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4120E0FA2D11B9D400E8BF35 /* SettingsData.swift */; };
-		4120E1082D11CD7800E8BF35 /* UDStrorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4120E1072D11CD7800E8BF35 /* UDStrorageManager.swift */; };
 		4120E10C2D141DE900E8BF35 /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4120E10B2D141DE900E8BF35 /* Extentions.swift */; };
 		415A04132D20576000BF0909 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415A04122D20576000BF0909 /* AuthViewController.swift */; };
 		415A04162D205B0500BF0909 /* AuthPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415A04152D205B0500BF0909 /* AuthPresenter.swift */; };
@@ -31,6 +30,7 @@
 		415A04492D2165DC00BF0909 /* SignUpRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415A04482D2165D500BF0909 /* SignUpRouter.swift */; };
 		415A044B2D2165ED00BF0909 /* SignUpModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415A044A2D2165DF00BF0909 /* SignUpModuleBuilder.swift */; };
 		415A04512D2176C800BF0909 /* VKAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415A04502D2176C100BF0909 /* VKAuthManager.swift */; };
+		415A04532D23320300BF0909 /* UDStrorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415A04522D23320300BF0909 /* UDStrorageManager.swift */; };
 		ED86FDA82CF8857F00FB9882 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED86FDA72CF8857F00FB9882 /* AppDelegate.swift */; };
 		ED86FDAA2CF8857F00FB9882 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED86FDA92CF8857F00FB9882 /* SceneDelegate.swift */; };
 		ED86FDB12CF8858000FB9882 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED86FDB02CF8858000FB9882 /* Assets.xcassets */; };
@@ -63,7 +63,6 @@
 		4108B5192D070CAD0075F9DD /* SettingsColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsColors.swift; sourceTree = "<group>"; };
 		4120E0E22D0B06D900E8BF35 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		4120E0FA2D11B9D400E8BF35 /* SettingsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsData.swift; sourceTree = "<group>"; };
-		4120E1072D11CD7800E8BF35 /* UDStrorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UDStrorageManager.swift; sourceTree = "<group>"; };
 		4120E10B2D141DE900E8BF35 /* Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
 		415A04122D20576000BF0909 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		415A04152D205B0500BF0909 /* AuthPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPresenter.swift; sourceTree = "<group>"; };
@@ -83,6 +82,7 @@
 		415A04482D2165D500BF0909 /* SignUpRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRouter.swift; sourceTree = "<group>"; };
 		415A044A2D2165DF00BF0909 /* SignUpModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpModuleBuilder.swift; sourceTree = "<group>"; };
 		415A04502D2176C100BF0909 /* VKAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKAuthManager.swift; sourceTree = "<group>"; };
+		415A04522D23320300BF0909 /* UDStrorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UDStrorageManager.swift; sourceTree = "<group>"; };
 		78640DE8036CFC1F18B463ED /* Pods_MyWeatherApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyWeatherApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3409DDDDCC20B3ACF236C42 /* Pods-MyWeatherApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyWeatherApp.debug.xcconfig"; path = "Target Support Files/Pods-MyWeatherApp/Pods-MyWeatherApp.debug.xcconfig"; sourceTree = "<group>"; };
 		ED86FDA42CF8857F00FB9882 /* MyWeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyWeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -177,9 +177,9 @@
 			isa = PBXGroup;
 			children = (
 				415A04502D2176C100BF0909 /* VKAuthManager.swift */,
-				4120E1072D11CD7800E8BF35 /* UDStrorageManager.swift */,
 				ED86FDD22CF9C71F00FB9882 /* WeatherManager.swift */,
 				415A04202D2083A400BF0909 /* FireBaseAuthManager.swift */,
+				415A04522D23320300BF0909 /* UDStrorageManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -462,6 +462,7 @@
 				ED86FDF02CFF39EB00FB9882 /* MainLayout.swift in Sources */,
 				ED86FDA82CF8857F00FB9882 /* AppDelegate.swift in Sources */,
 				415A04452D2165C600BF0909 /* SignUpPresenter.swift in Sources */,
+				415A04532D23320300BF0909 /* UDStrorageManager.swift in Sources */,
 				4120E0FB2D11B9D400E8BF35 /* SettingsData.swift in Sources */,
 				ED86FDE72CFDE4B400FB9882 /* SectionsData.swift in Sources */,
 				415A04512D2176C800BF0909 /* VKAuthManager.swift in Sources */,
@@ -476,7 +477,6 @@
 				415A043F2D21658F00BF0909 /* TempView.swift in Sources */,
 				415A04402D21658F00BF0909 /* WindView.swift in Sources */,
 				ED86FDD32CF9C71F00FB9882 /* WeatherManager.swift in Sources */,
-				4120E1082D11CD7800E8BF35 /* UDStrorageManager.swift in Sources */,
 				ED86FDDF2CFA003400FB9882 /* TodaysWeatherInfoCVCell.swift in Sources */,
 				ED86FDCE2CF8989500FB9882 /* SettingsModuleBuilder.swift in Sources */,
 				4120E0E32D0B06DA00E8BF35 /* DataManager.swift in Sources */,

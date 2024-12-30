@@ -33,9 +33,8 @@ class VKAuthManager {
         do {
             let session = try authResult.get()
             print("Auth succeeded with token: \(session.accessToken)")
-            let token = session.idToken.value
+             let token = session.idToken.value
             UDStrorageManager.shared.saveToken(token: token)
-            
         } catch AuthError.cancelled {
             print("Auth cancelled by user")
         } catch {
