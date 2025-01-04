@@ -61,8 +61,11 @@ class AuthViewController: UIViewController, AuthViewProtocol {
         return button
     }()
     
-    let vkButton = OneTapButton(appearance: .init(title: .vkid, style: .primary() , theme: .matchingColorScheme(.system)), layout: .regular(height: .large(.h56), cornerRadius: 28),
-                              presenter: .newUIWindow ) { authResult in
+    let vkButton = OneTapButton(appearance: .init(title: .vkid, style: .primary() ,
+                                                  theme: .matchingColorScheme(.system)),
+                                layout: .regular(height: .large(.h56),
+                                                 cornerRadius: 28),
+                                presenter: .newUIWindow ) { authResult in
         // Обработка результата авторизации.
         VKAuthManager.shared.authorize(authResult: authResult)
     }
@@ -78,7 +81,7 @@ class AuthViewController: UIViewController, AuthViewProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         AuthModuleBuilder.build(self)
-
+//        checkIfUserLogged()
         setup()
     }
     
@@ -86,12 +89,8 @@ class AuthViewController: UIViewController, AuthViewProtocol {
         passwordTextField.resignFirstResponder()
         loginTextField.resignFirstResponder()
     }
-    
-    private func setUpVKAuth() {
-        VKAuthManager.shared.configure()
-    }
+ 
     private func setup() {
-        setUpVKAuth()
         addViews()
         setVkButton()
         setDelegates()
@@ -163,7 +162,6 @@ class AuthViewController: UIViewController, AuthViewProtocol {
     private func setUpActions() {
         loginButton.addTarget(self, action: #selector(logInButtonPressed), for: .touchUpInside)
         signUpButton.addTarget(self, action: #selector(signUpButtonPressed), for: .touchUpInside)
-        
     }
     
     @objc private func logInButtonPressed() {
@@ -175,8 +173,12 @@ class AuthViewController: UIViewController, AuthViewProtocol {
         presenter?.signUpButtonPressed()
     }
     
-    func userLoggedWithVk() {
+    private func userLoggedWithVk() {
         presenter?.userLogged()
+    }
+    private func checkIfUserLogged() {
+        presenter?.checkIfUserLogged()
+        
     }
 }
 

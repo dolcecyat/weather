@@ -36,4 +36,14 @@ class UDStrorageManager {
     func saveToken(token: String) {
         ud.set(token, forKey: "vkUserToken")
     }
+    
+    func getToken()-> String {
+        ud.string(forKey: "vkUserToken") ?? ""
+    }
+    
+    func getCurrentUserInfo() -> [String] {
+        guard let password = ud.string(forKey: "password") else { return []}
+        guard let login = ud.string(forKey: "login") else { return []}
+        return [login, password]
+    }
 }

@@ -199,11 +199,11 @@ class MainViewController: UIViewController {
     // MARK: - Button actions
     
     private func setUpActions() {
-        mapButton.addTarget(self, action: #selector(map), for: .touchUpInside)
+        mapButton.addTarget(self, action: #selector(openMap), for: .touchUpInside)
         monthButton.addTarget(self, action: #selector(monthWeather), for: .touchUpInside)
     }
     
-    @objc private func map() {
+    @objc private func openMap() {
 
     }
     @objc private func monthWeather() {

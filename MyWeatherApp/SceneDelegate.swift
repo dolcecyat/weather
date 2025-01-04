@@ -12,10 +12,31 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+        
         guard let scene = (scene as? UIWindowScene) else { return }
         self.window = UIWindow(windowScene: scene)
-        self.window?.rootViewController = UINavigationController(rootViewController: AuthViewController())
         self.window?.makeKeyAndVisible()
+        VKAuthManager.shared.configure()
+        if let savedToken = UserDefaults.standard.string(forKey: "vkUserToken") {
+            VKAuthManager.shared.checkTokenValidity(token: savedToken) { isValid in
+                DispatchQueue.main.async {
+                    if isValid {
+                        print("Токен действителен, пользователь уже авторизован")
+                        // Переход на главный экран приложения
+                        self.window?.rootViewController = UINavigationController(rootViewController: MainViewController())
+                    } else {
+                        print("Токен недействителен, требуется повторная авторизация")
+                        // Покажите экран авторизации
+                        self.window?.rootViewController = UINavigationController(rootViewController: AuthViewController())
+                    }
+                }
+            }
+        } else {
+            print("Токен отсутствует, требуется авторизация")
+            // Покажите экран авторизации
+            self.window?.rootViewController = UINavigationController(rootViewController: AuthViewController())
+        }
+       
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

@@ -10,6 +10,7 @@ import Foundation
 protocol AuthInteractorProtocol: AnyObject {
     var presenter: AuthPresenterProtocol? { get set }
     func logInButtonPressed(login: String,password: String)
+    func checkIfUserLogged()
 }
 
 class AuthInteractor: AuthInteractorProtocol, AuthLogInDelegate {
@@ -37,4 +38,21 @@ class AuthInteractor: AuthInteractorProtocol, AuthLogInDelegate {
             print("Logged in status: \(success)")
         }
     }
+    
+    func checkIfUserLogged() {
+        let userInfo = UDStrorageManager.shared.getCurrentUserInfo()
+        if !userInfo.isEmpty {
+            FireBaseAuthManager.shared.checkIfUserLogged(login: userInfo[0], password: userInfo[1])
+        }
+    }
+    
+    func userWasLogged(success: Bool) {
+        switch success {
+        case true:
+            presenter?.userLogged()
+        case false:
+            print("User wasn't logged")
+        }
+    }
+    
 }

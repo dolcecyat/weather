@@ -50,3 +50,11 @@ extension OneTapButton {
         return anyfunc
     }
 }
+
+extension UIButton {
+    static func createSegmentedButton(title: String) -> UIButton {
+        let button = UIButton()
+        button.setTitle(title, for: .normal)
+      return button
+    }
+}

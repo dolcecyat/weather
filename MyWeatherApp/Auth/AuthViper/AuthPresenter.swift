@@ -15,6 +15,7 @@ protocol AuthPresenterProtocol: AnyObject {
     func logInButtonPressed(login: String,password: String)
     func signUpButtonPressed()
     func userLogged()
+    func checkIfUserLogged()
 }
 
 class AuthPresenter: AuthPresenterProtocol {
@@ -38,5 +39,9 @@ class AuthPresenter: AuthPresenterProtocol {
     
     func userLogged() {
         router?.showMainScreen()
+    }
+    
+    func checkIfUserLogged() {
+        interactor?.checkIfUserLogged()
     }
 }

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2E62CFBB270CD67984B6026C /* Pods_MyWeatherApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78640DE8036CFC1F18B463ED /* Pods_MyWeatherApp.framework */; };
 		4108B51A2D070CAD0075F9DD /* SettingsColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4108B5192D070CAD0075F9DD /* SettingsColors.swift */; };
+		411BD8682D29800E002252CA /* CustomSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411BD8672D29800E002252CA /* CustomSegmentedControl.swift */; };
 		4120E0E32D0B06DA00E8BF35 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4120E0E22D0B06D900E8BF35 /* DataManager.swift */; };
 		4120E0FB2D11B9D400E8BF35 /* SettingsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4120E0FA2D11B9D400E8BF35 /* SettingsData.swift */; };
 		4120E10C2D141DE900E8BF35 /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4120E10B2D141DE900E8BF35 /* Extentions.swift */; };
@@ -61,6 +62,7 @@
 
 /* Begin PBXFileReference section */
 		4108B5192D070CAD0075F9DD /* SettingsColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsColors.swift; sourceTree = "<group>"; };
+		411BD8672D29800E002252CA /* CustomSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegmentedControl.swift; sourceTree = "<group>"; };
 		4120E0E22D0B06D900E8BF35 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		4120E0FA2D11B9D400E8BF35 /* SettingsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsData.swift; sourceTree = "<group>"; };
 		4120E10B2D141DE900E8BF35 /* Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
@@ -167,8 +169,8 @@
 				415A04122D20576000BF0909 /* AuthViewController.swift */,
 				415A04152D205B0500BF0909 /* AuthPresenter.swift */,
 				415A04192D205BBC00BF0909 /* AuthRouter.swift */,
-				415A041B2D205C2D00BF0909 /* AuthInteractor.swift */,
 				415A041D2D205C7E00BF0909 /* AuthModuleBuilder.swift */,
+				415A041B2D205C2D00BF0909 /* AuthInteractor.swift */,
 			);
 			path = AuthViper;
 			sourceTree = "<group>";
@@ -200,6 +202,7 @@
 				415A04382D21658F00BF0909 /* PressureView.swift */,
 				415A04392D21658F00BF0909 /* TempView.swift */,
 				415A043A2D21658F00BF0909 /* WindView.swift */,
+				411BD8672D29800E002252CA /* CustomSegmentedControl.swift */,
 			);
 			path = CustomSettingView;
 			sourceTree = "<group>";
@@ -487,6 +490,7 @@
 				ED86FDCC2CF8988500FB9882 /* SettingsInteractor.swift in Sources */,
 				ED86FDC82CF8986000FB9882 /* SettingsPresenter.swift in Sources */,
 				415A04472D2165D200BF0909 /* SignUpInteractor.swift in Sources */,
+				411BD8682D29800E002252CA /* CustomSegmentedControl.swift in Sources */,
 				ED86FDDA2CF9C88C00FB9882 /* MainViewController.swift in Sources */,
 				ED86FDBD2CF889C000FB9882 /* MainPresenter.swift in Sources */,
 				ED86FDE52CFA00A900FB9882 /* XDaysCVCell.swift in Sources */,

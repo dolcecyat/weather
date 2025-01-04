@@ -32,8 +32,8 @@ class VKAuthManager {
     func authorize(authResult: AuthResult) {
         do {
             let session = try authResult.get()
-            print("Auth succeeded with token: \(session.accessToken)")
-             let token = session.idToken.value
+//            print("Auth succeeded with token: \(session.accessToken)")
+            let token = session.accessToken.value
             UDStrorageManager.shared.saveToken(token: token)
         } catch AuthError.cancelled {
             print("Auth cancelled by user")
@@ -41,4 +41,44 @@ class VKAuthManager {
             print("Auth failed with error: \(error)")
         }
     }
+  
+    func checkTokenValidity(token: String, completion: @escaping (Bool) -> Void) {
+        let url = URL(string: "https://api.vk.com/method/secure.checkToken")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+
+        // Укажите параметры запроса
+        let params = [
+            "token": token,
+            "access_token": "8751d2dd8751d2dd8751d2dd1d847721b8887518751d2dde03b5abc5e7e45ffe6c178bd", // Токен сервисного приложения VK
+            "v": "5.131"
+        ]
+        let body = params.map { "\($0.key)=\($0.value)" }.joined(separator: "&")
+        request.httpBody = body.data(using: .utf8)
+
+        // Выполнение запроса
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data, error == nil else {
+                print("Ошибка запроса: \(String(describing: error))")
+                completion(false)
+                return
+            }
+
+            do {
+                // Парсим ответ
+                if let json = try JSONSerialization.jsonObject(with: data) as? [String: Any],
+                   let response = json["response"] as? [String: Any],
+                   let success = response["success"] as? Int {
+                    completion(success == 1) // Если `success` равен 1, токен действителен
+                } else {
+                    completion(false)
+                }
+            } catch {
+                print("Ошибка парсинга: \(error)")
+                completion(false)
+            }
+        }
+        task.resume()
+    }
+
 }

@@ -10,6 +10,7 @@ import FirebaseAuth
 
 protocol AuthLogInDelegate: AnyObject {
     func loggedIn(success: Bool)
+    func userWasLogged(success: Bool)
 }
 
 protocol SignUpDelegate: AnyObject {
@@ -37,6 +38,16 @@ class FireBaseAuthManager {
                 self?.signUpDelegate?.signUp(success: true) 
             } else {
                 self?.signUpDelegate?.signUp(success: false)
+            }
+        }
+    }
+    func checkIfUserLogged(login: String, password: String)  {
+    
+        Auth.auth().signIn(withEmail: login, password: password) { [weak self] authResult, error in
+            if authResult?.user != nil {
+                self?.loginDelegate?.userWasLogged(success: true) // Уведомляем делегата
+            } else {
+                self?.loginDelegate?.userWasLogged(success: false) // Сообщаем об ошибке
             }
         }
     }

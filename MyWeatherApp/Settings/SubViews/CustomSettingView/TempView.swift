@@ -12,17 +12,17 @@ private enum Constants {
 }
 
 class TempView: UIView {
+
     let manager = UDStrorageManager.shared
     private var temperatureLabel =  UILabel()
     private var temperatureImage = UIImageView()
-    private var segmentPicker = UISegmentedControl(items: Constants.options)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         addViews()
         makeConstraints()
         setUI()
-        setActions()
+        setSegmentedControl()
     }
     
     required init?(coder: NSCoder) {
@@ -32,13 +32,11 @@ class TempView: UIView {
     private func addViews() {
         self.addSubview(temperatureLabel)
         self.addSubview(temperatureImage)
-        self.addSubview(segmentPicker)
     }
     
     private func makeConstraints() {
         temperatureLabel.translatesAutoresizingMaskIntoConstraints = false
         temperatureImage.translatesAutoresizingMaskIntoConstraints = false
-        segmentPicker.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             temperatureImage.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
@@ -48,11 +46,6 @@ class TempView: UIView {
             
             temperatureLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 15),
             temperatureLabel.leadingAnchor.constraint(equalTo: temperatureImage.trailingAnchor, constant: 10),
-            
-            segmentPicker.topAnchor.constraint(equalTo: temperatureImage.bottomAnchor, constant: 15),
-            segmentPicker.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
-            segmentPicker.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
-            segmentPicker.heightAnchor.constraint(equalToConstant: 35)
         ])
     }
     
@@ -64,26 +57,18 @@ class TempView: UIView {
         temperatureLabel.text = "Температура"
         temperatureLabel.font = UIFont.systemFont(ofSize: 19)
         temperatureLabel.textColor = SettingsColors.textColor
+    }
+    private func setSegmentedControl() {
+        let setting = getCurrentSetting()
+        let customSegmenredControl = CustomSegmentedControl(Constants.options[0],Constants.options[1],grade: SettingsData.Grades.temp, key: SettingsData.Keys.tempSettrings,currentSetting: setting)
+        self.addSubview(customSegmenredControl)
         
-        segmentPicker.selectedSegmentIndex = getCurrentSetting()
-        segmentPicker.backgroundColor = .clear
-        segmentPicker.layer.borderWidth = 1
-        segmentPicker.layer.borderColor = SettingsColors.evenLighterBackgroundColor.cgColor
-    }
-    
-    private func setActions() {
-        segmentPicker.addTarget(self,action: #selector(selectTemp),for: .valueChanged)
-    }
-    
-    @objc private func selectTemp() {
-        switch segmentPicker.selectedSegmentIndex {
-        case 0:
-            manager.didChangeSettings(value: SettingsData.tempGrade.celsius.rawValue, key: SettingsData.Keys.tempSettrings)
-        case 1:
-            manager.didChangeSettings(value: SettingsData.tempGrade.fahrenheit.rawValue, key: SettingsData.Keys.tempSettrings)
-        default:
-            print("°C")
-        }
+        NSLayoutConstraint.activate([
+        customSegmenredControl.topAnchor.constraint(equalTo: temperatureImage.bottomAnchor, constant: 15),
+        customSegmenredControl.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
+        customSegmenredControl.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
+        customSegmenredControl.heightAnchor.constraint(equalToConstant: 40),
+        ])
     }
     private func getCurrentSetting() -> Int {
         let currentSetting = manager.getCurrentSettings(for: SettingsData.Keys.tempSettrings)
