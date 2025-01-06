@@ -144,7 +144,7 @@ class MainInteractor: NSObject, MainInteractorProtocol {
             model = Constants.emptyModel
             model.dayTemp = "\( getCtoFTemp(temp:currentWeather.forecasts[indexPath.row].parts.day.tempMax).description)°"
             model.conditionImage = dataManager.getConditionImage(condition: currentWeather.forecasts[indexPath.row].parts.day.condition)
-            model.nightTemp = "\( getCtoFTemp(temp:currentWeather.forecasts[indexPath.row].parts.day.tempMin).description)°"
+            model.nightTemp = "\( getCtoFTemp(temp:currentWeather.forecasts[indexPath.row].parts.night.tempMin).description)°"
             model.date = dataManager.getDate(from: currentWeather.forecasts[indexPath.row].date)
         }
         return model

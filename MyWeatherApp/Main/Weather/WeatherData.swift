@@ -128,9 +128,11 @@ struct Forecast: Codable {
 // MARK: Parts
 struct Parts: Codable {
     let day: Day
+    let night: Fact
     
     enum CodingKeys: String, CodingKey {
         case day
+        case night
     }
 }
 

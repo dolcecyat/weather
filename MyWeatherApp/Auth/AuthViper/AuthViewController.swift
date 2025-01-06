@@ -81,7 +81,7 @@ class AuthViewController: UIViewController, AuthViewProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         AuthModuleBuilder.build(self)
-//        checkIfUserLogged()
+        checkIfUserLogged()
         setup()
     }
     
@@ -178,7 +178,6 @@ class AuthViewController: UIViewController, AuthViewProtocol {
     }
     private func checkIfUserLogged() {
         presenter?.checkIfUserLogged()
-        
     }
 }
 
