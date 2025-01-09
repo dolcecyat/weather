@@ -65,7 +65,6 @@ class WindView: UIView {
         WindLabel.font = UIFont.systemFont(ofSize: 19)
         WindLabel.textColor = SettingsColors.textColor
         
-#warning ("почему то не меняется цвет ширина и края")
         segmentPicker.selectedSegmentIndex = getCurrentSetting()
         segmentPicker.backgroundColor = .clear
         segmentPicker.layer.cornerRadius = 30

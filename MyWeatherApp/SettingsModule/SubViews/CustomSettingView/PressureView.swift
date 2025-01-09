@@ -66,7 +66,6 @@ class PressureView: UIView {
         pressureLabel.font = UIFont.systemFont(ofSize: 19)
         pressureLabel.textColor = SettingsColors.textColor
         
-#warning ("почему то не меняется цвет ширина и края")
         segmentPicker.selectedSegmentIndex = getCurrentSetting()
         segmentPicker.backgroundColor = .clear
         segmentPicker.layer.cornerRadius = 30

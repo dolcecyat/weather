@@ -55,7 +55,6 @@ class ModeView: UIView {
         label.font = UIFont.systemFont(ofSize: 22)
         label.textColor = SettingsColors.textColor
         
-#warning ("почему то не меняется цвет ширина и края")
         segmentPicker.selectedSegmentIndex = 0
         segmentPicker.backgroundColor = .clear
         segmentPicker.layer.cornerRadius = 30
