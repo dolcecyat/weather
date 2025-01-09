@@ -16,7 +16,7 @@ protocol AuthInteractorProtocol: AnyObject {
 class AuthInteractor: AuthInteractorProtocol, AuthLogInDelegate {
     
     weak var presenter: AuthPresenterProtocol?
-    var accInfo = AccountInfo(login: "", password: "", token: "")
+    var accInfo = AccountInfoModel(login: "", password: "", token: "")
     
     init() {
         FireBaseAuthManager.shared.loginDelegate = self // Устанавливаем текущий объект как делегат

@@ -61,14 +61,17 @@ class AuthViewController: UIViewController, AuthViewProtocol {
         return button
     }()
     
-    let vkButton = OneTapButton(appearance: .init(title: .vkid, style: .primary() ,
+    lazy var vkButton = OneTapButton(appearance: .init(title: .vkid, style: .primary() ,
                                                   theme: .matchingColorScheme(.system)),
                                 layout: .regular(height: .large(.h56),
                                                  cornerRadius: 28),
-                                presenter: .newUIWindow ) { authResult in
-        // Обработка результата авторизации.
-        VKAuthManager.shared.authorize(authResult: authResult)
-    }
+                                     presenter: .newUIWindow ) { authResult in
+        VKAuthManager.shared.onAuthSuccess = { [weak self] in
+              self?.showMainScreen()
+          }
+          // Обработка результата авторизации
+          VKAuthManager.shared.authorize(authResult: authResult)
+      }
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -162,6 +165,10 @@ class AuthViewController: UIViewController, AuthViewProtocol {
     private func setUpActions() {
         loginButton.addTarget(self, action: #selector(logInButtonPressed), for: .touchUpInside)
         signUpButton.addTarget(self, action: #selector(signUpButtonPressed), for: .touchUpInside)
+    }
+    
+    private func showMainScreen() {
+        presenter?.router?.showMainScreen()
     }
     
     @objc private func logInButtonPressed() {

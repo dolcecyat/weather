@@ -12,6 +12,7 @@ import AuthenticationServices
 class VKAuthManager {
     static let shared = VKAuthManager()
     var vkid: VKID?
+    var onAuthSuccess: (() -> Void)?
     
     func configure() {
         do {
@@ -28,20 +29,24 @@ class VKAuthManager {
             print("Ошибка инициализации VKID: \(error)")
         }
     }
+    // MARK: Auth method
     
     func authorize(authResult: AuthResult) {
         do {
             let session = try authResult.get()
-//            print("Auth succeeded with token: \(session.accessToken)")
             let token = session.accessToken.value
             UDStrorageManager.shared.saveToken(token: token)
+            print("Auth successful")
+            onAuthSuccess?()
+
         } catch AuthError.cancelled {
             print("Auth cancelled by user")
         } catch {
             print("Auth failed with error: \(error)")
         }
     }
-  
+    
+    // MARK: Checking Token
     func checkTokenValidity(token: String, completion: @escaping (Bool) -> Void) {
         let url = URL(string: "https://api.vk.com/method/secure.checkToken")!
         var request = URLRequest(url: url)

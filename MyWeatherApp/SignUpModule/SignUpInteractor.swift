@@ -15,7 +15,7 @@ protocol SignUpInteractorProtocol: AnyObject {
 class SignUpInteractor: SignUpInteractorProtocol, SignUpDelegate {
   
     weak var presenter: SignUpPresenterProtocol?
-    var accInfo = AccountInfo(login: "", password: "",token: "")
+    var accInfo = AccountInfoModel(login: "", password: "",token: "")
     
     init() {
         FireBaseAuthManager.shared.signUpDelegate = self // Устанавливаем текущий объект как делегат

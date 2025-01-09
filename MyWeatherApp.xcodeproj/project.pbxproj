@@ -10,9 +10,12 @@
 		2E62CFBB270CD67984B6026C /* Pods_MyWeatherApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78640DE8036CFC1F18B463ED /* Pods_MyWeatherApp.framework */; };
 		4108B51A2D070CAD0075F9DD /* SettingsColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4108B5192D070CAD0075F9DD /* SettingsColors.swift */; };
 		411BD8682D29800E002252CA /* CustomSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411BD8672D29800E002252CA /* CustomSegmentedControl.swift */; };
+		411BD8712D2FA7AB002252CA /* Int+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411BD8702D2FA7AB002252CA /* Int+.swift */; };
+		411BD8732D2FA7C7002252CA /* Double+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411BD8722D2FA7C7002252CA /* Double+.swift */; };
+		411BD8752D2FA7ED002252CA /* UIVIew+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411BD8742D2FA7ED002252CA /* UIVIew+.swift */; };
+		411BD8772D2FA82D002252CA /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411BD8762D2FA82D002252CA /* UIButton+.swift */; };
 		4120E0E32D0B06DA00E8BF35 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4120E0E22D0B06D900E8BF35 /* DataManager.swift */; };
 		4120E0FB2D11B9D400E8BF35 /* SettingsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4120E0FA2D11B9D400E8BF35 /* SettingsData.swift */; };
-		4120E10C2D141DE900E8BF35 /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4120E10B2D141DE900E8BF35 /* Extentions.swift */; };
 		415A04132D20576000BF0909 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415A04122D20576000BF0909 /* AuthViewController.swift */; };
 		415A04162D205B0500BF0909 /* AuthPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415A04152D205B0500BF0909 /* AuthPresenter.swift */; };
 		415A041A2D205BBC00BF0909 /* AuthRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415A04192D205BBC00BF0909 /* AuthRouter.swift */; };
@@ -20,7 +23,7 @@
 		415A041E2D205C7E00BF0909 /* AuthModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415A041D2D205C7E00BF0909 /* AuthModuleBuilder.swift */; };
 		415A04212D2083A400BF0909 /* FireBaseAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415A04202D2083A400BF0909 /* FireBaseAuthManager.swift */; };
 		415A04232D2085DC00BF0909 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 415A04222D2085DC00BF0909 /* GoogleService-Info.plist */; };
-		415A04362D21648700BF0909 /* AccountInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415A04352D21647A00BF0909 /* AccountInfo.swift */; };
+		415A04362D21648700BF0909 /* AccountInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415A04352D21647A00BF0909 /* AccountInfoModel.swift */; };
 		415A043D2D21658F00BF0909 /* ModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415A04372D21658F00BF0909 /* ModeView.swift */; };
 		415A043E2D21658F00BF0909 /* PressureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415A04382D21658F00BF0909 /* PressureView.swift */; };
 		415A043F2D21658F00BF0909 /* TempView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415A04392D21658F00BF0909 /* TempView.swift */; };
@@ -63,9 +66,12 @@
 /* Begin PBXFileReference section */
 		4108B5192D070CAD0075F9DD /* SettingsColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsColors.swift; sourceTree = "<group>"; };
 		411BD8672D29800E002252CA /* CustomSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegmentedControl.swift; sourceTree = "<group>"; };
+		411BD8702D2FA7AB002252CA /* Int+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+.swift"; sourceTree = "<group>"; };
+		411BD8722D2FA7C7002252CA /* Double+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+.swift"; sourceTree = "<group>"; };
+		411BD8742D2FA7ED002252CA /* UIVIew+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIVIew+.swift"; sourceTree = "<group>"; };
+		411BD8762D2FA82D002252CA /* UIButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+.swift"; sourceTree = "<group>"; };
 		4120E0E22D0B06D900E8BF35 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		4120E0FA2D11B9D400E8BF35 /* SettingsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsData.swift; sourceTree = "<group>"; };
-		4120E10B2D141DE900E8BF35 /* Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
 		415A04122D20576000BF0909 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		415A04152D205B0500BF0909 /* AuthPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPresenter.swift; sourceTree = "<group>"; };
 		415A04192D205BBC00BF0909 /* AuthRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRouter.swift; sourceTree = "<group>"; };
@@ -73,7 +79,7 @@
 		415A041D2D205C7E00BF0909 /* AuthModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModuleBuilder.swift; sourceTree = "<group>"; };
 		415A04202D2083A400BF0909 /* FireBaseAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireBaseAuthManager.swift; sourceTree = "<group>"; };
 		415A04222D2085DC00BF0909 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		415A04352D21647A00BF0909 /* AccountInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfo.swift; sourceTree = "<group>"; };
+		415A04352D21647A00BF0909 /* AccountInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoModel.swift; sourceTree = "<group>"; };
 		415A04372D21658F00BF0909 /* ModeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeView.swift; sourceTree = "<group>"; };
 		415A04382D21658F00BF0909 /* PressureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PressureView.swift; sourceTree = "<group>"; };
 		415A04392D21658F00BF0909 /* TempView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempView.swift; sourceTree = "<group>"; };
@@ -130,54 +136,69 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4108B5182D070C7A0075F9DD /* MainVIPER */ = {
+		411BD86C2D2FA5A6002252CA /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				ED86FDBC2CF889C000FB9882 /* MainPresenter.swift */,
-				ED86FDBE2CF88A7400FB9882 /* MainRouter.swift */,
-				ED86FDC02CF88AB900FB9882 /* MainInteractor.swift */,
-				ED86FDC22CF88B0800FB9882 /* MainModuleBuilder.swift */,
-				ED86FDD92CF9C88B00FB9882 /* MainViewController.swift */,
+				4120E0FA2D11B9D400E8BF35 /* SettingsData.swift */,
+				ED86FDD72CF9C7E800FB9882 /* WeatherData.swift */,
+				415A04352D21647A00BF0909 /* AccountInfoModel.swift */,
 			);
-			path = MainVIPER;
+			path = Entities;
 			sourceTree = "<group>";
 		};
-		4120E10D2D1833EB00E8BF35 /* SettingsViper */ = {
+		411BD86D2D2FA785002252CA /* Extentions */ = {
 			isa = PBXGroup;
 			children = (
-				ED86FDC72CF8986000FB9882 /* SettingsPresenter.swift */,
-				ED86FDC92CF8986B00FB9882 /* SettingsRouter.swift */,
-				ED86FDCB2CF8988500FB9882 /* SettingsInteractor.swift */,
-				ED86FDCD2CF8989500FB9882 /* SettingsModuleBuilder.swift */,
-				ED86FDC52CF8984500FB9882 /* SettingsViewController.swift */,
+				411BD8702D2FA7AB002252CA /* Int+.swift */,
+				411BD8722D2FA7C7002252CA /* Double+.swift */,
+				411BD8782D2FA864002252CA /* UIKit+ */,
 			);
-			path = SettingsViper;
+			path = Extentions;
 			sourceTree = "<group>";
 		};
-		415A04142D205AED00BF0909 /* Auth */ = {
+		411BD8782D2FA864002252CA /* UIKit+ */ = {
 			isa = PBXGroup;
 			children = (
-				415A041F2D20838400BF0909 /* AuthViper */,
-				415A04352D21647A00BF0909 /* AccountInfo.swift */,
+				411BD8742D2FA7ED002252CA /* UIVIew+.swift */,
+				411BD8762D2FA82D002252CA /* UIButton+.swift */,
 			);
-			path = Auth;
+			path = "UIKit+";
 			sourceTree = "<group>";
 		};
-		415A041F2D20838400BF0909 /* AuthViper */ = {
+		411BD8792D2FA8E5002252CA /* Resourses */ = {
 			isa = PBXGroup;
 			children = (
-				415A04122D20576000BF0909 /* AuthViewController.swift */,
-				415A04152D205B0500BF0909 /* AuthPresenter.swift */,
-				415A04192D205BBC00BF0909 /* AuthRouter.swift */,
+				411BD87A2D2FD258002252CA /* Colors */,
+				411BD86C2D2FA5A6002252CA /* Entities */,
+			);
+			path = Resourses;
+			sourceTree = "<group>";
+		};
+		411BD87A2D2FD258002252CA /* Colors */ = {
+			isa = PBXGroup;
+			children = (
+				ED86FDF62D00CD9800FB9882 /* MainColors.swift */,
+				4108B5192D070CAD0075F9DD /* SettingsColors.swift */,
+			);
+			path = Colors;
+			sourceTree = "<group>";
+		};
+		415A04142D205AED00BF0909 /* AuthModule */ = {
+			isa = PBXGroup;
+			children = (
 				415A041D2D205C7E00BF0909 /* AuthModuleBuilder.swift */,
+				415A04192D205BBC00BF0909 /* AuthRouter.swift */,
 				415A041B2D205C2D00BF0909 /* AuthInteractor.swift */,
+				415A04152D205B0500BF0909 /* AuthPresenter.swift */,
+				415A04122D20576000BF0909 /* AuthViewController.swift */,
 			);
-			path = AuthViper;
+			path = AuthModule;
 			sourceTree = "<group>";
 		};
 		415A042D2D2162E400BF0909 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				4120E0E22D0B06D900E8BF35 /* DataManager.swift */,
 				415A04502D2176C100BF0909 /* VKAuthManager.swift */,
 				ED86FDD22CF9C71F00FB9882 /* WeatherManager.swift */,
 				415A04202D2083A400BF0909 /* FireBaseAuthManager.swift */,
@@ -215,7 +236,7 @@
 			path = SubViews;
 			sourceTree = "<group>";
 		};
-		415A04412D21659900BF0909 /* SignUp */ = {
+		415A04412D21659900BF0909 /* SignUpModule */ = {
 			isa = PBXGroup;
 			children = (
 				415A044A2D2165DF00BF0909 /* SignUpModuleBuilder.swift */,
@@ -224,7 +245,7 @@
 				415A04442D2165BC00BF0909 /* SignUpPresenter.swift */,
 				415A04422D2165AE00BF0909 /* SignUpViewController.swift */,
 			);
-			path = SignUp;
+			path = SignUpModule;
 			sourceTree = "<group>";
 		};
 		631B29035B983BC4FC4E4F0C /* Pods */ = {
@@ -265,14 +286,15 @@
 		ED86FDA62CF8857F00FB9882 /* MyWeatherApp */ = {
 			isa = PBXGroup;
 			children = (
-				415A04412D21659900BF0909 /* SignUp */,
-				415A04142D205AED00BF0909 /* Auth */,
-				ED86FDC42CF8982B00FB9882 /* Settings */,
-				ED86FDBB2CF887F400FB9882 /* Main */,
+				411BD8792D2FA8E5002252CA /* Resourses */,
+				411BD86D2D2FA785002252CA /* Extentions */,
 				415A042D2D2162E400BF0909 /* Managers */,
+				415A04412D21659900BF0909 /* SignUpModule */,
+				415A04142D205AED00BF0909 /* AuthModule */,
+				ED86FDC42CF8982B00FB9882 /* SettingsModule */,
+				ED86FDBB2CF887F400FB9882 /* MainModule */,
 				ED86FDA92CF8857F00FB9882 /* SceneDelegate.swift */,
 				ED86FDA72CF8857F00FB9882 /* AppDelegate.swift */,
-				4120E10B2D141DE900E8BF35 /* Extentions.swift */,
 				ED86FDB02CF8858000FB9882 /* Assets.xcassets */,
 				ED86FDB22CF8858000FB9882 /* LaunchScreen.storyboard */,
 				ED86FDB52CF8858000FB9882 /* Info.plist */,
@@ -281,27 +303,31 @@
 			path = MyWeatherApp;
 			sourceTree = "<group>";
 		};
-		ED86FDBB2CF887F400FB9882 /* Main */ = {
+		ED86FDBB2CF887F400FB9882 /* MainModule */ = {
 			isa = PBXGroup;
 			children = (
-				4108B5182D070C7A0075F9DD /* MainVIPER */,
+				ED86FDC02CF88AB900FB9882 /* MainInteractor.swift */,
+				ED86FDBE2CF88A7400FB9882 /* MainRouter.swift */,
+				ED86FDBC2CF889C000FB9882 /* MainPresenter.swift */,
+				ED86FDD92CF9C88B00FB9882 /* MainViewController.swift */,
+				ED86FDC22CF88B0800FB9882 /* MainModuleBuilder.swift */,
 				ED86FDD12CF9BF1400FB9882 /* SubViews */,
 				ED86FDF12D0081E500FB9882 /* Layout */,
-				ED86FDD62CF9C7C100FB9882 /* Weather */,
-				ED86FDF62D00CD9800FB9882 /* MainColors.swift */,
 			);
-			path = Main;
+			path = MainModule;
 			sourceTree = "<group>";
 		};
-		ED86FDC42CF8982B00FB9882 /* Settings */ = {
+		ED86FDC42CF8982B00FB9882 /* SettingsModule */ = {
 			isa = PBXGroup;
 			children = (
-				4120E10D2D1833EB00E8BF35 /* SettingsViper */,
+				ED86FDCD2CF8989500FB9882 /* SettingsModuleBuilder.swift */,
+				ED86FDC92CF8986B00FB9882 /* SettingsRouter.swift */,
+				ED86FDCB2CF8988500FB9882 /* SettingsInteractor.swift */,
+				ED86FDC72CF8986000FB9882 /* SettingsPresenter.swift */,
+				ED86FDC52CF8984500FB9882 /* SettingsViewController.swift */,
 				415A043C2D21658F00BF0909 /* SubViews */,
-				4120E0FA2D11B9D400E8BF35 /* SettingsData.swift */,
-				4108B5192D070CAD0075F9DD /* SettingsColors.swift */,
 			);
-			path = Settings;
+			path = SettingsModule;
 			sourceTree = "<group>";
 		};
 		ED86FDD12CF9BF1400FB9882 /* SubViews */ = {
@@ -311,15 +337,6 @@
 				ED86FDDD2CFA002100FB9882 /* Cells */,
 			);
 			path = SubViews;
-			sourceTree = "<group>";
-		};
-		ED86FDD62CF9C7C100FB9882 /* Weather */ = {
-			isa = PBXGroup;
-			children = (
-				4120E0E22D0B06D900E8BF35 /* DataManager.swift */,
-				ED86FDD72CF9C7E800FB9882 /* WeatherData.swift */,
-			);
-			path = Weather;
 			sourceTree = "<group>";
 		};
 		ED86FDDD2CFA002100FB9882 /* Cells */ = {
@@ -469,11 +486,12 @@
 				4120E0FB2D11B9D400E8BF35 /* SettingsData.swift in Sources */,
 				ED86FDE72CFDE4B400FB9882 /* SectionsData.swift in Sources */,
 				415A04512D2176C800BF0909 /* VKAuthManager.swift in Sources */,
+				411BD8712D2FA7AB002252CA /* Int+.swift in Sources */,
 				ED86FDF52D00CC7D00FB9882 /* SummaryView.swift in Sources */,
 				ED86FDF72D00CD9800FB9882 /* MainColors.swift in Sources */,
-				4120E10C2D141DE900E8BF35 /* Extentions.swift in Sources */,
-				415A04362D21648700BF0909 /* AccountInfo.swift in Sources */,
+				415A04362D21648700BF0909 /* AccountInfoModel.swift in Sources */,
 				ED86FDC32CF88B0800FB9882 /* MainModuleBuilder.swift in Sources */,
+				411BD8772D2FA82D002252CA /* UIButton+.swift in Sources */,
 				415A04212D2083A400BF0909 /* FireBaseAuthManager.swift in Sources */,
 				415A043D2D21658F00BF0909 /* ModeView.swift in Sources */,
 				415A043E2D21658F00BF0909 /* PressureView.swift in Sources */,
@@ -489,6 +507,7 @@
 				415A041E2D205C7E00BF0909 /* AuthModuleBuilder.swift in Sources */,
 				ED86FDCC2CF8988500FB9882 /* SettingsInteractor.swift in Sources */,
 				ED86FDC82CF8986000FB9882 /* SettingsPresenter.swift in Sources */,
+				411BD8752D2FA7ED002252CA /* UIVIew+.swift in Sources */,
 				415A04472D2165D200BF0909 /* SignUpInteractor.swift in Sources */,
 				411BD8682D29800E002252CA /* CustomSegmentedControl.swift in Sources */,
 				ED86FDDA2CF9C88C00FB9882 /* MainViewController.swift in Sources */,
@@ -500,6 +519,7 @@
 				ED86FDEC2CFDE9BA00FB9882 /* MainCellModel.swift in Sources */,
 				ED86FDEE2CFF2A2600FB9882 /* FirstWeatherInfoCVCell.swift in Sources */,
 				415A04432D2165B900BF0909 /* SignUpViewController.swift in Sources */,
+				411BD8732D2FA7C7002252CA /* Double+.swift in Sources */,
 				ED86FDC62CF8984500FB9882 /* SettingsViewController.swift in Sources */,
 				4108B51A2D070CAD0075F9DD /* SettingsColors.swift in Sources */,
 				ED86FDE12CFA007300FB9882 /* TodaysHourTempInfoCVCell.swift in Sources */,

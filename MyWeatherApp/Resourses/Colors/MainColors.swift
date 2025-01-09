@@ -5,7 +5,6 @@
 //  Created by Анатолий Коробских on 04.12.2024.
 //
 
-import Foundation
 import UIKit
 
 enum MainColors {
