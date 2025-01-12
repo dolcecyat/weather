@@ -181,7 +181,7 @@ class MainInteractor: NSObject, MainInteractorProtocol {
 // MARK: - WeatherManagerDelegate
 extension MainInteractor: WeatherManagerDelegate {
     
-    func didUpdateWeather(_ weatherManager: WeatherManager, weather: WeatherData) {
+    func didUpdateWeather(weather: WeatherData) {
         currentWeather = weather
         DispatchQueue.main.async { [weak self] in
             self?.presenter?.sendWeatherData()

@@ -40,7 +40,26 @@ class URLHelper {
             print("Ошибка парсинга: \(error)")
             return false
         }
-
+    }
+    
+    static func makeSafeGetRequest(url: String, parameters: [String: String]) -> URLRequest {
+        guard let url = URL(string: url) else {
+            print("Некорректный URL")
+            return URLRequest(url: URL(string: "")!)
+        }
+        var request = URLRequest(url: url)
+        request.allHTTPHeaderFields = parameters
+        return request
+    }
+    
+    static func decodeJson<T: Decodable>(_ type: T.Type, from data: Data) -> T? {
+        do {
+            let decodedData = try JSONDecoder().decode(type, from: data)
+            return decodedData
+        } catch {
+            print("Ошибка декодирования данных: \(error.localizedDescription)")
+            return nil
+        }
     }
 }
 

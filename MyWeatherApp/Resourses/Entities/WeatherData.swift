@@ -7,7 +7,10 @@
 
 import Foundation
 
-struct WeatherData: Codable {
+protocol ToDecode: Codable {
+    
+}
+struct WeatherData: Codable,ToDecode {
     let now: Int
     let nowDt: String
     let info: Info
